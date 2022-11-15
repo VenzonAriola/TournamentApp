@@ -1,4 +1,4 @@
-<% include ../partials/header.ejs %>
+<!-- <% include ../partials/header.ejs %> -->
 
 
 <div class="container">
@@ -8,6 +8,33 @@
 
       <br />
       <div class="table-responsive">
+        <table class="table table-nobordered table-striped table-dark">
+          <thead>
+            <tr>
+              <th class="text-center bg-danger" >Info</th>
+              <th class="text-center"></th>
+              <th class="text-center bg-danger">Game</th>
+              <th class="text-center"></th>
+              <th class="text-center bg-danger">Num Teams</th>
+              <th class="text-center"></th>
+              <th class="text-center bg-danger">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Template Row -->
+            <!--test and work-->
+            <!-- <% for (let count = 0; count < teams.length; count++) { %> -->
+            <tr>
+              <td class="text-center bg-warning">1</td>
+              <td class="text-center"></td>
+              <td class="text-center bg-warning">2</td>
+              <td class="text-center"></td>
+              <td class="text-center bg-warning">3</td>
+              <td class="text-center"></td>
+              <td class="text-center bg-warning">4</td>
+            </tr>
+          </tbody>
+        </table>
         <table class="table table-nobordered table-striped table-dark">
           <thead>
             <tr>
@@ -32,10 +59,7 @@
             <!-- <% for (let count = 0; count < teams.length; count++) { %> -->
             <tr>
               <td class="text-center bg-warning">1</td>
-              <td class="text-center">
-              <a href="link to edit" class="btn btn-primary btn-sm">
-              <i class="fas fa-pencil-alt"></i> Edit</a>
-              </td>
+              <td class="text-center"></td>
               <td class="text-center bg-warning">2</td>
               <td class="text-center"></td>
               <td class="text-center bg-warning">3</td>
@@ -51,10 +75,8 @@
           </tbody>
         </table>
       </div>
-
-      <!-- ------------------------ -->
-      <!-- ADD the DELETE BUTTON HERE -->
-      <!-- ------------------------ -->
+      <a href="link to edit" class="btn btn-primary btn-sm">
+        <i class="fas fa-pencil-alt"></i> Edit</a>
       <a href="link to delete" class="btn btn-warning btn-sm">
         <i class="fas fa-trash"></i> Delete</a>
     </main>
@@ -66,4 +88,4 @@
   </div>
 </div>
 
-<% include ../partials/footer.ejs %>
+<!-- <% include ../partials/footer.ejs %> -->
