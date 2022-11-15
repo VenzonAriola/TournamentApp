@@ -1,0 +1,45 @@
+<%- include ../partials/header.ejs %> <%- include ../partials/main_nav.ejs %>
+
+<!-- Main Content -->
+<main class="container">
+  //add boostrap table code
+
+  <div class="row">
+    <div class="col-md-offset-3 col-md-8">
+      <h1><%=title %></h1>
+     
+      <br />
+      <table class="table table-bordered table-striped table-hover">
+        <!--HEader row-->
+        <tr>
+          <th class="text-center">Tournament Info</th>
+          <th class="text-center">Game Info</th>
+          <th class="text-center">Number of Teams</th>
+          <th class="text-center">Description</th>
+          </tr>
+
+        <% for (let count=0; count<1; count++){%>
+          <tr>
+            <td class="text-centre "><%=BracketList[0].tournamentName %>
+            <%=BracketList[0].gameType %>
+            <%=BracketList[0].players %>
+            <%=BracketList[0].description %></td>
+            
+          </tr>
+          <%}%>
+      </table>
+      <table>
+        <!--Repetable Templet row-->
+        <% for (let count=0; count<BracketList.length; count++){%>
+         <tr class="text-centre "><%=BracketList[0].teams %></tr>                  
+         <tr class="text-centre "><%=BracketList[1].teams %></tr> 
+        <tr class="text-centre "><%=BracketList[2].teams %></tr>   
+          
+          
+        <%}%>
+      </table>
+    </div>
+  </div>
+</main>
+
+<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
