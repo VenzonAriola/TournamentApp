@@ -4,8 +4,22 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
+//database_setup
+let mongoose = require("mongoose");
+let DB = require("./db");
+
+//point mongoose to the DB URI
+mongoose.connect(DB.URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+let mongodb = mongoose.connection;
+mongodb.on("error", console.error.bind(console, "connection error:"));
+mongodb.once("open", () => {
+  console.log("Database Connected");
+});
+
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
+let bracketRoute = require('../routes/bracket')
 
 let app = express();
 
@@ -21,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/bracket-list',bracketRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
