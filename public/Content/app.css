@@ -1,0 +1,282 @@
+/* custom css goes here
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-image: linear-gradient(
+      to right,
+      rgba(6, 6, 6, 0.5),
+      rgba(5, 5, 5, 0.5)
+    ), url("../Assets/images/bgimage1.jpeg");
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    min-height: 100vh;
+    
+}
+
+::-webkit-scrollbar {
+	width: 20px;
+  }
+  
+  
+  ::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+  }
+  
+  
+  ::-webkit-scrollbar-thumb {
+	background: rgb(129, 123, 204);
+	border-radius: 10px;
+  }
+h1 {
+	background-repeat: no-repeat;
+    background-image: url('/assets/images/graybg.jpg');
+	background-position: left;
+	background-size: 5 px;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: 2 em;
+	font-weight: 900;
+	color: black;
+	padding-left: 180px;
+	height: 100px;
+	padding-top: 10px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #808080;
+    text-align: left;
+
+}
+
+blockquote {
+	font-size: 12pt;
+  text-align: center;
+}
+ 
+hr {
+	border-style:dashed; 
+	border-width: 1px;
+ 	border-color:rgb(30, 31, 29); 
+}
+
+#allPage {
+    width: 980px;
+	margin: auto;
+    margin-right: auto;
+    margin-left: auto;
+    border: 3px solid #191a19;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #484bec;
+    padding: 6px;
+	background-color: rgb(233, 240, 243);
+	font-size: 12pt;
+}
+a {
+	text-decoration: none;
+	color: #1c5be4;
+}
+a:hover {
+	text-decoration: dotted;
+	/*background-color: rgb(76, 240, 54);
+    font-size: larger;
+}
+
+form {
+    font-size: 12pt;
+
+}
+
+label {
+    width: 290px;
+    float:left;
+    text-align: right;
+	padding-right: 15px;
+	font-size: 12pt;
+}
+
+
+#button {
+	text-align: center;
+	margin: auto;
+	color: #171817;
+	background-color: #bad2f3;
+	width: 100px;
+	height: 50px;
+	box-shadow: 5px 5px 5px #161616;
+	font-size: 12pt;
+	font-weight: 800;
+	margin: auto;
+	position: relative;
+	left: 380px;
+	border-radius: 20px;
+	border: 2px solid #3d63e2;
+	
+}
+
+
+#button:hover {
+	text-decoration: dotted;
+	/*background-color: rgb(76, 240, 54);
+    font-size: larger;
+}
+
+
+footer {
+    text-align: center;
+    color: rgb(29, 29, 27);
+    font-size: large;
+}
+body {
+	background-image: url('teamlogoCopy.png');
+
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* position: absolute;
+    overflow: hidden;
+    min-height: 100vh; 
+}*/
+body {
+	background-image: url('/Assets/images/team_logo2.png');
+	background-color: rgba(0,0,0,0.55);
+	color: white;
+	font-weight: 800;
+	font-size: 14pt;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* position: absolute;
+    overflow: hidden;
+    min-height: 100vh; */
+}
+h1 {
+	background-repeat: no-repeat;
+    background-image: url('graybg.jpg');
+	background-position: left;
+	background-size: 5 px;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size:0.91 em;
+	font-weight: 900;
+	color: black;
+	padding-left: 200px;
+	height: 100px;
+	padding-top: 5px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #808080;
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+	width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: rgb(129, 123, 204);
+	border-radius: 10px;
+  }
+
+  
+blockquote {
+	font-size: 12pt;
+  text-align: center;
+}
+ 
+hr {
+	border-style:dashed; 
+	border-width: 1px;
+ 	border-color:rgb(30, 31, 29); 
+}
+
+#allPage {
+    width: 980px;
+	margin-top: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 3px solid #191a19;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #484bec;
+	background-image: url('teamlogoCopy.png');
+	background-color: rgba(0,0,0,0.55);
+	color: white;
+	font-weight: 800;
+	font-size: 14pt;	
+
+	/* background-color: rgb(233, 240, 243); */
+
+}
+a {
+	text-decoration: none;
+	color: #1c5be4;
+}
+a:hover {
+	text-decoration: dotted;
+	/*background-color: rgb(76, 240, 54);
+    font-size: larger;*/
+}
+
+
+label {
+    width: 290px;
+    float:left;
+    text-align: right;
+	padding: 3px;
+	font-size: 11pt;
+}
+
+
+#button {
+	text-align: center;
+	margin: auto;
+	color: #171817;
+	background-color: #bad2f3;
+	width: 100px;
+	height: 41px;
+	box-shadow: 5px 5px 5px #161616;
+	font-size: 11pt;
+	font-weight: 800;
+	margin: auto;
+	position: relative;
+	left: 340px;
+	border-radius: 20px;
+	border: 2px solid #3d63e2;
+	
+	
+}
+
+#button:hover {
+	text-decoration: dotted;
+	/*background-color: rgb(76, 240, 54);
+    font-size: larger;*/
+}
+
+
+footer {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 16pt;
+}
+
+.createButton {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -3,16 +3,18 @@ let router = express.Router();
 let mongoose = require("mongoose");
 
 //create reference to the model (dbschema )
-let Bracket = require("../model/bracket");
+let Bracket = require("../models/bracket");
 
+//display tournament info
 module.exports.displayBracketList = (req, res, next) => {
-    Bracket.find((err, bracketList) => {
+  Bracket.find((err, bracketList) => {
     if (err) {
       return console.error(err);
     } else {
-    
-
-      res.render("bracket/display", { title: "Bracket", BracketList: bracketList });
+      res.render("bracket/teamlist", {
+        title: "Bracket",
+        BracketList: bracketList,
+      });
       //render bracket.ejs and pass title and Bracketlist variable we are passing bracketList object to BracketList property
     }
   });
@@ -22,9 +24,6 @@ module.exports.addpage = (req, res, next) => {
   res.render("bracket/createPage", { title: "Add TeamBracket" });
 };
 
-module.exports.addPlayerpage = (req, res, next) => {
-  res.render("bracket/createPageAddplayers", { title: "Add TeamBracket" });
-};
 module.exports.addprocesspage = (req, res, next) => {
   let newbracket = Bracket({
     tournamentName: req.body.tournamentName,
@@ -33,30 +32,50 @@ module.exports.addprocesspage = (req, res, next) => {
     description: req.body.description,
     teams: req.body.teams,
   });
+
   Bracket.create(newbracket, (err, Bracket) => {
     if (err) {
       console.log(err);
       res.end(err);
     } else {
-      //refresh the bracket-list
       res.redirect("/bracket-list");
-      console.log();
+      console.log(req.body.teams);
     }
   });
 };
 
-
-
-module.exports.displayeditpage = (req, res, next) => {
+//show display for add player
+module.exports.addPlayerpage = async (req, res, next) => {
   let id = req.params.id; //id of actual object
 
-  Bracket.findById(id, (err, Brackettoedit) => {
+  Bracket.findById(id, (err, bracketoshow) => {
     if (err) {
       console.log(err);
       res.end(err);
     } else {
       //show the edit view
-      res.render("bracket/edit", { title: "Edit Bracket", bracket: brackettoedit });
+      res.render("bracket/list", {
+        title: "Tournament Bracket",
+        bracket: bracketoshow,
+      });
+      console.log(bracketoshow);
+    }
+  });
+};
+
+module.exports.displayeditpage = (req, res, next) => {
+  let id = req.params.id; //id of actual object
+
+  Bracket.findById(id, (err, bracketoedit) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      //show the edit view
+      res.render("bracket/edit", {
+        title: "Edit Bracket",
+        bracket: bracketoedit,
+      });
     }
   });
 };
@@ -64,7 +83,7 @@ module.exports.displayeditpage = (req, res, next) => {
 module.exports.processingeditpage = (req, res, next) => {
   let id = req.params.id; //id of actual object
 
-  let updatebook = Bracket({
+  let updatebracket = Bracket({
     _id: id,
     tournamentName: req.body.tournamentName,
     gameType: req.body.gameType,
@@ -77,7 +96,7 @@ module.exports.processingeditpage = (req, res, next) => {
       console.log(err);
       res.end(err);
     } else {
-      //refresh the book list
+      //refresh the bracket list
       res.redirect("/bracket-list");
     }
   });
@@ -85,14 +104,15 @@ module.exports.processingeditpage = (req, res, next) => {
 
 module.exports.deletepage = (req, res, next) => {
   let id = req.params.id;
-  Bracket.remove({ _id: id }, (err) => {
+  Bracket.deleteOne({ _id: id }, (err) => {
+    //remove
     if (err) {
       console.log(err);
       res.end(err);
     } else {
-      //refresh book list
+      //refresh bracket list
       res.redirect("/bracket-list");
     }
   });
+  //res.redirect("/bracket-list");
 };
-

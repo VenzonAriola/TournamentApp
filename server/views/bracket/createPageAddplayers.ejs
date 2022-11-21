@@ -1,37 +1,81 @@
-<% include ../partials/header.ejs %>
-<% include ../partials/main_nav.ejs %>
 
-<div class="container">
-    <div class="row">
-      <div class="col-md-offset-1 col-md-10">
-        <h3>Create Tournament</h3>
-        <form class="form" method="POST">
+<!--unused-->
+<!--createPageAddPlayers.ejs-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="en-us">
+        <meta content="text/html; charset=utf-8"
+        http-equiv="content-type">
+        <title>TourneyTeam Form1</title>
+        <meta content="Comp229-Tourney Team Form1" name="TourneyTeam">
+        <link href="create.component.css" rel="stylesheet" type="text/css">
+    </head>
+<body> <br>
+<div id="allPage">
 
-<% for (let count =0; count < 8 ; count++) { %> 
-<!--the 8 here can be replaced with a variable from the url but 
-I want to wait for more of the site to work out this part-->
-            <div class="form-group">
-                <label for="tNameTextField">Enter Name<%=count+1%></label>
-                <input type="text" class="form-control"
-                id="nameTextField"
-                placeholder="Enter Name"
-                name="teams<%=count%>" required>
-            </div>
-	<% } %>
-		
-	    
-            <button class="btn btn-primary" type="submit">
-                <i class="fas fa-edit"></i> Submit</button>
-                <!--submit button for the form above, 
-                return to /home page using the cancel button may need to cancel previous form?-->
-                <a href="/home" class="btn btn-warning">
-                    <i class="fas fa-undo"></i> Cancel</a>
+    <header>
+        <h1>
+        <a target="_blank" href="#"> 
+        <img src="teamlogo2.png" height="70" width="90px" style="float:left; margin-left: 0.2in; margin-right: 0.2in;"/>
+   
 
-        </form>
-    </div>
+
+            &nbsp; TOURNEY TEAM </a>
+            <br>&nbsp;&nbsp;&nbsp; &nbsp;Registration 
+            
+        
+        </h1>        
+     
+
+    </header> 
+    <form method="post">
+
+                <label for="TGame"> Team 1:  </label>
+                <input id="TGame" name="teamNum1" type="text" size="55" required="required" tabindex="3">
+            </p><p>
+        
+                <label for="TGame"> Team 2:  </label>
+                <input id="TGame" name="teamNum2" type="text" size="55" required="required" tabindex="5">
+            </p><p>
+        
+                <label for="TGame"> Team 3: </label>
+                <input id="TGame" name="teamNum3" type="text" size="55" required="required" tabindex="6">
+            </p><p>
+                <label for="TGame"> Team 4:  </label>
+                <input id="TGame" name="teamNum4" type="text" size="55" required="required" tabindex="8">
+            </p><p>
+                <label for="TGame"> Team 5:  </label>
+                <input id="TGame" name="teamNum5" type="text" size="55" required="required" tabindex="10">
+            </p><p>      
+                <label for="TGame"> Team 6:  </label>
+                <input id="TGame" name="teamNum6" type="text" size="55" required="required" tabindex="12">
+            </p><p>      
+                <label for="TGame"> Team 7:  </label>
+                <input id="TGame" name="teamNum7" type="text" size="55" required="required" tabindex="22">
+            </p><p>      
+                <label for="TGame"> Team 8:  </label>
+                <input id="TGame" name="teamNum8" type="text" size="55" required="required" tabindex="28">
+            </p>
+
+         
+  
+            <p>
+                <button id="button" name="btnNext" tabindex="15" type="next" >submit</a></button> &nbsp;
+                <button id="button" name="btnCancel" tabindex="20" type="cancel" > Cancel</button>&nbsp;
+                <input id="button" name="btnReset" tabindex="20" type="reset" value="Clear Form">
+                
+            </p> 
+            
+  
+          
+    </form>
+            <hr>
+            <footer>
+                <h5> &copy; TourneyTeam,&reg; Centennial College - COMP 229 - Fall 2022  </h5>
+            </footer>
+
 
 </div>
-</div>
-
-<% include ../partials/bottom_nav.ejs %>
-<% include ../partials/footer.ejs %>
+</body>
+</html>

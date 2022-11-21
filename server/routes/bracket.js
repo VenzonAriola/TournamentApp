@@ -3,7 +3,7 @@ let router = express.Router();
 let mongoose = require("mongoose");
 
 // connect to our Bracket Model
-let Bracket = require("../model/bracket");
+let Bracket = require("../models/bracket");
 
 let bracketController = require("../controllers/bracket");
 
@@ -13,9 +13,7 @@ let bracketController = require("../controllers/bracket");
 // /* GET Route for displaying Add page - Create OPeration */
 router.get("/createPage", bracketController.addpage);
 
-// /* GET Route for displaying Add page - Create OPeration */
-router.get("/createPageAddplayers", bracketController.addPlayerpage);
-
+router.get("/show/:id", bracketController.addPlayerpage);
 
 // /* POST Route for processing Add page - Create OPeration */
 router.post("/createPage", bracketController.addprocesspage);
@@ -23,23 +21,15 @@ router.post("/createPage", bracketController.addprocesspage);
 
 
 // /* GET Route for displaying Edit page -UPDATE OPeration */
-// router.get("/edit/:id", bracketController.displayeditpage);
+router.get("/edit/:id", bracketController.displayeditpage);
 
 // /*POST Route for processing Edit page - UPDATE OPeration */
-// router.post("/edit/:id", bracketController.processingeditpage);
+router.post("/edit/:id", bracketController.processingeditpage);
 
 // /* GET to perform book deletion -Delete OPeration */
-// router.get("/delete/:id", bracketController.deletepage);
-
-// module.exports = router;
+router.get("/delete/:id", bracketController.deletepage);
 
 
-
-/* GET home page. */
-//router.get("/createPage", bracketController.displayCreateBracket);
-
-/* GET home page. */
-//router.get("/createPage", bracketController.displayCreateBracket);
 
 
 module.exports = router;

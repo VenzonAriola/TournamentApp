@@ -1,45 +1,187 @@
 <%- include ../partials/header.ejs %> <%- include ../partials/main_nav.ejs %>
-
+<head> <link rel='stylesheet' href='/Content/list.css' /></head>
+<!--List.ejs-->
+<!--localhost:3000/bracket-list/show/_id:-->
 <!-- Main Content -->
-<main class="container">
-  //add boostrap table code
+<!--Changes made:
+Tournament layout to set up the teams
+display missing some spacing
+delete button does not refresh properly-->
 
+<main class="container">
+  <div id="list2Page">
+  <form class="form" method="post">
+   
   <div class="row">
     <div class="col-md-offset-3 col-md-8">
-      <h1><%=title %></h1>
-     
-      <br />
-      <table class="table table-bordered table-striped table-hover">
+      <h1> <a target="_blank" href="#"> 
+        <img src="../../Assets/images/team_logo2.png" height="120" width="140px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.2in;"/>
+   
+
+            <br> &nbsp; <%=title %>
+            
+        </a>
+      </h1>
+      <br/>
+      <div id="table1">
+      <table class="table table-bordered table-striped table-hover" style="background-color:#FFFFFF;">
         <!--HEader row-->
         <tr>
           <th class="text-center">Tournament Info</th>
           <th class="text-center">Game Info</th>
           <th class="text-center">Number of Teams</th>
           <th class="text-center">Description</th>
-          </tr>
-
-        <% for (let count=0; count<1; count++){%>
-          <tr>
-            <td class="text-centre "><%=BracketList[0].tournamentName %>
-            <%=BracketList[0].gameType %>
-            <%=BracketList[0].players %>
-            <%=BracketList[0].description %></td>
-            
-          </tr>
-          <%}%>
-      </table>
-      <table>
-        <!--Repetable Templet row-->
-        <% for (let count=0; count<BracketList.length; count++){%>
-         <tr class="text-centre "><%=BracketList[0].teams %></tr>                  
-         <tr class="text-centre "><%=BracketList[1].teams %></tr> 
-        <tr class="text-centre "><%=BracketList[2].teams %></tr>   
-          
-          
-        <%}%>
+        </tr>
+        <tr>
+          <td class="text-centre "><%=bracket.tournamentName %></td>
+          <td class="text-centre "><%=bracket.gameType %></td>
+          <td class="text-centre "><%=bracket.players %></td>
+          <td class="text-centre "><%=bracket.description %></td>
+        </tr>  
       </table>
     </div>
+      <br>
   </div>
+      <H4>Round 1</H1>
+    </H4>
+    </div>
+
+    <body>
+ <div id="games">
+      <div class ="row">
+        <!--3 tables are made (in order), 
+            1/2 team names | game table display | other 1/2 team names-->
+      <div class ="column">
+      <table><!--uses bracket.players instead of number of entries to fix but when changing number of teams in edit page-->
+          <% for (let count=0; count<(bracket.players/2); count++){%>
+          <tr class="table-noborder bg-dark">
+            <td class="text-center bg-danger "><%= bracket.teams[count] %></td>    
+          </tr>   
+          <% } %>
+      </table>
+      </div>
+      <div class ="column">
+      <% if (bracket.players == 8){ %><!--displays the middle table for 8 teams-->
+      <table>
+        <tr>
+          <td>&nbsp;</td>
+          <td rowspan ="2">game 1</td>
+          <td colspan="3"></td>
+          <td rowspan ="2">game 1</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>	    
+          <td>&nbsp;</td>		
+          <td rowspan ="2">game 2</td>
+          <td rowspan ="2">&ensp; final &ensp;</td>
+          <td rowspan ="2">game 2</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>	
+          <td>&nbsp;</td>
+          <td rowspan ="2">game 1</td>
+          <td rowspan ="2">game 1</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>	
+          <td>&nbsp;</td>
+          <td colspan="3"></td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <% } else { %><!--displays middle table for 16 teams-->
+      <table>
+        <tr>
+          <td>&nbsp;</td>
+          <td rowspan ="2">game 1</td>
+          <td colspan="7"></td>
+          <td rowspan ="2">game 1</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>	
+          <td>&nbsp;</td>
+          <td rowspan ="2">game 2</td>
+          <td colspan="5"></td>
+          <td rowspan ="2">game 2</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>	
+          <td>&nbsp;</td>
+          <td rowspan ="2">game 1</td>
+          <td rowspan ="2">Game 3</td>
+          <td colspan="3"></td>
+          <td rowspan ="2">game 3</td>
+          <td rowspan ="2">Game 1</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>	
+          <td>&nbsp;</td>
+          <td rowspan="2">&ensp;</td> <!--game 2 table update-->
+          <td rowspan="2">semi final</td>
+          <td rowspan="2">&ensp; final &ensp;</td>
+          <td rowspan="2">semi final</td>
+          <td rowspan="2">&ensp;</td>	<!--game 2 table update-->
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td rowspan ="2">game 1</td>
+          <td rowspan ="2">game 3</td>
+          <td rowspan ="2">game 3</td>
+          <td rowspan ="2">game 1</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>	
+          <td>&nbsp;</td>
+          <td rowspan ="2">game 2</td>
+          <td colspan="3"></td>
+          <td rowspan ="2">game 2</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>	
+          <td>&nbsp;</td>
+          <td rowspan ="2">game 1</td>
+          <td colspan="5"></td>
+          <td rowspan ="2">game 1</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>	
+          <td>&nbsp;</td>
+          <td colspan="7"></td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <% } %>
+      </div>
+      <div class ="column">
+        <table style="text-align:right">
+        <% for (let count=0; count<(bracket.players/2); count++){%>
+        <tr class="table-noborder bg-dark">
+          <td class="text-center bg-danger "><%= bracket.teams[count+(bracket.players/2)] %></td>    
+        </tr>   
+        <% } %>
+        </table>
+      </div>
+      </div><!--row close-->
+    </div>
+    </body>
+      <%{%>
+        <!--<div style="height: 40px;">-->
+          <br>
+          <div id="buttonStyle" >
+      <button class="btn btn-primary btn-sm" >
+         <a href="/bracket-list/edit/<%= bracket._id %>" style="text-decoration:none; color:white">Edit</a>
+       </button>
+       &nbsp;&nbsp;
+        <button class="btn btn-warning btn-sm" >
+        <a href="/bracket-list/delete/<%= bracket._id %>" style="text-decoration:none; color:white">
+        Delete</a></button>
+      </div>
+      <%}%>
+    
+  </form>
+</div>
 </main>
 
-<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
+<%- include ../partials/bottom_nav.ejs %> 
+<%- include ../partials/footer.ejs %>

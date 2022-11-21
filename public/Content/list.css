@@ -1,0 +1,139 @@
+body {
+
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    background-size: 100%;
+	background-repeat: repeat;
+    position: absolute;
+    overflow: hidden;
+    min-height: 100vh;
+	background-position: fixed;
+	overflow: scroll;
+}
+h1 {
+	background-repeat: no-repeat;
+    background-image: url('/Assets/images/graybg.jpg');
+	background-position: left;
+	background-size: 5 px;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: 2.5em;
+	font-weight: 900;
+	color: black;
+	padding-left: 80px;
+	height: 150px;
+	width: 965px;
+	padding-top: 5px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #808080;
+    text-align: left;
+
+}
+
+blockquote {
+	font-size: 16pt;
+}
+ 
+hr {
+	border-style:dashed; 
+	border-width: 1px;
+ 	border-color:rgb(30, 31, 29); 
+}
+
+#list2Page {
+    width: 980px;
+	margin: auto;
+    margin-right: auto;
+    margin-left: auto;
+    
+    padding: 6px;
+    
+	
+	
+	color: navy;
+	
+	
+}
+
+#table1{
+	width: 960px;
+	margin: auto;
+    margin-right: auto;
+    margin-left: auto;
+	text-align: center;
+	align-items:center; 
+	display: flex;
+          justify-content: center;
+	
+}
+
+#buttonStyle {
+	align-items:center; 
+	display: flex;
+          justify-content: center;
+         
+}
+#games{
+	background-color: aliceblue;
+	opacity: 0.95;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 15px;
+	align-items:center; 
+	display: flex;
+          justify-content: center;
+}
+a {
+	text-decoration: none;
+	color: #1c5be4;
+}
+a:hover {
+	text-decoration: dotted;
+	/*background-color: rgb(76, 240, 54);*/
+    font-size: larger;
+}
+form {
+    font-size: 14pt;
+	
+
+}
+label {
+    width: 290px;
+    float:left;
+    text-align: right;
+	padding-right: 15px;
+	font-size: 16pt;
+}
+#button {
+	text-align: center;
+	margin: auto;
+	color: #171817;
+	background-color: #bad2f3;
+	width: 130px;
+	height: 50px;
+	box-shadow: 5px 5px 5px #161616;
+	font-size: medium;
+	font-weight: 900;
+	margin: auto;
+	position: relative;
+	left: 380px;
+	border-radius: 20px;
+	border: 2px solid #3d63e2;
+	
+}
+#button:hover {
+	text-decoration: dotted;
+	/*background-color: rgb(76, 240, 54);*/
+    font-size: larger;
+}
+footer {
+    text-align: center;
+    color: rgb(29, 29, 27);
+    font-size: large;
+}
+
