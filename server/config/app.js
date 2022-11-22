@@ -4,10 +4,17 @@ let express = require("express");
 let path = require("path");
 let cookieParser = require("cookie-parser");
 let logger = require("morgan");
+let cors = require("cors");
+
 
 //modules for authentication
 let session = require("express-session");
 let passport = require("passport");
+
+let passportJWT = require("passport-jwt");
+let JWTStrategy = passportJWT.Strategy;
+let ExtractJWT = passportJWT.ExtractJwt;
+
 let passportLocal = require("passport-local");
 let localStratergy = passportLocal.Strategy;
 let flash = require("connect-flash");
@@ -24,6 +31,25 @@ mongodb.on("error", console.error.bind(console, "connection error:"));
 mongodb.once("open", () => {
   console.log("Database Connected");
 });
+
+let jwtOptions = {};
+jwtOptions.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken();
+jwtOptions.secretOrKey = DB.Secret;
+//control how token is exacted 
+let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
+  //find user by id
+  User.findById(jwt_payload.id)
+    .then((user) => {
+      //refresh user
+      return done(null, user);
+    })
+    .catch((err) => {
+      return done(null, false);
+    });
+});
+
+passport.use(strategy);
+
 
 let indexRouter = require("../routes/index");
 let usersRouter = require("../routes/users");
