@@ -2,6 +2,7 @@ let express = require("express");
 let router = express.Router();
 let mongoose = require("mongoose");
 
+let jwt = require("jsonwebtoken");
 //create reference to the model (dbschema )
 let Bracket = require("../models/bracket");
 
@@ -14,6 +15,7 @@ module.exports.displayBracketList = (req, res, next) => {
       res.render("bracket/teamlist", {
         title: "Bracket",
         BracketList: bracketList,
+        displayName: req.user ? req.user.displayName : "",
       });
       //render bracket.ejs and pass title and Bracketlist variable we are passing bracketList object to BracketList property
     }
@@ -21,7 +23,10 @@ module.exports.displayBracketList = (req, res, next) => {
 };
 
 module.exports.addpage = (req, res, next) => {
-  res.render("bracket/createPage", { title: "Add TeamBracket" });
+  res.render("bracket/createPage", { 
+    title: "Add TeamBracket",
+    displayName: req.user ? req.user.displayName : ""
+   });
 };
 
 module.exports.addprocesspage = (req, res, next) => {
@@ -39,7 +44,7 @@ module.exports.addprocesspage = (req, res, next) => {
       res.end(err);
     } else {
       res.redirect("/bracket-list");
-      console.log(req.body.teams);
+      
     }
   });
 };
@@ -57,6 +62,7 @@ module.exports.addPlayerpage = async (req, res, next) => {
       res.render("bracket/list", {
         title: "Tournament Bracket",
         bracket: bracketoshow,
+        displayName: req.user ? req.user.displayName : "",
       });
       console.log(bracketoshow);
     }
@@ -75,6 +81,7 @@ module.exports.displayeditpage = (req, res, next) => {
       res.render("bracket/edit", {
         title: "Edit Bracket",
         bracket: bracketoedit,
+        displayName: req.user ? req.user.displayName : "",
       });
     }
   });

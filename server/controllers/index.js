@@ -3,8 +3,19 @@ let router = express.Router();
 let mongoose = require("mongoose");
 let passport = require("passport");
 
+//enable JWT
+let jwt = require("jsonwebtoken");
+let DB = require("../config/db");
+
+//create the user model instance
+let userModel = require("../models/user");
+let User = userModel.User; //alias
+
 module.exports.displayHomepage = (req, res, next) => {
-  res.render("index", { title: "Home" });
+  res.render("index", { title: "Home",
+  displayName: req.user ? req.user.displayName : "",
+ });
+
 };
 
 module.exports.displayLoginPage = (req, res, next) => {
@@ -36,6 +47,16 @@ module.exports.processLoginPage = (req, res, next) => {
       if (err) {
         return next(err);
       }
+      const payload = {
+        id: user._id,
+        displayName: user.displayName,
+        username: user.username,
+        email: user.email,
+      };
+      //declare auth token by data of user
+      const authToken = jwt.sign(payload, DB.Secret, {
+        expiresIn: 604800, // 1 week
+      });
       return res.redirect("/bracket-list");
     });
   })(req, res, next);
@@ -91,6 +112,10 @@ module.exports.processRegisterPage = (req, res, next) => {
 };
 
 module.exports.performLogout = (req, res, next) => {
-  req.logout();
-  res.redirect("/");
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/login");
+  });
 };

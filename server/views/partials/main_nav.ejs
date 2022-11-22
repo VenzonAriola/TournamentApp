@@ -31,12 +31,13 @@
         <% } %>
           <a class="nav-link" href="/bracket-list"> Display Bracket |</a>
         </li>
-        <% if (title == "Display Login Page"){ %>
-        <li class="nav-item active">
-        <% } else  { %>
-        <li class="nav-item">
+        <% if(typeof displayName == 'string' && displayName) { %>
+          <li class="navbar-text"><i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %></li>
+          <li class="nav-item"><a href="/logout" class="nav-link">
+            <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
+        <% } else { %>
+          <li class="nav-item"><a href="/login" class="nav-link">
+            <i class="fas fa-lg fa-sign-in-alt"></i> Login</a></li>
         <% } %>
-          <a class="nav-link" href="/login"> Login |</a>
-        </li>
     </div>
   </nav>
