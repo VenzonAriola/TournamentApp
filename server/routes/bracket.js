@@ -24,7 +24,7 @@ function requireAuth(req, res, next) {
 // /* GET Route for displaying Add page - Create OPeration */
 router.get("/createPage",requireAuth, bracketController.addpage);
 
-router.get("/show/:id",requireAuth, bracketController.addPlayerpage);
+router.get("/show/:id", bracketController.addPlayerpage);
 
 // /* POST Route for processing Add page - Create OPeration */
 router.post("/createPage", bracketController.addprocesspage);
