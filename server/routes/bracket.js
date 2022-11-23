@@ -19,7 +19,7 @@ function requireAuth(req, res, next) {
   }
 
 // /* GET Route for the Bracket List page - READ OPeration */
- router.get("/", requireAuth, bracketController.displayBracketList);
+ router.get("/", bracketController.displayBracketList);
 
 // /* GET Route for displaying Add page - Create OPeration */
 router.get("/createPage",requireAuth, bracketController.addpage);
@@ -27,7 +27,7 @@ router.get("/createPage",requireAuth, bracketController.addpage);
 router.get("/show/:id",requireAuth, bracketController.addPlayerpage);
 
 // /* POST Route for processing Add page - Create OPeration */
-router.post("/createPage",requireAuth, bracketController.addprocesspage);
+router.post("/createPage", bracketController.addprocesspage);
 
 
 
