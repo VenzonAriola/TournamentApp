@@ -142,6 +142,18 @@ body {
     overflow: hidden;
     min-height: 100vh; 
 }*/
+#tourneyheader {
+  color: rgb(196, 164, 189);
+  font-size: 26px;
+  background: -webkit-linear-gradient(
+    rgb(39, 57, 216),
+    rgb(255, 254, 254),
+    rgb(236, 73, 23)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 body {
   background-image: url("/Assets/images/teamlogo5.png");
   background-color: rgba(0, 0, 0, 0.95);
@@ -157,6 +169,8 @@ body {
   /* position: absolute;
     overflow: hidden;
     min-height: 100vh; */
+  /*Reference: https://tophinhanhdep.com/anh-dep/blue-lightning-wallpapers/
+https://wallpaperaccess.com/red-and-blue-lightning */
 }
 h1 {
   background-repeat: no-repeat;
