@@ -9,10 +9,11 @@ delete button does not refresh properly-->
 <main class="container">
   <form class="form" method="post">
   <div class="row">
+    <h1><%=title %></h1>
     <div class="col-md-offset-3 col-md-8">
-      <h1><%=title %></h1>
+      
       <br/>
-      <table class="table table-bordered table-striped table-hover" style="background-color:#FFFFFF;">
+      <table class="table table-bordered table-striped" style="background-color:#FFFFFF;">
         <!--HEader row-->
         <tr>
           <th class="text-center">Tournament Info</th>
@@ -31,40 +32,77 @@ delete button does not refresh properly-->
       <H4>Round 1</H1>
     </div>
   </div>
-    <body>
+    
       <div class ="row">
         <!--3 tables are made (in order), 
             1/2 team names | game table display | other 1/2 team names-->
-      <div class ="column">
-      <table><!--uses bracket.players instead of number of entries to fix but when changing number of teams in edit page-->
-          <% for (let count=0; count<(bracket.players/2); count++){%>
+      <div class ="col">
+      <table style="width: 150px;"><!--uses bracket.players instead of number of entries to fix but when changing number of teams in edit page-->
+        <% if (bracket.players == 8){ %>
           <tr class="table-noborder bg-dark">
-            <td class="text-center bg-danger "><%= bracket.teams[count] %></td>    
-          </tr>   
-          <% } %>
+            <td class="text-center bg-danger"><input type="radio" class="group1" name="group1" value="<%= bracket.teams[0] %>"/><%= bracket.teams[0] %> </input></td>
+          </tr> 
+          <tr class="table-noborder bg-dark">
+            <td class="text-center bg-black "><input type="radio" class="group1" name="group1" value="<%= bracket.teams[1] %>"/><%= bracket.teams[1] %> </input></td>
+          <tr class="table-noborder bg-dark"></tr>
+          </tr> 
+         
+            <td class="text-center bg-danger  "><input type="radio" class="group2" name="group2" value="<%= bracket.teams[2] %>"/><%= bracket.teams[2] %> </input></td>
+            <tr class="table-noborder bg-dark">
+          </tr> 
+            <td class="text-center bg-dark "><input type="radio" class="group2" name="group2" value="<%= bracket.teams[3] %>"/><%= bracket.teams[3] %> </input></td>
+          <tr class="table-noborder bg-dark">
+          </tr>
+          <% } else { %>
+            <tr class="table-noborder bg-dark">
+              <td class="text-center bg-danger "><input type="radio" class="group1" name="group1" value="<%= bracket.teams[0] %>"/><%= bracket.teams[0] %> </input></td>
+            </tr> 
+            <tr class="table-noborder bg-dark">
+              <td class="text-center bg-dark "><input type="radio" class="group1" name="group1" value="<%= bracket.teams[1] %>"/><%= bracket.teams[1] %> </input></td>
+            <tr class="table-noborder bg-dark"></tr>
+            </tr> 
+              <td class="text-center bg-danger "><input type="radio" class="group2" name="group2" value="<%= bracket.teams[2] %>"/><%= bracket.teams[2] %> </input></td>
+              <tr class="table-noborder bg-dark">
+            </tr> 
+              <td class="text-center bg-dark "><input type="radio" class="group2" name="group2" value="<%= bracket.teams[3] %>"/><%= bracket.teams[3] %> </input></td>
+            <tr class="table-noborder bg-dark">
+            <td class="text-center bg-danger "><input type="radio" class="group3" name="group3" value="<%= bracket.teams[4] %>"/><%= bracket.teams[4] %> </input></td>
+          <tr class="table-noborder bg-dark">
+          </tr> 
+            <td class="text-center bg-dark "><input type="radio" class="group3" name="group3" value="<%= bracket.teams[5] %>"/><%= bracket.teams[5] %> </input></td>
+          <tr class="table-noborder bg-dark">
+          </tr> 
+            <td class="text-center bg-danger "><input type="radio" class="group4" name="group4" value="<%= bracket.teams[6] %>"/><%= bracket.teams[6] %> </input></td>
+          <tr class="table-noborder bg-dark">
+          </tr> 
+            <td class="text-center bg-dark "><input type="radio" class="group4" name="group4" value="<%= bracket.teams[7] %>"/><%= bracket.teams[7] %> </input></td>
+          </tr> 
+          <% }  %>
+          
       </table>
       </div>
-      <div class ="column">
+      
+      <div class ="col">
       <% if (bracket.players == 8){ %><!--displays the middle table for 8 teams-->
-      <table>
+      <table style="table-layout:auto; width: 550px">
         <tr>
           <td>&nbsp;</td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" id="win1" class="bg-danger"><input type="radio" class="win1group1" name="win1group1" value="1">game 1</input></td>
           <td colspan="3"></td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" id="win3" class="bg-danger">game 1</td>
           <td>&nbsp;</td>
         </tr>
         <tr>	    
           <td>&nbsp;</td>		
-          <td rowspan ="2">game 2</td>
-          <td rowspan ="2">&ensp; final &ensp;</td>
-          <td rowspan ="2">game 2</td>
+          <td rowspan ="2" id="round2" class="text-center bg-dark" style="width:120px">game 2</td>
+          <td rowspan ="2" class="text-center bg-success" style="width:120px">&ensp; final &ensp;</td>
+          <td rowspan ="2" class="text-center bg-dark" style="width:120px">game 2</td>
           <td>&nbsp;</td>
         </tr>
         <tr>	
           <td>&nbsp;</td>
-          <td rowspan ="2">game 1</td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" id="win2" class="bg-dark"><input type="radio" class="win1group1" name="win1group1" value="2">game 1</input></td>
+          <td rowspan ="2" id="win4" class="bg-dark">game 1</td>
           <td>&nbsp;</td>
         </tr>
         <tr>	
@@ -74,57 +112,57 @@ delete button does not refresh properly-->
         </tr>
       </table>
       <% } else { %><!--displays middle table for 16 teams-->
-      <table >
+      <table style="table-layout:auto; width: 700px">
         <tr>
           <td>&nbsp;</td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" class="bg-danger">game 1</td>
           <td colspan="5"></td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" class="bg-danger">game 1</td>
           <td>&nbsp;</td>
         </tr>
         <tr>	
           <td>&nbsp;</td>  
-          <td rowspan ="2">game 2</td>
+          <td rowspan ="2" class="bg-danger">game 2</td>
           <td colspan="3"></td>
-          <td rowspan ="2">game 2</td>
+          <td rowspan ="2" class="bg-danger">game 2</td>
           <td>&nbsp;</td>
         </tr>
         <tr>	
           <td>&nbsp;</td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" class="bg-dark">game 1</td>
           <td colspan="3"></td>
-          <td rowspan ="2">Game 1</td>
+          <td rowspan ="2" class="bg-dark">Game 1</td>
           <td>&nbsp;</td>
         </tr>
         <tr>	
           <td>&nbsp;</td>
           <td></td>
-          <td rowspan="2">semi-final</td>
-          <td rowspan="2"> <br>&ensp; final &ensp;</td><!--br here to highlight the final-->
-          <td rowspan="2">semi-final</td>	
+          <td rowspan="2"  class="bg-danger">semi-final</td>
+          <td rowspan="2"  class="bg-success"> &ensp; final &ensp;</td><!--br here to highlight the final-->
+          <td rowspan="2"  class="bg-danger">semi-final</td>	
           <td></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" class="bg-danger">game 1</td>
           <td></td>
           <td></td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" class="bg-danger">game 1</td>
           <td>&nbsp;</td>
         </tr>
         <tr>	
           <td>&nbsp;</td>
-          <td rowspan ="2">game 2</td>
+          <td rowspan ="2" class="bg-dark">game 2</td>
           <td colspan="3"></td>
-          <td rowspan ="2">game 2</td>
+          <td rowspan ="2" class="bg-dark">game 2</td>
           <td>&nbsp;</td>
         </tr>
         <tr>	
           <td>&nbsp;</td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" class="bg-dark">game 1</td>
           <td colspan="3"></td>
-          <td rowspan ="2">game 1</td>
+          <td rowspan ="2" class="bg-dark">game 1</td>
           <td>&nbsp;</td>
         </tr>
         <tr>	
@@ -135,17 +173,51 @@ delete button does not refresh properly-->
       </table>
       <% } %>
       </div>
-      <div class ="column">
-        <table style="text-align:right">
-        <% for (let count=0; count<(bracket.players/2); count++){%>
-        <tr class="table-noborder bg-dark">
-          <td class="text-center bg-danger "><%= bracket.teams[count+(bracket.players/2)] %></td>    
-        </tr>   
-        <% } %>
+      <div class ="col">
+        <table style="text-align:right; width: 150px">
+          <% if (bracket.players == 8){ %>
+            <tr class="table-noborder bg-dark">
+              <td class="text-center bg-danger "><input type="radio" class="group3" name="group3" value="<%= bracket.teams[4] %>"/><%= bracket.teams[4] %> </input></td>
+            </tr> 
+            <tr class="table-noborder bg-dark">
+              <td class="text-center bg-dark "><input type="radio" class="group3" name="group3" value="<%= bracket.teams[5] %>"/><%= bracket.teams[5] %> </input></td>
+            <tr class="table-noborder bg-dark"></tr>
+            </tr> 
+              <td class="text-center bg-danger "><input type="radio" class="group4" name="group4" value="<%= bracket.teams[6] %>"/><%= bracket.teams[6] %> </input></td>
+              <tr class="table-noborder bg-dark">
+            </tr> 
+              <td class="text-center bg-dark"><input type="radio" class="group4" name="group4" value="<%= bracket.teams[7] %>"/><%= bracket.teams[7] %> </input></td>
+            <tr class="table-noborder bg-dark">
+            </tr>
+            <% } else { %>
+              <tr class="table-noborder bg-dark">
+                <td class="text-center bg-danger "><input type="radio" class="group5" name="group5" value="<%= bracket.teams[8] %>"/><%= bracket.teams[8] %> </input></td>
+              </tr> 
+              <tr class="table-noborder bg-dark">
+                <td class="text-center bg-dark "><input type="radio" class="group5" name="group5" value="<%= bracket.teams[9] %>"/><%= bracket.teams[9] %> </input></td>
+              <tr class="table-noborder bg-dark"></tr>
+              </tr> 
+                <td class="text-center bg-danger "><input type="radio" class="group6" name="group6" value="<%= bracket.teams[10] %>"/><%= bracket.teams[10] %> </input></td>
+                <tr class="table-noborder bg-dark">
+              </tr> 
+                <td class="text-center bg-dark "><input type="radio" class="group6" name="group6" value="<%= bracket.teams[11] %>"/><%= bracket.teams[11] %> </input></td>
+              <tr class="table-noborder bg-dark">
+              <td class="text-center bg-danger "><input type="radio" class="group7" name="group7" value="<%= bracket.teams[12] %>"/><%= bracket.teams[12] %> </input></td>
+            <tr class="table-noborder bg-dark">
+            </tr> 
+              <td class="text-center bg-dark "><input type="radio" class="group7" name="group7" value="<%= bracket.teams[13] %>"/><%= bracket.teams[13] %> </input></td>
+            <tr class="table-noborder bg-dark">
+            </tr> 
+              <td class="text-center bg-danger "><input type="radio" class="group8" name="group8" value="<%= bracket.teams[14] %>"/><%= bracket.teams[14] %> </input></td>
+            <tr class="table-noborder bg-dark">
+            </tr> 
+              <td class="text-center bg-dark "><input type="radio" class="group8" name="group8" value="<%= bracket.teams[15] %>"/><%= bracket.teams[15] %> </input></td>
+            </tr> 
+            <% }  %>
         </table>
       </div>
       </div><!--row close-->
-    </body>
+   
       <%{%>
         <!--<div style="height: 40px;">-->
           <br>
@@ -155,8 +227,63 @@ delete button does not refresh properly-->
         <button class="btn btn-warning btn-sm" >
         <a href="/bracket-list/delete/<%= bracket._id %>" style="text-decoration:none; color:white">
         Delete</a></button>
+        
+         
+        
       <%}%>
   </form>
 </main>
+
+<script>
+
+  var round1list = new Array()
+  var index1,index2,index3,index4;
+  // for(var i = 1; i < 4; i++){
+ $(`.group1`).change(function(){
+        var val = $(`.group1:checked`).val();
+        index1 = val;
+        $('#win1').html(`<input type="radio" class="win1group1" name="win1group1" value="round1>">${val}</input>`);
+        $('.win1group1').val(`${val}`);
+      console.log(index1);
+        
+    });
+    $(`.group2`).change(function(){
+        var val = $(`.group2:checked`).val();
+        index2 = val;
+        $('#win2').html(`<input type="radio" class="win1group1" name="win1group1" value="round1">${val}</input>`);
+        $('.win1group1').val(`${val}`);
+        
+    });
+    $(`.group3`).change(function(){
+        var val = $(`.group3:checked`).val();
+        index3= val;
+        $('#win3').html(`<input type="radio" class="win1group2" name="win1group2" value="round1">${val}</input>`);
+        
+    });
+    $(`.group4`).change(function(){
+        var val = $(`.group4:checked`).val();
+        index4= val;
+        $('#win4').html(`<input type="radio" class="win1group2" name="win1group2" value="round1">${val}</input>`);
+        
+    });
+
+    $(`.win1group1`).change(function(){
+        var val = $(`.win1group1:checked`).val();
+        alert(val);
+        $('#round2').html(`<input type="radio" class="win2group1" name="win2group1" value="${val}">${val}</input>`);
+    });
+
+  // function addList(){
+  //   round1list.push(index1);
+  //   round1list.push(index2);
+  //   round1list.push(index3);
+  //   round1list.push(index4);
+    
+  //   round1list = <%= bracket.teams%>;
+  //   alert(bracket.round1);
+  // }
+
+  // }
+</script>
 
 <%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
