@@ -17,12 +17,12 @@ h1 {
   background-position: left;
   background-size: 5 px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: 900;
   color: black;
-  padding-left: 180px;
-  height: 150px;
-  padding-top: 5px;
+  padding-left: 100px;
+  height: 120px;
+  padding-top: 1px;
   border-radius: 15px;
   box-shadow: 5px 5px 5px #808080;
   text-align: left;
@@ -40,25 +40,23 @@ hr {
 
 #allPage {
   width: 980px;
-  margin: auto;
+
   margin-right: auto;
   margin-left: auto;
   border: 3px solid #191a19;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px #484bec;
+  box-shadow: 5px 5px 5px #6769e6;
   padding: 6px;
-  background-color: rgb(233, 240, 243, 0.95);
-  color: navy;
+  padding-left: 130px;
+  /*background-color: rgb(233, 240, 243, 95);*/
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgb(19, 18, 18);
 }
 a {
   text-decoration: none;
   color: #1c5be4;
 }
-a:hover {
-  text-decoration: dotted;
-  /*background-color: rgb(76, 240, 54);*/
-  font-size: larger;
-}
+
 form {
   font-size: 14pt;
 }
@@ -85,14 +83,12 @@ label {
   border-radius: 20px;
   border: 2px solid #3d63e2;
 }
-#button:hover {
-  text-decoration: dotted;
-  /*background-color: rgb(76, 240, 54);*/
-  font-size: larger;
-}
+
 footer {
   text-align: center;
-  color: rgb(29, 29, 27);
+height: 50px;
+  background-color: rgb(83, 87, 90);
+  color: rgb(255, 255, 255);
   font-size: large;
 }
 input {

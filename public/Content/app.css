@@ -142,9 +142,20 @@ body {
     overflow: hidden;
     min-height: 100vh; 
 }*/
+#tourneyheader {
+	color: rgb(196, 164, 189);
+	font-size: 26px;
+  background: -webkit-linear-gradient(rgb(39, 57, 216), rgb(255, 254, 254),rgb(236, 73, 23));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
 body {
 	background-image: url('/Assets/images/teamlogo5.png');
+
 	background-color: rgba(0,0,0,0.95);
+
 	color: white;
 	font-weight: 800;
 	font-size: 14pt;
@@ -157,6 +168,8 @@ body {
     /* position: absolute;
     overflow: hidden;
     min-height: 100vh; */
+/*Reference: https://tophinhanhdep.com/anh-dep/blue-lightning-wallpapers/
+https://wallpaperaccess.com/red-and-blue-lightning */
 }
 h1 {
 	background-repeat: no-repeat;
@@ -214,14 +227,14 @@ hr {
 
 #allPage {
     width: 980px;
-	margin-top: 5px;
+
     margin-right: auto;
     margin-left: auto;
     border: 3px solid #191a19;
     border-radius: 20px;
     box-shadow: 5px 5px 5px #484bec;
-	background-image: url('teamlogoCopy.png');
-	background-color: rgba(0,0,0,0.55);
+	background-image: url('teamlogo3.png');
+	background-color: rgba(0,0,0,0.90);
 	color: white;
 	font-weight: 800;
 	font-size: 14pt;	
@@ -233,11 +246,7 @@ a {
 	text-decoration: none;
 	color: #1c5be4;
 }
-a:hover {
-	text-decoration: dotted;
-	/*background-color: rgb(76, 240, 54);
-    font-size: larger;*/
-}
+
 
 
 label {
@@ -268,11 +277,6 @@ label {
 	
 }
 
-#button:hover {
-	text-decoration: dotted;
-	/*background-color: rgb(76, 240, 54);
-    font-size: larger;*/
-}
 
 
 footer {
@@ -292,3 +296,11 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+/*footer {
+    text-align: center;
+	height: 50px;
+    background-color: rgb(83, 87, 90);
+    color: rgb(255, 255, 255);
+    font-size: large;
+}*/
