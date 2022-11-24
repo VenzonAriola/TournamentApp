@@ -191,7 +191,7 @@ h1 {
 }
 
 #tourneyteamgradient {
-  font-size: 16px;
+  font-size: 25px;
   background: -webkit-linear-gradient(rgb(7, 11, 247), #eee, rgb(238, 17, 17));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
