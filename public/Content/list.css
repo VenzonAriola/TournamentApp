@@ -11,6 +11,8 @@ body {
     min-height: 100vh;
 	background-position: fixed;
 	overflow: scroll;
+	margin-left: auto;
+	margin-right: auto;
 }
 h1 {
 	background-repeat: no-repeat;
@@ -68,6 +70,25 @@ hr {
 	
 }
 
+#allPage {
+    width: 980px;
+
+    margin-right: auto;
+    margin-left: auto;
+    border: 3px solid #191a19;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #484bec;
+	background-image: url('teamlogo3.png');
+	background-color: rgba(0,0,0,0.90);
+	color: white;
+	font-weight: 800;
+	font-size: 14pt;	
+
+	/* background-color: rgb(233, 240, 243); */
+
+}
+
+
 #buttonStyle {
 	align-items:center; 
 	display: flex;
@@ -92,11 +113,7 @@ a {
 	text-decoration: none;
 	color: #1c5be4;
 }
-a:hover {
-	text-decoration: dotted;
-	/*background-color: rgb(76, 240, 54);*/
-    font-size: larger;
-}
+
 form {
     font-size: 14pt;
 	
@@ -126,14 +143,12 @@ label {
 	border: 2px solid #3d63e2;
 	
 }
-#button:hover {
-	text-decoration: dotted;
-	/*background-color: rgb(76, 240, 54);*/
-    font-size: larger;
-}
+
 footer {
     text-align: center;
-    color: rgb(29, 29, 27);
+	height: 50px;
+    background-color: rgb(83, 87, 90);
+    color: rgb(255, 255, 255);
     font-size: large;
 }
 
