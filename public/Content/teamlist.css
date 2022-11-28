@@ -1,3 +1,18 @@
+/*body {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-size: 100%;
+  background-repeat: repeat;
+  position: absolute;
+  overflow: hidden;
+  min-height: 100vh;
+  background-position: fixed;
+  overflow: scroll;
+}
+*/
+
 body {
   top: 0px;
   right: 0px;
@@ -17,6 +32,29 @@ h1 {
   background-position: left;
   background-size: 5 px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 2em;
+  font-weight: 900;
+  color: black;
+  padding-left: 150px;
+  height: 120px;
+  width: 800px;
+  padding-top: 1px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #808080;
+  text-align: left;
+}
+
+#tableteamlist {
+  margin: auto;
+  
+}
+/*
+h1 {
+  background-repeat: no-repeat;
+  background-image: url("/Assets/images/graybg.jpg");
+  background-position: left;
+  background-size: 5 px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 2.5em;
   font-weight: 900;
   color: black;
@@ -28,6 +66,8 @@ h1 {
   box-shadow: 5px 5px 5px #808080;
   text-align: left;
 }
+/*
+
 
 #allPage {
   width: 980px;
@@ -44,9 +84,32 @@ font-weight: 800;
 font-size: 14pt;	
 padding-left: 190px;
 
-/* background-color: rgb(233, 240, 243); */
+ background-color: rgb(233, 240, 243); 
+ */
+#listPage {
+  width: 980px;
 
+  margin-right: auto;
+  margin-left: auto;
+  border: 3px solid #191a19;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #6769e6;
+  padding: 6px;
+  padding-left: 180px;
+  background-color: rgb(233, 240, 243, 95);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgb(19, 18, 18);
 }
+
+
+#tnumber {
+  width: 50px;
+}
+
+#ttourinfo {
+  width: 150px;
+}
+
 
 blockquote {
   font-size: 16pt;
@@ -101,6 +164,12 @@ label {
   left: 380px;
   border-radius: 20px;
   border: 2px solid #3d63e2;
+}
+
+#create {
+  width: 800px;
+  border-radius: 15px;
+  padding-left: 150px;
 }
 
 footer {
