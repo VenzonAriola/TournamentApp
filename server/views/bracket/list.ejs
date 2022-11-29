@@ -7,24 +7,32 @@
 Tournament layout to set up the teams
 display missing some spacing
 delete button does not refresh properly-->
-    <div id="displayPage">
+<head> <link rel='stylesheet' href='/Content/list.css' /> </head>
+ <div id="listPage">
+    <!-- <div id="displayPage"> -->
       <main class="container">
         <form class="form" method="post">
           <div class="row">
 
-            <h1>
+  <h1>
+  <img src="../../Assets/images/team_logo2.png" height="100" width="110px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.1in;"/>
+  <br>  &nbsp; <%=title %></h1>
+
+<!--            <h1>
               <%=title %>
-            </h1>
-            <div class="col-md-offset-3 col-md-8">
+            </h1>  -->
+            <div class="col-md-offset-2 col-md-">
 
               <br />
-              <table class="table table-bordered table-striped" style="background-color:#FFFFFF;">
-                <!--HEader row-->
-                <tr>
-                  <th class="text-center">Tournament Info</th>
-                  <th class="text-center">Game Info</th>
-                  <th class="text-center">Number of Teams</th>
-                  <th class="text-center">Description</th>
+              
+      <table class="table table-bordered table-striped" style="background-color:#FFFFFF; width:780px" >
+        <!--HEader row-->
+        <tr>
+          <th class="text-center" style="width:30%">Tournament Info</th>
+          <th class="text-center" style="width:30%">Game Info</th>
+          <th class="text-center" style="width:10%">No. of Teams</th>
+          <th class="text-center" style="width:40%">Description</th>
+
                 </tr>
                 <tr>
                   <td class="text-centre ">

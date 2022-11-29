@@ -10,8 +10,6 @@ body {
   min-height: 100vh;
   background-position: fixed;
   overflow: scroll;
-  margin-left: auto;
-  margin-right: auto;
 }
 h1 {
   background-repeat: no-repeat;
@@ -19,12 +17,13 @@ h1 {
   background-position: left;
   background-size: 5 px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: 900;
   color: black;
-  padding-left: 180px;
-  height: 150px;
-  padding-top: 5px;
+  padding-left: 100px;
+  height: 120px;
+  width: 670px;
+  padding-top: 1px;
   border-radius: 15px;
   box-shadow: 5px 5px 5px #808080;
   text-align: left;
@@ -42,15 +41,17 @@ hr {
 
 #allPage {
   width: 980px;
-  margin: auto;
+
   margin-right: auto;
   margin-left: auto;
   border: 3px solid #191a19;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px #484bec;
+  box-shadow: 5px 5px 5px #6769e6;
   padding: 6px;
-  background-color: rgb(233, 240, 243, 0.95);
-  color: navy;
+  padding-left: 130px;
+  /*background-color: rgb(233, 240, 243, 95);*/
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgb(19, 18, 18);
 }
 a {
   text-decoration: none;
@@ -63,7 +64,7 @@ form {
 label {
   width: 290px;
   float: left;
-  text-align: right;
+  text-align: left;
   padding-right: 15px;
   font-size: 16pt;
 }
@@ -90,4 +91,7 @@ height: 50px;
   background-color: rgb(83, 87, 90);
   color: rgb(255, 255, 255);
   font-size: large;
+}
+input {
+  align-self: flex-start;
 }

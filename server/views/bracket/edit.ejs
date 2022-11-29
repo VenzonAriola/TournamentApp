@@ -1,11 +1,13 @@
 <% include ../partials/header.ejs %>
 <% include ../partials/main_nav.ejs %>
-<head> <link rel='stylesheet' href='/Content/edit.css' /> </head>
+
 <!--localhost:3000/bracket-list/edit/_id:-->
 <!--Edit.ejs-->
 <!--changes made:
 Default visibility working, 
 second column added to mirror the create page-->
+
+<head> <link rel='stylesheet' href='/Content/edit.css' /> </head>
 
 <div id="allPage">
 <div class="container">
@@ -15,7 +17,7 @@ second column added to mirror the create page-->
           
                 <h1>
                     <a target="_blank" href="#"> 
-                    <img src="../../Assets/images/team_logo2.png" height="120" width="140px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.2in;"/>
+                    <img src="../../Assets/images/team_logo2.png" height="100" width="110px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.2in;"/>
                
             
                         <br> &nbsp; TOURNEY TEAM
@@ -99,10 +101,10 @@ second column added to mirror the create page-->
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit" >
+                <button class="btn btn-primary" type="submit" style= "background-color: blue" >
                 Submit</button>
-                <a href="/bracket-list" class="btn btn-warning">
-                <i class="fas fa-undo"></i> Cancel</a>
+                <a href="/bracket-list" class="btn btn-warning" >
+                <i class="fas fa-undo" ></i> Cancel</a>
             </form>
             </div>
             <br>
