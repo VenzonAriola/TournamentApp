@@ -6,6 +6,9 @@ let bracketController = require("../controllers/index");
 /* GET home page. */
 router.get("/", bracketController.displayHomepage);
 
+/* GET about page. */
+router.get("/About", bracketController.displayAboutpage);
+
 /* GET home page. */
 router.get("/Tourney Team", bracketController.displayHomepage);
 
