@@ -15,6 +15,7 @@ module.exports.displayBracketList = (req, res, next) => {
       res.render("bracket/teamlist", {
         title: "Bracket",
         BracketList: bracketList,
+        User: req.user,
         displayName: req.user ? req.user.displayName : "",
       });
       //render bracket.ejs and pass title and Bracketlist variable we are passing bracketList object to BracketList property
@@ -35,6 +36,7 @@ module.exports.addprocesspage = (req, res, next) => {
     gameType: req.body.gameType,
     players: req.body.players,
     description: req.body.description,
+    userid: req.user._id,
     teams: req.body.teams,
   });
 
@@ -62,6 +64,7 @@ module.exports.addPlayerpage = async (req, res, next) => {
       res.render("bracket/list", {
         title: "Tournament Bracket",
         bracket: bracketoshow,
+        user: req.user,
         displayName: req.user ? req.user.displayName : "",
       });
       console.log(bracketoshow);
@@ -97,6 +100,7 @@ module.exports.processingeditpage = (req, res, next) => {
     players: req.body.players,
     description: req.body.description,
     teams: req.body.teams,
+    userid: req.user._id
   });
   Bracket.updateOne({ _id: id }, updatebracket, (err) => {
     if (err) {

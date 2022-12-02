@@ -461,6 +461,39 @@ delete button does not refresh properly-->
     </div>
     <script>
 
+$(document).ready(function () {
+      var g1 = $('input[name=group1]');
+      var g2 = $('input[name=group2]');
+      var g3 = $('input[name=group3]');
+      var g4 = $('input[name=group4]');
+      var g5 = $('input[name=group5]');
+      var g6 = $('input[name=group6]');
+      var g7 = $('input[name=group7]');
+      var g8 = $('input[name=group8]');
+      
+      validate();
+
+      $("input[type='radio']").change(validate);
+
+      function validate() {
+        // <% if (bracket.players==8){ %>
+        if ($(g1).is(':checked') && $(g2).is(':checked') && $(g3).is(':checked') && $(g4).is(':checked')) {
+          $("#setWinner1").removeAttr("disabled", false);
+        } else {
+          $("#setWinner1").attr("disabled", true);
+        }
+        // <% } else { %>
+        if($(g1).is(':checked') && $(g2).is(':checked') && $(g3).is(':checked') && $(g4).is(':checked') && $(g5).is(':checked') && $(g6).is(':checked') && $(g7).is(':checked') && $(g8).is(':checked')){
+          $("#setWinner1").removeAttr("disabled", false);
+        }
+        else {
+          $("#setWinner1").attr("disabled", true);
+        }
+
+        //<% } %>
+      }
+    });
+
       $("#setWinner1").click(
         function (event) {
           var val1 = $(`.group1:checked`).val();

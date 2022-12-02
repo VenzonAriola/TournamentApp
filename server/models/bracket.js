@@ -9,6 +9,7 @@ let bracketModel = mongoose.Schema(
     gameType: String,
     players: Number,
     description: String,
+    userid: String,
     teams: Array,
   },
 
