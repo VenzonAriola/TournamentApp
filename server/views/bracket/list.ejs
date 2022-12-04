@@ -5,34 +5,26 @@
     <!-- Main Content -->
     <!--Changes made:
 Tournament layout to set up the teams
-display missing some spacing
 delete button does not refresh properly-->
-<head> <link rel='stylesheet' href='/Content/list.css' /> </head>
- <div id="listPage">
-    <!-- <div id="displayPage"> -->
+<!--layout is set as a misshapen table, each game cell has a link to edit the scores of the respective participants,
+    These cells are labeled using the bracket.winner[] array, and will change based on who won.-->
+    <div id="displayPage">
       <main class="container">
         <form class="form" method="post">
           <div class="row">
-
-  <h1>
-  <img src="../../Assets/images/team_logo2.png" height="100" width="110px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.1in;"/>
-  <br>  &nbsp; <%=title %></h1>
-
-<!--            <h1>
+            <h1>
               <%=title %>
-            </h1>  -->
-            <div class="col-md-offset-2 col-md-">
+            </h1>
+            <div class="col-md-offset-3 col-md-8">
 
               <br />
-              
-      <table class="table table-bordered table-striped" style="background-color:#FFFFFF; width:780px" >
-        <!--HEader row-->
-        <tr>
-          <th class="text-center" style="width:30%">Tournament Info</th>
-          <th class="text-center" style="width:30%">Game Info</th>
-          <th class="text-center" style="width:10%">No. of Teams</th>
-          <th class="text-center" style="width:40%">Description</th>
-
+              <table class="table table-bordered table-striped" style="background-color:#FFFFFF;">
+                <!--HEader row-->
+                <tr>
+                  <th class="text-center">Tournament Info</th>
+                  <th class="text-center">Game Info</th>
+                  <th class="text-center">Number of Teams</th>
+                  <th class="text-center">Description</th>
                 </tr>
                 <tr>
                   <td class="text-centre ">
@@ -50,400 +42,309 @@ delete button does not refresh properly-->
                 </tr>
               </table>
               <br>
-              <H4>Round 1</H1>
             </div>
           </div>
 
           <div class="row">
-            <!--3 tables are made (in order), 
-            1/2 team names | game table display | other 1/2 team names-->
-
-            <table style="width: 120px;">
-              <!--uses bracket.players instead of number of entries to fix but when changing number of teams in edit page-->
-              <% if (bracket.players==8){ %>
-                <tr class="table-noborder bg-dark">
-                  <td class="text-center bg-danger"><input type="radio" class="group1" name="group1"
-                      value="<%= bracket.teams[0] %>" />
-                    <%= bracket.teams[0] %> </input>
-                  </td>
+            <% if (bracket.players == 16){ %><!--displays the middle table for 8 teams-->
+            <table>
+              <tr><!-- class="table-noborder bg-dark"-->
+                <td class="text-center bg-danger "><%= bracket.teams[0] %></td>
+                  <td>&nbsp;</td>
+                    <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-1"><div style="height:100%;width:100%">
+                      <!--winner is location of team, this outputs the team name from that loaction -->
+                      <!--Link: 1
+                          winner[0]-->
+                      <% if ((bracket.winner[0] == "Game 1") || (bracket.winner[0] == "Game 2")||(bracket.winner[0]== "Final")||(bracket.winner[0]=="Tie Game") || (bracket.winner[0]== "Game 3")){%>
+                        <%=bracket.winner[0]%>  
+                      <%} else {%>
+                        &ensp;<%= bracket.teams[bracket.winner[0]] %>&ensp;
+                      <%}%>
+                  </div></a></td>
+                  <td colspan="5"></td>
+                    <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-5"><div style="height:100%;width:100%">
+                      <!--Link: 5
+                          winner[4]-->
+                      <% if ((bracket.winner[4] == "Game 1") || (bracket.winner[4] == "Game 2")||(bracket.winner[4]== "Final")||(bracket.winner[4]=="Tie Game") || (bracket.winner[4]== "Game 3")){%>
+                        <%=bracket.winner[4]%>  
+                      <%} else {%>
+                        &ensp;<%= bracket.teams[bracket.winner[4]] %>&ensp;
+                      <%}%>
+                    </div></a></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[8] %></td>
                 </tr>
-                <tr class="table-noborder bg-dark">
-                  <td class="text-center bg-black "><input type="radio" class="group1" name="group1"
-                      value="<%= bracket.teams[1] %>" />
-                    <%= bracket.teams[1] %> </input>
-                  </td>
+                <tr>	
+                  <td class="text-center bg-danger "><%= bracket.teams[1] %></td>
+                  <td>&nbsp;</td>  
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-9"><div style="height:100%;width:100%">
+                    <!--Link: 9
+                        winner[8]-->
+                    <% if ((bracket.winner[8] == "Game 1") || (bracket.winner[8] == "Game 2")||(bracket.winner[8]== "Final")||(bracket.winner[8]=="Tie Game") || (bracket.winner[8]== "Game 3")){%>
+                      <%=bracket.winner[8]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[8]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td colspan="3"></td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-11"><div style="height:100%;width:100%">
+                    <!--Link: 11
+                        winner[10]-->
+                    <% if ((bracket.winner[10] == "Game 1") || (bracket.winner[10] == "Game 2")||(bracket.winner[10]== "Final")||(bracket.winner[10]=="Tie Game") || (bracket.winner[10]== "Game 3")){%>
+                      <%=bracket.winner[10]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[10]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[9] %></td>
                 </tr>
-                <tr class="table-noborder bg-white" style="line-height: 12px;">
-                  <td>&ensp;</td>
+                <tr>	
+                  <td class="text-center bg-danger "><%= bracket.teams[2] %></td>
+                  <td>&nbsp;</td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-2"><div style="height:100%;width:100%">
+                      <!--Link: 2
+                          winner[1]-->
+                          <% if ((bracket.winner[1] == "Game 1") || (bracket.winner[1] == "Game 2")||(bracket.winner[1]== "Final")||(bracket.winner[1]=="Tie Game") || (bracket.winner[1]== "Game 3")){%>
+                            <%=bracket.winner[1]%>  
+                          <%} else {%>
+                            &ensp;<%= bracket.teams[bracket.winner[1]] %>&ensp;
+                          <%}%>
+                  </div></a></td>
+                  <td colspan="3"></td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-6"><div style="height:100%;width:100%">
+                    <!--Link: 6
+                        winner[5]-->
+                    <% if ((bracket.winner[5] == "Game 1") || (bracket.winner[5] == "Game 2")||(bracket.winner[5]== "Final")||(bracket.winner[5]=="Tie Game") || (bracket.winner[5]== "Game 3")){%>
+                      <%=bracket.winner[5]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[5]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[10] %></td>
                 </tr>
-                <tr class="table-noborder bg-dark"></tr>
-                <td class="text-center bg-danger  "><input type="radio" class="group2" name="group2"
-                    value="<%= bracket.teams[2] %>" />
-                  <%= bracket.teams[2] %> </input>
-                </td>
+                <tr>	
+                  <td class="text-center bg-danger "><%= bracket.teams[3] %></td>
+                  <td>&nbsp;</td>
+                  <td></td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-13"><div style="height:100%;width:100%">
+                    <!--Link: 13
+                        winner[12]-->
+                    <% if ((bracket.winner[12] == "Game 1") || (bracket.winner[12] == "Game 2")||(bracket.winner[12]== "Final")||(bracket.winner[12]=="Tie Game") || (bracket.winner[12]== "Game 3")){%>
+                      <%=bracket.winner[12]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[12]] %>&ensp;
+                    <%}%>
+                      </div></a></td>
+                  
+                    <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-15"><div style="height:100%;width:100%">
+                      <!--Link: 15
+                          winner[14]-->
+                      <% if ((bracket.winner[14] == "Game 1") || (bracket.winner[14] == "Game 2")||(bracket.winner[14]== "Final")||(bracket.winner[14]=="Tie Game") || (bracket.winner[14]== "Game 3")){%>
+                        <%=bracket.winner[14]%>  
+                      <%} else {%>
+                        &ensp;<%= bracket.teams[bracket.winner[14]] %>&ensp;
+                      <%}%>
+                  
+                      <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-14"><div style="height:100%;width:100%">
+                        <!--Link: 14
+                            winner[13]-->
+                        <% if ((bracket.winner[13] == "Game 1") || (bracket.winner[13] == "Game 2")||(bracket.winner[13]== "Final")||(bracket.winner[13]=="Tie Game") || (bracket.winner[13]== "Game 3")){%>
+                          <%=bracket.winner[13]%>  
+                        <%} else {%>
+                          &ensp;<%= bracket.teams[bracket.winner[13]] %>&ensp;
+                        <%}%>
+                      </div></a></td>
+                  <td></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[11] %></td>
                 </tr>
-                <tr class="table-noborder bg-dark"></tr>
-                <td class="text-center bg-dark "><input type="radio" class="group2" name="group2"
-                    value="<%= bracket.teams[3] %>" />
-                  <%= bracket.teams[3] %> </input>
-                </td>
+                <tr>
+                  <td class="text-center bg-danger "><%= bracket.teams[4] %></td>
+                  <td>&nbsp;</td>
+                  
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-3"><div style="height:100%;width:100%">
+                    <!--Link: 3
+                        winner[2]-->
+                    <% if ((bracket.winner[2] == "Game 1") || (bracket.winner[2] == "Game 2")||(bracket.winner[2]== "Final")||(bracket.winner[2]=="Tie Game") || (bracket.winner[2]== "Game 3")){%>
+                      <%=bracket.winner[2]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[2]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td></td>
+                  <td></td>
+                  
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-7"><div style="height:100%;width:100%">
+                    <!--Link: 7
+                        winner[6]-->
+                    <% if ((bracket.winner[6] == "Game 1") || (bracket.winner[6] == "Game 2")||(bracket.winner[6]== "Final")||(bracket.winner[6]=="Tie Game") || (bracket.winner[6]== "Game 3")){%>
+                      <%=bracket.winner[6]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[6]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[12] %></td>
                 </tr>
-                <% } else { %>
-                  <tr class="table-noborder bg-dark">
-                    <td class="text-center bg-danger "><input type="radio" class="group1" name="group1"
-                        value="<%= bracket.teams[0] %>" />
-                      <%= bracket.teams[0] %> </input>
-                    </td>
-                  </tr>
-                  <tr class="table-noborder bg-dark">
-                    <td class="text-center bg-dark "><input type="radio" class="group1" name="group1"
-                        value="<%= bracket.teams[1] %>" />
-                      <%= bracket.teams[1] %> </input>
-                    </td>
-                  </tr>
-                  <tr class="table-noborder bg-white" style="line-height: 12px;">
-                    <td>&ensp;</td>
-                  </tr>
-                  <tr class="table-noborder bg-dark"></tr>
-                  <td class="text-center bg-danger "><input type="radio" class="group2" name="group2"
-                      value="<%= bracket.teams[2] %>" />
-                    <%= bracket.teams[2] %> </input>
-                  </td>
-                  </tr>
-                  <tr class="table-noborder bg-dark">
-                    <td class="text-center bg-dark "><input type="radio" class="group2" name="group2"
-                        value="<%= bracket.teams[3] %>" />
-                      <%= bracket.teams[3] %> </input>
-                    </td>
-                  </tr>
-                  <tr class="table-noborder bg-white" style="line-height: 12px;">
-                    <td>&ensp;</td>
-                  </tr>
-                  <tr class="table-noborder bg-dark">
-                    <td class="text-center bg-danger "><input type="radio" class="group3" name="group3"
-                        value="<%= bracket.teams[4] %>" />
-                      <%= bracket.teams[4] %> </input>
-                    </td>
-                  </tr>
-                  <tr class="table-noborder bg-dark">
-                    <td class="text-center bg-dark "><input type="radio" class="group3" name="group3"
-                        value="<%= bracket.teams[5] %>" />
-                      <%= bracket.teams[5] %> </input>
-                    </td>
-                  </tr>
-                  <tr class="table-noborder bg-white" style="line-height: 12px;">
-                    <td>&ensp;</td>
-                  </tr>
-                  <tr class="table-noborder bg-dark">
-                    <td class="text-center bg-danger "><input type="radio" class="group4" name="group4"
-                        value="<%= bracket.teams[6] %>" />
-                      <%= bracket.teams[6] %> </input>
-                    </td>
-                  </tr>
-                  <tr class="table-noborder bg-dark">
-                    <td class="text-center bg-dark "><input type="radio" class="group4" name="group4"
-                        value="<%= bracket.teams[7] %>" />
-                      <%= bracket.teams[7] %> </input>
-                    </td>
-                  </tr>
-                  <% } %>
-
+                <tr>	
+                  <td class="text-center bg-danger "><%= bracket.teams[5] %></td>
+                  <td>&nbsp;</td>
+                  
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-10"><div style="height:100%;width:100%">
+                    <!--Link: 10
+                        winner[9]-->
+                    <% if ((bracket.winner[9] == "Game 1") || (bracket.winner[9] == "Game 2")||(bracket.winner[9]== "Final")||(bracket.winner[9]=="Tie Game") || (bracket.winner[9]== "Game 3")){%>
+                      <%=bracket.winner[9]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[9]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td colspan="3"></td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-12"><div style="height:100%;width:100%">
+                    <!--Link: 12
+                        winner[11]-->
+                    <% if ((bracket.winner[11] == "Game 1") || (bracket.winner[11] == "Game 2")||(bracket.winner[11]== "Final")||(bracket.winner[11]=="Tie Game") || (bracket.winner[11]== "Game 3")){%>
+                      <%=bracket.winner[11]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[11]] %>&ensp;
+                    <%}%>
+                </div></a></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[13] %></td>
+                </tr>
+                <tr>	
+                  <td class="text-center bg-danger "><%= bracket.teams[6] %></td>
+                  <td>&nbsp;</td>
+                  
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-4"><div style="height:100%;width:100%">
+                    <!--Link: 4
+                        winner[3]-->
+                    <% if ((bracket.winner[3] == "Game 1") || (bracket.winner[3] == "Game 2")||(bracket.winner[3]== "Final")||(bracket.winner[3]=="Tie Game") || (bracket.winner[3]== "Game 3")){%>
+                      <%=bracket.winner[3]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[3]] %>&ensp;
+                    <%}%>
+                </div></a></td>
+                  <td colspan="3"></td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-8"><div style="height:100%;width:100%">
+                    <!--Link: 8
+                        winner[7]-->
+                    <% if ((bracket.winner[7] == "Game 1") || (bracket.winner[7] == "Game 2")||(bracket.winner[7]== "Final")||(bracket.winner[7]=="Tie Game") || (bracket.winner[7]== "Game 3")){%>
+                      <%=bracket.winner[7]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[7]] %>&ensp;
+                    <%}%>
+                </div></a></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[14] %></td>
+                </tr>
+                <tr>	
+                  <td class="text-center bg-danger "><%= bracket.teams[7] %></td>
+                  <td>&nbsp;</td>
+                  <td colspan="5"></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[15] %></td>
+                </tr>
+              </tr>
             </table>
-
-            &nbsp;
-
-            <% if (bracket.players==8){ %>
+            <% } else { %>
               <!--displays the middle table for 8 teams-->
-              <table style="width: 100px;">
+              <table>
                 <tr>
+                  <td class="text-center bg-danger "><%= bracket.teams[0] %></td>
                   <td>&nbsp;</td>
-                </tr>
-                <tr>
-                  <td id="win1" class="bg-danger">game 1</td>
-                </tr>
-                <tr>
-                  <td id="win2" class="bg-dark">game 1</td>
-                </tr>
-                <tr>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+1"><div style="height:100%;width:100%">
+                    <!--winner is location of team, this outputs the team name from that loaction -->
+                    <!--Link: 1
+                        winner[0]-->
+                    <% if ((bracket.winner[0] == "Game 1") || (bracket.winner[0] == "Game 2")||(bracket.winner[0]== "Final")||(bracket.winner[0]=="Tie Game")) {%>
+                      <%=bracket.winner[0]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[0]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td colspan="3"></td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+3"><div style="height:100%;width:100%">
+                    <!--Link: 3
+                        winner[2]-->
+                    <% if ((bracket.winner[2] == "Game 1") || (bracket.winner[2] == "Game 2")||(bracket.winner[2]== "Final")||(bracket.winner[2]=="Tie Game")) {%>
+                      <%=bracket.winner[2]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[2]] %>&ensp;
+                      <%}%>
+                  </div></a></td>
                   <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[4] %></td>
+                </tr>
+                <tr>	    
+                  <td class="text-center bg-danger "><%= bracket.teams[1] %></td>
+                  <td>&nbsp;</td>		
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+5"><div style="height:100%;width:100%">
+                    <!--Link: 5
+                        winner[4]-->
+                    <% if ((bracket.winner[4] == "Game 1") || (bracket.winner[4] == "Game 2")||(bracket.winner[4]== "Final")||(bracket.winner[4]=="Tie Game")) {%>
+                      <%=bracket.winner[4]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[4]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+7"><div style="height:100%;width:100%">&ensp; 
+                    <!--Link: 7
+                        winner[6]-->
+                    <% if ((bracket.winner[6] == "Game 1") || (bracket.winner[6] == "Game 2")||(bracket.winner[6]== "Final")||(bracket.winner[6]=="Tie Game")) {%>
+                      <%=bracket.winner[6]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[6]] %>&ensp;
+                    <%}%>
+                    &ensp;</div></a></td><!--here-->
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+6"><div style="height:100%;width:100%">
+                    <!--Link: 6
+                        winner[5]-->
+                    <% if ((bracket.winner[5] == "Game 1") || (bracket.winner[5] == "Game 2")||(bracket.winner[5]== "Final")||(bracket.winner[5]=="Tie Game")) {%>
+                      <%=bracket.winner[5]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[5]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[5] %></td>
+                </tr>
+                <tr>	
+                  <td class="text-center bg-danger "><%= bracket.teams[2] %></td>
+                  <td>&nbsp;</td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+2"><div style="height:100%;width:100%">
+                    <!--Link: 2
+                        winner[1]-->
+                    <% if ((bracket.winner[1] == "Game 1") || (bracket.winner[1] == "Game 2")||(bracket.winner[1]== "Final")||(bracket.winner[1]=="Tie Game")) {%>
+                      <%=bracket.winner[1]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[1]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+4"><div style="height:100%;width:100%">
+                    <!--Link: 4
+                        winner[3]-->
+                    <% if ((bracket.winner[3] == "Game 1") || (bracket.winner[3] == "Game 2")||(bracket.winner[3]== "Final")||(bracket.winner[3]=="Tie Game")) {%>
+                      <%=bracket.winner[3]%>  
+                    <%} else {%>
+                      &ensp;<%= bracket.teams[bracket.winner[3]] %>&ensp;
+                    <%}%>
+                  </div></a></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[6] %></td>
+                </tr>
+                <tr>	
+                  <td class="text-center bg-danger "><%= bracket.teams[3] %></td>
+                  <td>&nbsp;</td>
+                  <td colspan="3"></td>
+                  <td>&nbsp;</td>
+                  <td class="text-center bg-danger "><%= bracket.teams[7] %></td>
                 </tr>
               </table>
-              &nbsp;
-
-              <table style="width: 100px;">
-                <tr class="text-center ">
-                  <td>&nbsp;</td>
-                </tr>
-                <tr>
-
-                  <td id="round21" class="text-center bg-dark">game 2</td>
-                </tr>
-                <tr class="text-center ">
-                  <td>&nbsp;</td>
-                </tr>
-              </table>
-              &nbsp;
-
-              <table style="width: 150px;">
-                <tr>
-                  <td id="final81" class="text-center bg-success" style="width:140px; font-size: 30px;">&ensp; final
-                    &ensp;</td>
-                </tr>
-              </table>
-              &nbsp;
-
-              <table style="width: 100px;">
-                <tr class="text-center">
-                  <td>&nbsp;</td>
-                </tr>
-                <tr>
-                  <td id="round22" class="text-center bg-dark">game 2</td>
-
-                </tr>
-                <tr class="text-center">
-                  <td>&nbsp;</td>
-                </tr>
-              </table>
-
-              &nbsp;
               
-
-              <table style="width: 100px;">
-                <tr>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr>
-                  <td id="win3" class="bg-danger">game 1</td>
-                </tr>
-                <tr>
-                  <td id="win4" class="bg-dark">game 1</td>
-                </tr>
-                <tr>
-                  <td>&nbsp;</td>
-                </tr>
-              </table>
-              &nbsp;
-              
-              <% } else { %>
-                <!--displays middle table for 16 teams-->
-                <table style="width: 100px;">
-                  <tr>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td id="win1" class="bg-danger">game 1</td>
-                  </tr>
-                  <tr>
-                    <td id="win2" class="bg-dark">game 1</td>
-                  </tr>
-                  <tr class="table-noborder " style="line-height: 60px;">
-                    <td>&ensp;</td>
-                  </tr>
-                  <tr>
-                    <td id="win3" class="bg-danger">game 1</td>
-                  </tr>
-                  <tr>
-                    <td id="win4" class="bg-dark">game 1</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                  </tr>
-                </table>
-                &nbsp;
-                
-                <table style="width: 100px;">
-                  <tr class="text-center">
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td id="round21" class="text-center bg-danger">game 2</td>
-                  </tr>
-                  <tr>
-                    <td id="round22" class="text-center bg-dark">game 2</td>
-                  </tr>
-                  <tr class="text-center">
-                    <td>&nbsp;</td>
-                  </tr>
-                </table>
-                &nbsp;
-                
-                <table style="width: 100px;">
-                  <tr class="text-center">
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td id="final81" class="text-center bg-dark">game 3</td>
-                  </tr>
-
-                  <tr class="text-center">
-                    <td>&nbsp;</td>
-                  </tr>
-                </table>
-                &nbsp;
-
-                <table style="width: 150px;">
-                  <tr class="text-center">
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td id="final16" class="text-center bg-success" style="width:120px; font-size:30px">&ensp; final
-                      &ensp;</td>
-                  </tr>
-                  <tr class="text-center">
-                    <td>&nbsp;</td>
-                  </tr>
-                </table>
-                &nbsp;
-
-                <table style="width: 100px;">
-                  <tr class="text-center">
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td id="final82" class="text-center bg-dark">game 3</td>
-                  </tr>
-                  <tr class="text-center">
-                    <td>&nbsp;</td>
-                  </tr>
-                </table>
-
-                &nbsp;
-
-
-                <table style="width: 100px;">
-                  <tr class="text-center ">
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td id="round23" class="text-center bg-danger">game 2</td>
-                  </tr>
-                  <tr>
-                    <td id="round24" class="text-center bg-dark">game 2</td>
-                  </tr>
-                  <tr class="text-center">
-                    <td>&nbsp;</td>
-                  </tr>
-                </table>
-                &nbsp;
-
-
-                <table style="width: 100px;">
-                  <tr>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td id="win5" class="bg-danger">game 1</td>
-                  </tr>
-                  <tr>
-                    <td id="win6" class="bg-dark">game 1</td>
-                  </tr>
-                  <tr class="table-noborder " style="line-height: 60px;">
-                    <td>&ensp;</td>
-                  </tr>
-                  <tr>
-                    <td id="win7" class="bg-danger">game 1</td>
-                  </tr>
-                  <tr>
-                    <td id="win8" class="bg-dark">game 1</td>
-                  </tr>
-                  <tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                  </tr>
-                </table>
-                &nbsp;
-
-                <% } %>
-
-                  <table style="text-align:right; width: 120px">
-                    <% if (bracket.players==8){ %>
-                      <tr class="table-noborder bg-dark">
-                        <td class="text-center bg-danger "><input type="radio" class="group3" name="group3"
-                            value="<%= bracket.teams[4] %>" />
-                          <%= bracket.teams[4] %> </input>
-                        </td>
-                      </tr>
-                      <tr class="table-noborder bg-dark">
-                        <td class="text-center bg-dark "><input type="radio" class="group3" name="group3"
-                            value="<%= bracket.teams[5] %>" />
-                          <%= bracket.teams[5] %> </input>
-                        </td>
-                      </tr>
-                      <tr class="table-noborder bg-white" style="line-height: 12px;">
-                        <td>&ensp;</td>
-                      </tr>
-                      <tr class="table-noborder bg-dark"></tr>
-                      <td class="text-center bg-danger "><input type="radio" class="group4" name="group4"
-                          value="<%= bracket.teams[6] %>" />
-                        <%= bracket.teams[6] %> </input>
-                      </td>
-                      </tr>
-                      <tr class="table-noborder bg-dark"></tr>
-                      <td class="text-center bg-dark"><input type="radio" class="group4" name="group4"
-                          value="<%= bracket.teams[7] %>" />
-                        <%= bracket.teams[7] %> </input>
-                      </td>
-                      </tr>
-                      <% } else { %>
-                        <tr class="table-noborder bg-dark">
-                          <td class="text-center bg-danger "><input type="radio" class="group5" name="group5"
-                              value="<%= bracket.teams[8] %>" />
-                            <%= bracket.teams[8] %> </input>
-                          </td>
-                        </tr>
-                        <tr class="table-noborder bg-dark">
-                          <td class="text-center bg-dark "><input type="radio" class="group5" name="group5"
-                              value="<%= bracket.teams[9] %>" />
-                            <%= bracket.teams[9] %> </input>
-                          </td>
-                        </tr>
-                        <tr class="table-noborder bg-white" style="line-height: 12px;">
-                          <td>&ensp;</td>
-                        </tr>
-                        <tr class="table-noborder bg-dark">
-                          <td class="text-center bg-danger "><input type="radio" class="group6" name="group6"
-                              value="<%= bracket.teams[10] %>" />
-                            <%= bracket.teams[10] %> </input>
-                          </td>
-                        </tr>
-                        <tr class="table-noborder bg-dark">
-                          <td class="text-center bg-dark "><input type="radio" class="group6" name="group6"
-                              value="<%= bracket.teams[11] %>" />
-                            <%= bracket.teams[11] %> </input>
-                          </td>
-                        </tr>
-                        <tr class="table-noborder bg-white" style="line-height: 12px;">
-                          <td>&ensp;</td>
-                        </tr>
-                        <tr class="table-noborder bg-dark">
-                          <td class="text-center bg-danger "><input type="radio" class="group7" name="group7"
-                              value="<%= bracket.teams[12] %>" />
-                            <%= bracket.teams[12] %> </input>
-                          </td>
-                        </tr>
-                        <tr class="table-noborder bg-dark">
-                          <td class="text-center bg-dark "><input type="radio" class="group7" name="group7"
-                              value="<%= bracket.teams[13] %>" />
-                            <%= bracket.teams[13] %> </input>
-                          </td>
-                        </tr>
-                        <tr class="table-noborder bg-white" style="line-height: 12px;">
-                          <td>&ensp;</td>
-                        </tr>
-                        <tr class="table-noborder bg-dark">
-                          <td class="text-center bg-danger "><input type="radio" class="group8" name="group8"
-                              value="<%= bracket.teams[14] %>" />
-                            <%= bracket.teams[14] %> </input>
-                          </td>
-                        </tr>
-                        <tr class="table-noborder bg-dark">
-                          <td class="text-center bg-dark "><input type="radio" class="group8" name="group8"
-                              value="<%= bracket.teams[15] %>" />
-                            <%= bracket.teams[15] %> </input>
-                          </td>
-                        </tr>
-                        <% } %>
-                  </table>
+              <% } %>
 
           </div>
           <!--row close-->
@@ -451,22 +352,20 @@ delete button does not refresh properly-->
           <%{%>
             <!--<div style="height: 40px;">-->
             <br>
-            <button class="btn btn-primary btn-sm">
-              <a href="/bracket-list/edit/<%= bracket._id %>" style="text-decoration:none; color:white">Edit</a>
-            </button>
-            <button class="btn btn-warning btn-sm">
-              <a href="/bracket-list/delete/<%= bracket._id %>" style="text-decoration:none; color:white">
-                Delete</a></button>
-            <input type="button" id="setWinner1" value="Winner1" />
-
+            <a href="/bracket-list/edit/<%= bracket._id %>" style="text-decoration:none; color:white">
+            <input type="button" class="btn btn-primary btn-sm" value="Edit"></input></a>
+            <a href="/bracket-list/delete/<%= bracket._id %>" style="text-decoration:none; color:white">
+            <input type="button" class="btn btn-warning btn-sm" value="Delete"></input></a>
+            <!--<input type="button" id="setWinner1" value="Winner1" />
             <input type="button" id="setWinner2" value="Winner2" />
             <input type="button" id="setWinner3" value="Winner3" />
-            <input type="button" id="setWinner4" value="Winner4" />
+            <input type="button" id="setWinner4" value="Winner4" />-->
 
             <%}%>
         </form>
       </main>
     </div>
+    <!--cut able, old radio button codeVVV-->
     <script>
 
       $("#setWinner1").click(

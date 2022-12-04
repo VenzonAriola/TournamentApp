@@ -12,11 +12,6 @@ let userModel = require("../models/user");
 let User = userModel.User; //alias
 
 
-module.exports.displayAboutpage = (req, res, next) => {
-  res.render("about", { title: "About",
-   });
-
-};
 
 module.exports.displayHomepage = (req, res, next) => {
   res.render("index", { title: "Home",

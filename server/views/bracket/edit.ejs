@@ -1,13 +1,11 @@
 <% include ../partials/header.ejs %>
 <% include ../partials/main_nav.ejs %>
-
+<head> <link rel='stylesheet' href='/Content/edit.css' /> </head>
 <!--localhost:3000/bracket-list/edit/_id:-->
 <!--Edit.ejs-->
 <!--changes made:
 Default visibility working, 
 second column added to mirror the create page-->
-
-<head> <link rel='stylesheet' href='/Content/edit.css' /> </head>
 
 <div id="allPage">
 <div class="container">
@@ -17,11 +15,8 @@ second column added to mirror the create page-->
           
                 <h1>
                     <a target="_blank" href="#"> 
-                    <img src="../../Assets/images/team_logo2.png" height="100" width="110px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.2in;"/>
-               
-            
+                    <img src="../../Assets/images/team_logo2.png" height="120" width="140px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.2in;"/>
                         <br> &nbsp; TOURNEY TEAM
-                        
                     </a>
                   
                  </h1>  
@@ -71,13 +66,13 @@ second column added to mirror the create page-->
                         <div class="row">
                             <div class="col" id="col1">
                             <% for (let count =0; count < 8 ; count++) { %>
-                            <label for="tNameTextField">Enter Name</label>
-                            <input type="text" class="form-control"
-                            id="nameTextField"
-                            placeholder="Enter Name"
-                            name="teams" 
-                            value="<%=bracket.teams[count]%>"
-                            required>
+                                <label for="tNameTextField">Enter Name</label>
+                                <input type="text" class="form-control"
+                                id="nameTextField"
+                                placeholder="Enter Name"
+                                name="teams" 
+                                value="<%=bracket.teams[count]%>"
+                                required>
                             <% } %>
                         </div> 
                         <div class="col" id="col2">
@@ -101,17 +96,37 @@ second column added to mirror the create page-->
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit" style= "background-color: blue" >
+                <button class="btn btn-primary" type="submit" >
                 Submit</button>
-                <a href="/bracket-list" class="btn btn-warning" >
-                <i class="fas fa-undo" ></i> Cancel</a>
+                <a href="/bracket-list" class="btn btn-warning">
+                <i class="fas fa-undo"></i> Cancel</a>
+                <div visibility: hidden>
+                    <% for (let c = 0; c < bracket.scoreG1.length; c++) { %>
+                        <input type="text" class="form-control" name="t1" value="<%=bracket.scoreG1[c]%>">
+                      <%}%>
+                    <% for (let c = 0; c < bracket.scoreG2.length; c++) { %>
+                        <input type="text" class="form-control" name="t2" value="<%=bracket.scoreG2[c]%>">
+                      <%}%>
+                      <% for (let c = 0; c < bracket.scoreG3.length; c++) { %>
+                        <input type="text" class="form-control" name="t3" value="<%=bracket.scoreG3[c]%>">
+                      <%}%>
+                      <% for (let c = 0; c < bracket.scoreG4.length; c++) { %>
+                        <input type="text" class="form-control" name="t4" value="<%=bracket.scoreG4[c]%>">
+                      <%}%>
+                    <% for (let count = 0; count < 16; count++) { %>
+                        <input type="text" name="teams" value="<%= bracket.teams[count]%>">
+                    <%}%>
+                    <% for (let c = 0; c < bracket.winner.length; c++) { %>
+                        <input type="text" name="w" value="<%= bracket.winner[count]%>">                    
+                    <%}%>
+                </div>
             </form>
             </div>
             <br>
         </div>
     </div>
 </div>
-</div> /*adding div */
+</div> 
 <script>
     $( document ).ready(function() {
         $( "#players8" ).click(function() {

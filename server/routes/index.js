@@ -6,9 +6,6 @@ let bracketController = require("../controllers/index");
 /* GET home page. */
 router.get("/", bracketController.displayHomepage);
 
-/* GET about page. */
-router.get("/About", bracketController.displayAboutpage);
-
 /* GET home page. */
 router.get("/Tourney Team", bracketController.displayHomepage);
 
@@ -26,5 +23,6 @@ router.post("/register", bracketController.processRegisterPage);
 
 /* GET to perform UserLogout */
 router.get("/logout", bracketController.performLogout);
+
 
 module.exports = router;

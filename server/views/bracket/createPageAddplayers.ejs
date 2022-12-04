@@ -80,3 +80,159 @@
 
 </body>
 </html>
+<div visibility: hidden><!--create winner array for 8-->
+    <% for (let count = 0; count < 4; count++) { %>
+        <input type="text" name="w" value="Game 1">
+    <%}%>
+    <% for (let count = 0; count < 2; count++) { %>
+        <input type="text" name="w" value="Game 2">
+    <%}%>
+    <input type="text" name="w" value="Final">
+</div>
+<div visibility: hidden><!--create winner array for 16-->
+    <% for (let count = 0; count < 8; count++) { %>
+        <input type="text" name="w" value="Game 1">
+    <%}%>
+    <% for (let count = 0; count < 4; count++) { %>
+        <input type="text" name="w" value="Game 2">
+    <%}%>
+    <% for (let count = 0; count < 2; count++) { %>
+        <input type="text" name="w" value="Game 3">
+    <%}%>
+    <input type="text" name="w" value="Final">
+</div>
+
+
+<% if (bracket.scoreG1[id2-2] > bracket.scoreG1[id2-1]) { %>
+    <input type="text" name="w" value="<%=bracket.teams[id2-2]%>">
+  <% }else if (bracket.scoreG1[id2-2] < bracket.scoreG1[id2-1]) {%>
+    <input type="text" name="w" value="<%=bracket.teams[id2-1]%>">
+  <% } else if (!(bracket.scoreG1[6] == null || bracket.scoreG1[7] == null)) { %>
+    Tie Game
+  <% } %>
+
+
+  <% if (count == (id3-1)){%>
+    <% if (bracket.scoreG1[id2-2] > bracket.scoreG1[id2-1]) { %>
+      <input type="text" name="w" value="<%=bracket.teams[id2-2]%>">
+    <% }else if (bracket.scoreG1[id2-2] < bracket.scoreG1[id2-1]) {%>
+      <input type="text" name="w" value="<%=bracket.teams[id2-1]%>">
+    <% } else if (bracket.scoreG1[id2-2] == "" || bracket.scoreG1[id2-1] == "") { %>
+      <input type="text" name="w" value="<%= bracket.winner[count]%>">
+    <%}else{%>
+      <% console.log('error at: ' + count) %>
+      <input type="text" name="w" value="Tie Game">
+    <% }%>
+<%}else{%>
+  <input type="text" name="w" value="<%= bracket.winner[count]%>">
+<%}%>
+
+//console.log("at if ");
+//console.log(teams[]);
+/*for (let count = 1; count <17; count++){
+  console.log(Bracket([{ $position:count}]));//[count]
+}
+/*if (req.body.t+id2[id2-1] > req.body.t+id2[id2-1]){
+  req.body.w[id2-1] = req.body.teams[id2-1]
+} else if (req.body.t+id2[id2-1] < req.body.t+id2[id2-1]){
+  req.body.w[id2-2] = req.body.teams[id2-2]
+}else if (req.body.t+id2[id2-1] == "" || req.body.t+id2[id2-1] == ""){
+  //no change in winner if a value is missing
+}else{
+  req.body.w[id2-2] = "Tie Game";
+}*/
+
+      <% if (count == ((id2/2)-1)){%><!--count = round ID-->
+        <% if (bracket.scoreG1[cont1] > bracket.scoreG1[cont2]) { %>
+          <input type="text" name="w" value="<%=cont1%>">
+        <% }else if (bracket.scoreG1[cont1] < bracket.scoreG1[cont2]) {%>
+          <input type="text" name="w" value="<%=cont2%>">
+        <% } else if ((bracket.scoreG1[cont1] == "") || (bracket.scoreG1[cont2] == "")){%>
+          <input type="text" name="w" value="<%= bracket.winner[count]%>">
+        <%}else{%>
+          <% console.log('Tie at: ' + count) %>
+          <input type="text" name="w" value="Tie Game">
+        <% }%>
+      <%}else{%>
+        <input type="text" name="w" value="<%= bracket.winner[count]%>">
+      <%}%>
+      
+    /*if (scorVal2[id2-2] > scorVal[id2-1]){
+      winVal[id2-2] = id2-2; 
+    }else if (scorVal2[id2-2] < scorVal2[id2-1]){
+      winVal[id2-2] = id2-1;
+    }else if ((scorVal2[id2-2] == "") || (scorVal2[id2-1] == "") ){
+      //ans = null
+    }else{
+      winVal[id2-2] = "Tie Game";
+    }*/
+    <%} else {%>
+      <table>
+        <tr>
+          <div visibility: hidden>
+            <input type="text" name="t<%=id3%>" value="<%=bracket.scoreG1[count]%>">
+          </div>
+        </tr>
+      </table>
+
+      <tr>
+        <td>Tcont1: <%= bracket.teams[cont1]%></td>
+        <td>cont1: <%=cont1%></td>
+      </tr><tr>
+        <td>Tcont1: <%= bracket.teams[cont2]%></td>
+        <td>cont2: <%=cont2%></td>
+      </tr>
+
+      
+      <% for (let count = 0; count < bracket.scoreG1.length; count++) { %>
+        <input type="text" name="t1" value="<%= bracket.scoreG1[count]%>">
+      <% } %>
+      <% for (let count = 0; count < bracket.scoreG2.length; count++) { %>
+        <input type="text" name="t2" value="<%= bracket.scoreG2[count]%>">
+      <% } %>
+      <% for (let count = 0; count < bracket.scoreG3.length; count++) { %>
+        <input type="text" name="t3" value="<%= bracket.scoreG3[count]%>">
+      <% } %>
+      <% for (let count = 0; count < bracket.scoreG4.length; count++) { %>
+        <input type="text" name="t4" value="<%= bracket.scoreG4[count]%>">
+      <%}%><!--"t<%=id3%>"-->
+\
+
+<% if ((bracket.winner[0] == "Game 1") || (bracket.winner[0] == "Game 2")||(bracket.winner[0]== "Final")||(bracket.winner[0]=="Tie Game")) {%>
+  <%=bracket.winner[0]%>
+<% if (bracket.winner[0] === "undefined"){%>
+  Game 1
+<%} else {%>
+  <%= bracket.teams[bracket.winner[0]] %>
+<%}%>
+
+      <!--<% for (c = 0; c < getBaseLog(2,player); c++){ %> <--log(2,player) = 3 or 4-->
+            <!--<% if (c != id3) { %>  
+              <div visibility: visible>
+                <% for (let count = 0; count < bracket.scoreG1.length; count++) { %>
+                  <input type="text" name="t1" value="<%= bracket.scoreG1[count]%>">
+                <% } %>
+                <% for (let count = 0; count < bracket.scoreG2.length; count++) { %>
+                  <input type="text" name="t2" value="<%= bracket.scoreG2[count]%>">
+                <% } %>
+                <% for (let count = 0; count < bracket.scoreG3.length; count++) { %>
+                  <input type="text" name="t3" value="<%= bracket.scoreG3[count]%>">
+                <% } %>
+                <% for (let count = 0; count < bracket.scoreG4.length; count++) { %>
+                  <input type="text" name="t4" value="<%= bracket.scoreG4[count]%>">
+                <%}%>--><!--"t<%=id3%>"->
+              </div>
+            <%} else {%>-->
+            <!--<%}%>
+          <%}%>-->
+
+          
+      /*if (winVal2[c].lastIndexOf("'") < winVal2[c].lastIndexOf("\n")){
+        winVal2[c] = winVal2[c].slice(0, winVal2[c].lastIndexOf("\n")-1);
+        //if value is before \n make slice from 0 to location of \n
+        console.log("slice(0, index of \\n");
+      } else {
+        winVal2[c] = winVal2[c].slice(winVal2[c].lastIndexOf("\n")+2, winVal2[c].length);
+        //if value is after \n make slice from location of \n to end 
+        console.log("slice(index of \\n, max.length");
+      }*/

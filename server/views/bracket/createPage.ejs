@@ -7,7 +7,8 @@
 set to auto display 16 rows
 Radio button is set to change the number of visible rows
 Team names are not required, could cause issues-->
-<head> <link rel='stylesheet' href='/Content/createPage.css' /> </head>
+<head> <link rel='stylesheet' href='/Content/edit.css' /> </head>
+<!--previously createPage.css changed to match edit page-->
 
     
 <br> 
@@ -84,18 +85,19 @@ Team names are not required, could cause issues-->
                     </div>
                 </div>
             </div>
-<br>
+            <br>            
+
            <div class="createButton">
             <button class="btn btn-primary" type="submit" >
-            <i class="fas fa-edit"></i> Submit</button>
+            <i class="fas fa-edit"></i>Submit</button>
             &nbsp;&nbsp;
             <!--submit button for the form above, 
             return to /home page using the cancel button-->
             <a href="/" class="btn btn-warning">
-            <i class="fas fa-undo"></i> Cancel</a>
+            <i class="fas fa-undo"></i>Cancel</a>
         </div>
         </form>
-        <br>
+        <br> 
         </div>
         <br>
     </div>
@@ -111,6 +113,7 @@ $( "#players8" ).click(function() {
         // Reverting back visibility to visible
         $("#col2").css("visibility","visible");
     }},);
+    
     $( "#players16" ).click(function() {
     if( $(this).is(':checked') ){
         // if you want to change your Div's css property 
@@ -121,6 +124,7 @@ $( "#players8" ).click(function() {
     }},);
 });
 </script>
+
 
 <% include ../partials/bottom_nav.ejs %>
 <% include ../partials/footer.ejs %>

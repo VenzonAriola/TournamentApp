@@ -24,12 +24,10 @@ function requireAuth(req, res, next) {
 // /* GET Route for displaying Add page - Create OPeration */
 router.get("/createPage",requireAuth, bracketController.addpage);
 
-router.get("/show/:id", bracketController.addPlayerpage);
-
 // /* POST Route for processing Add page - Create OPeration */
 router.post("/createPage", bracketController.addprocesspage);
 
-
+router.get("/show/:id", bracketController.addPlayerpage);
 
 // /* GET Route for displaying Edit page -UPDATE OPeration */
 router.get("/edit/:id",requireAuth, bracketController.displayeditpage);
@@ -38,9 +36,13 @@ router.get("/edit/:id",requireAuth, bracketController.displayeditpage);
 router.post("/edit/:id",requireAuth, bracketController.processingeditpage);
 
 // /* GET to perform book deletion -Delete OPeration */
-router.get("/delete/:id",requireAuth, bracketController.deletepage);
+router.get("/delete/:id", requireAuth, bracketController.deletepage);
 
+router.get("/display/:id", bracketController.scoreDisplayPage);
 
+router.post("/display/:id", bracketController.scoreProcessPage);
 
+//router.get("/display/winCount/:id", bracketController.scoreProcessPage2);
 
 module.exports = router;
+
