@@ -49,7 +49,19 @@ second column added to mirror the create page-->
                     value="<%=bracket.description %>"
                     required>
                 </div>
+                <div class="form-group" style="display: flex;">
+                    <label for="dateField">Start</label>
+                    <input type="date" id="startdate" 
+                    name="startdate" value="<%=startdate%>"
+                    required>
+                </div>
+                <div class="form-group" style="display: flex;">
+                    <label for="dateField">End</label>
+                    <input type="date" id="enddate"  
+                    name="enddate" value="<%=enddate%>"required>
+                </div>
                 <div class="form-group">
+                    <label> Number of Teams:</label>
                 <!--Checks for number of players, visibility cannot be removed here-->
                     <%console.log(bracket.players) %>
                     <% if (bracket.players == 8) { %>
@@ -62,7 +74,7 @@ second column added to mirror the create page-->
                         <%console.log(16) %>
                     <%} %>
                 </div>
-                    <div class="form-group" style="display: flex;">
+                    <div class="container" style="display: flex;">
                         <div class="row">
                             <div class="col" id="col1">
                             <% for (let count =0; count < 8 ; count++) { %>
@@ -113,8 +125,8 @@ second column added to mirror the create page-->
                       <% for (let c = 0; c < bracket.scoreG4.length; c++) { %>
                         <input type="text" class="form-control" name="t4" value="<%=bracket.scoreG4[c]%>">
                       <%}%>
-                    <% for (let count = 0; count < 16; count++) { %>
-                        <input type="text" name="teams" value="<%= bracket.teams[count]%>">
+                    <% for (let c = 0; c < 16; c++) { %>
+                        <input type="text" name="teams" value="<%= bracket.teams[c]%>">
                     <%}%>
                     <% for (let c = 0; c < bracket.winner.length; c++) { %>
                         <input type="text" name="w" value="<%= bracket.winner[c]%>">                    
