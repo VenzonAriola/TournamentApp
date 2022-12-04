@@ -5,16 +5,21 @@ let mongoose = require("mongoose");
 let jwt = require("jsonwebtoken");
 //create reference to the model (dbschema )
 let Bracket = require("../models/bracket");
+let moment = require("moment");
 
 //display tournament info
 module.exports.displayBracketList = (req, res, next) => {
   Bracket.find((err, bracketList) => {
+    var startDate = moment(bracketList.startdate).utc().format("YYYY-MM-DD");
+    var endDate = moment(bracketList.enddate).utc().format("MMMM Do YY");
     if (err) {
       return console.error(err);
     } else {
       res.render("bracket/teamlist", {
         title: "Bracket",
         BracketList: bracketList,
+        User: req.user,
+        enddate: endDate,
         displayName: req.user ? req.user.displayName : "",
       });
       //render bracket.ejs and pass title and Bracketlist variable we are passing bracketList object to BracketList property
@@ -39,6 +44,10 @@ module.exports.addprocesspage = (req, res, next) => {
       gameType: req.body.gameType,
       players: req.body.players,//len
       description: req.body.description,
+      userid: req.user._id,
+      teams: req.body.teams,
+      startdate: req.body.startdate,
+      enddate: req.body.enddate,
       teams: req.body.teams,
       scoreG1: [],
       scoreG2: [],
@@ -87,6 +96,7 @@ module.exports.addPlayerpage = async (req, res, next) => {
       res.render("bracket/list", {
         title: "Tournament Bracket",
         bracket: bracketoshow,
+        user: req.user,
         displayName: req.user ? req.user.displayName : "",
       });
       console.log(bracketoshow);
@@ -394,6 +404,9 @@ module.exports.scoreProcessPage = async (req, res, next) => {
 module.exports.displayeditpage = (req, res, next) => {
   let id = req.params.id; //id of actual object
   Bracket.findById(id, (err, bracketoedit) => {
+    var startDate = moment(bracketoedit.startdate).utc().format("YYYY-MM-DD");
+    var endDate = moment(bracketoedit.enddate).utc().format("YYYY-MM-DD");
+
     if (err) {
       console.log(err);
       res.end(err);
@@ -402,6 +415,9 @@ module.exports.displayeditpage = (req, res, next) => {
       res.render("bracket/edit", {
         title: "Edit Bracket", 
         bracket: bracketoedit,
+        startdate: startDate,
+        enddate: endDate,
+        user: req.user,
         displayName: req.user ? req.user.displayName : "",
       });
     }
@@ -418,6 +434,9 @@ module.exports.processingeditpage = (req, res, next) => {
     players: req.body.players,
     description: req.body.description,
     teams: req.body.teams,
+    userid: req.user._id,
+    startdate: req.body.startdate,
+    enddate: req.body.enddate
   });
   Bracket.updateOne({ _id: id }, updatebracket, (err) => {
     if (err) {
@@ -449,10 +468,22 @@ module.exports.deletepage = (req, res, next) => {
   //res.redirect("/bracket-list");
 };
 
-/*module.exports.displa = (req, res, next) => {
-  let id = req.params.id;
-  console.log('the id is: ' + id);
-  res.render("bracket/display", { title: "Home"
-  //,displayName: req.user ? req.user.displayName : "",
- });
-};*/
+module.exports.showTournamentpage = async (req, res, next) => {
+  let id = req.params.id; //id of actual object
+
+  Bracket.findById(id, (err, bracketoshow) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      //show the edit view
+      res.render("bracket/anonymous", {
+        title: "Tournament Bracket",
+        bracket: bracketoshow,
+        user: req.user,
+        displayName: req.user ? req.user.displayName : "",
+      });
+      console.log(bracketoshow);
+    }
+  });
+};
