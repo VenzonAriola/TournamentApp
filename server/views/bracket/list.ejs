@@ -47,11 +47,11 @@ delete button does not refresh properly-->
 
           <div class="row">
             <% if (bracket.players == 16){ %><!--displays the middle table for 8 teams-->
-            <table>
+            <table class="text-center" style="width: 100%">
               <tr><!-- class="table-noborder bg-dark"-->
                 <td class="text-center bg-danger "><%= bracket.teams[0] %></td>
                   <td>&nbsp;</td>
-                    <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-1"><div style="height:100%;width:100%">
+                    <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-1"><div style="height:100%;width:100%">
                       <!--winner is location of team, this outputs the team name from that loaction -->
                       <!--Link: 1
                           winner[0]-->
@@ -62,7 +62,7 @@ delete button does not refresh properly-->
                       <%}%>
                   </div></a></td>
                   <td colspan="5"></td>
-                    <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-5"><div style="height:100%;width:100%">
+                    <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-5"><div style="height:100%;width:100%">
                       <!--Link: 5
                           winner[4]-->
                       <% if ((bracket.winner[4] == "Game 1") || (bracket.winner[4] == "Game 2")||(bracket.winner[4]== "Final")||(bracket.winner[4]=="Tie Game") || (bracket.winner[4]== "Game 3")){%>
@@ -75,9 +75,9 @@ delete button does not refresh properly-->
                   <td class="text-center bg-danger "><%= bracket.teams[8] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-danger "><%= bracket.teams[1] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[1] %></td>
                   <td>&nbsp;</td>  
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-9"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-9"><div style="height:100%;width:100%">
                     <!--Link: 9
                         winner[8]-->
                     <% if ((bracket.winner[8] == "Game 1") || (bracket.winner[8] == "Game 2")||(bracket.winner[8]== "Final")||(bracket.winner[8]=="Tie Game") || (bracket.winner[8]== "Game 3")){%>
@@ -87,7 +87,7 @@ delete button does not refresh properly-->
                     <%}%>
                   </div></a></td>
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-11"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-11"><div style="height:100%;width:100%">
                     <!--Link: 11
                         winner[10]-->
                     <% if ((bracket.winner[10] == "Game 1") || (bracket.winner[10] == "Game 2")||(bracket.winner[10]== "Final")||(bracket.winner[10]=="Tie Game") || (bracket.winner[10]== "Game 3")){%>
@@ -97,12 +97,12 @@ delete button does not refresh properly-->
                     <%}%>
                   </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[9] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[9] %></td>
                 </tr>
                 <tr>	
                   <td class="text-center bg-danger "><%= bracket.teams[2] %></td>
                   <td>&nbsp;</td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-2"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-2"><div style="height:100%;width:100%">
                       <!--Link: 2
                           winner[1]-->
                           <% if ((bracket.winner[1] == "Game 1") || (bracket.winner[1] == "Game 2")||(bracket.winner[1]== "Final")||(bracket.winner[1]=="Tie Game") || (bracket.winner[1]== "Game 3")){%>
@@ -112,7 +112,7 @@ delete button does not refresh properly-->
                           <%}%>
                   </div></a></td>
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-6"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-6"><div style="height:100%;width:100%">
                     <!--Link: 6
                         winner[5]-->
                     <% if ((bracket.winner[5] == "Game 1") || (bracket.winner[5] == "Game 2")||(bracket.winner[5]== "Final")||(bracket.winner[5]=="Tie Game") || (bracket.winner[5]== "Game 3")){%>
@@ -125,10 +125,10 @@ delete button does not refresh properly-->
                   <td class="text-center bg-danger "><%= bracket.teams[10] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-danger "><%= bracket.teams[3] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[3] %></td>
                   <td>&nbsp;</td>
                   <td></td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-13"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-13"><div style="height:100%;width:100%">
                     <!--Link: 13
                         winner[12]-->
                     <% if ((bracket.winner[12] == "Game 1") || (bracket.winner[12] == "Game 2")||(bracket.winner[12]== "Final")||(bracket.winner[12]=="Tie Game") || (bracket.winner[12]== "Game 3")){%>
@@ -138,7 +138,7 @@ delete button does not refresh properly-->
                     <%}%>
                       </div></a></td>
                   
-                    <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-15"><div style="height:100%;width:100%">
+                    <td rowspan ="2" class="box bg-success"><a href="/bracket-list/display/<%= bracket._id %>-15"><div style="height:100%;width:100%">
                       <!--Link: 15
                           winner[14]-->
                       <% if ((bracket.winner[14] == "Game 1") || (bracket.winner[14] == "Game 2")||(bracket.winner[14]== "Final")||(bracket.winner[14]=="Tie Game") || (bracket.winner[14]== "Game 3")){%>
@@ -147,7 +147,7 @@ delete button does not refresh properly-->
                         &ensp;<%= bracket.teams[bracket.winner[14]] %>&ensp;
                       <%}%>
                   
-                      <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-14"><div style="height:100%;width:100%">
+                      <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-14"><div style="height:100%;width:100%">
                         <!--Link: 14
                             winner[13]-->
                         <% if ((bracket.winner[13] == "Game 1") || (bracket.winner[13] == "Game 2")||(bracket.winner[13]== "Final")||(bracket.winner[13]=="Tie Game") || (bracket.winner[13]== "Game 3")){%>
@@ -158,13 +158,13 @@ delete button does not refresh properly-->
                       </div></a></td>
                   <td></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[11] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[11] %></td>
                 </tr>
                 <tr>
                   <td class="text-center bg-danger "><%= bracket.teams[4] %></td>
                   <td>&nbsp;</td>
                   
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-3"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-3"><div style="height:100%;width:100%">
                     <!--Link: 3
                         winner[2]-->
                     <% if ((bracket.winner[2] == "Game 1") || (bracket.winner[2] == "Game 2")||(bracket.winner[2]== "Final")||(bracket.winner[2]=="Tie Game") || (bracket.winner[2]== "Game 3")){%>
@@ -176,7 +176,7 @@ delete button does not refresh properly-->
                   <td></td>
                   <td></td>
                   
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-7"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-7"><div style="height:100%;width:100%">
                     <!--Link: 7
                         winner[6]-->
                     <% if ((bracket.winner[6] == "Game 1") || (bracket.winner[6] == "Game 2")||(bracket.winner[6]== "Final")||(bracket.winner[6]=="Tie Game") || (bracket.winner[6]== "Game 3")){%>
@@ -189,10 +189,10 @@ delete button does not refresh properly-->
                   <td class="text-center bg-danger "><%= bracket.teams[12] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-danger "><%= bracket.teams[5] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[5] %></td>
                   <td>&nbsp;</td>
                   
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-10"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-10"><div style="height:100%;width:100%">
                     <!--Link: 10
                         winner[9]-->
                     <% if ((bracket.winner[9] == "Game 1") || (bracket.winner[9] == "Game 2")||(bracket.winner[9]== "Final")||(bracket.winner[9]=="Tie Game") || (bracket.winner[9]== "Game 3")){%>
@@ -202,7 +202,7 @@ delete button does not refresh properly-->
                     <%}%>
                   </div></a></td>
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-12"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-12"><div style="height:100%;width:100%">
                     <!--Link: 12
                         winner[11]-->
                     <% if ((bracket.winner[11] == "Game 1") || (bracket.winner[11] == "Game 2")||(bracket.winner[11]== "Final")||(bracket.winner[11]=="Tie Game") || (bracket.winner[11]== "Game 3")){%>
@@ -212,13 +212,13 @@ delete button does not refresh properly-->
                     <%}%>
                 </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[13] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[13] %></td>
                 </tr>
                 <tr>	
                   <td class="text-center bg-danger "><%= bracket.teams[6] %></td>
                   <td>&nbsp;</td>
                   
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-4"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-4"><div style="height:100%;width:100%">
                     <!--Link: 4
                         winner[3]-->
                     <% if ((bracket.winner[3] == "Game 1") || (bracket.winner[3] == "Game 2")||(bracket.winner[3]== "Final")||(bracket.winner[3]=="Tie Game") || (bracket.winner[3]== "Game 3")){%>
@@ -228,7 +228,7 @@ delete button does not refresh properly-->
                     <%}%>
                 </div></a></td>
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>-8"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-8"><div style="height:100%;width:100%">
                     <!--Link: 8
                         winner[7]-->
                     <% if ((bracket.winner[7] == "Game 1") || (bracket.winner[7] == "Game 2")||(bracket.winner[7]== "Final")||(bracket.winner[7]=="Tie Game") || (bracket.winner[7]== "Game 3")){%>
@@ -241,21 +241,21 @@ delete button does not refresh properly-->
                   <td class="text-center bg-danger "><%= bracket.teams[14] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-danger "><%= bracket.teams[7] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[7] %></td>
                   <td>&nbsp;</td>
                   <td colspan="5"></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[15] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[15] %></td>
                 </tr>
               </tr>
             </table>
             <% } else { %>
               <!--displays the middle table for 8 teams-->
-              <table>
+              <table style="width: 800px">
                 <tr>
                   <td class="text-center bg-danger "><%= bracket.teams[0] %></td>
                   <td>&nbsp;</td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+1"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>+1"><div style="height:100%;width:100%">
                     <!--winner is location of team, this outputs the team name from that loaction -->
                     <!--Link: 1
                         winner[0]-->
@@ -265,8 +265,9 @@ delete button does not refresh properly-->
                       &ensp;<%= bracket.teams[bracket.winner[0]] %>&ensp;
                     <%}%>
                   </div></a></td>
+                  
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+3"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>+3"><div style="height:100%;width:100%">
                     <!--Link: 3
                         winner[2]-->
                     <% if ((bracket.winner[2] == "Game 1") || (bracket.winner[2] == "Game 2")||(bracket.winner[2]== "Final")||(bracket.winner[2]=="Tie Game")) {%>
@@ -279,9 +280,9 @@ delete button does not refresh properly-->
                   <td class="text-center bg-danger "><%= bracket.teams[4] %></td>
                 </tr>
                 <tr>	    
-                  <td class="text-center bg-danger "><%= bracket.teams[1] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[1] %></td>
                   <td>&nbsp;</td>		
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+5"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>+5"><div style="height:100%;width:100%">
                     <!--Link: 5
                         winner[4]-->
                     <% if ((bracket.winner[4] == "Game 1") || (bracket.winner[4] == "Game 2")||(bracket.winner[4]== "Final")||(bracket.winner[4]=="Tie Game")) {%>
@@ -290,16 +291,16 @@ delete button does not refresh properly-->
                       &ensp;<%= bracket.teams[bracket.winner[4]] %>&ensp;
                     <%}%>
                   </div></a></td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+7"><div style="height:100%;width:100%">&ensp; 
+                  <td rowspan ="2" class="text-center box bg-success"><a href="/bracket-list/display/<%= bracket._id %>+7"><div style="font-size:30px;height:100%;width:100%"> 
                     <!--Link: 7
                         winner[6]-->
                     <% if ((bracket.winner[6] == "Game 1") || (bracket.winner[6] == "Game 2")||(bracket.winner[6]== "Final")||(bracket.winner[6]=="Tie Game")) {%>
                       <%=bracket.winner[6]%>  
                     <%} else {%>
-                      &ensp;<%= bracket.teams[bracket.winner[6]] %>&ensp;
+                      <%= bracket.teams[bracket.winner[6]] %>
                     <%}%>
-                    &ensp;</div></a></td><!--here-->
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+6"><div style="height:100%;width:100%">
+                    </div></a></td><!--here-->
+                  <td rowspan ="2" class="box bg-dark" ><a href="/bracket-list/display/<%= bracket._id %>+6"><div style="height:100%;width:100%">
                     <!--Link: 6
                         winner[5]-->
                     <% if ((bracket.winner[5] == "Game 1") || (bracket.winner[5] == "Game 2")||(bracket.winner[5]== "Final")||(bracket.winner[5]=="Tie Game")) {%>
@@ -309,12 +310,12 @@ delete button does not refresh properly-->
                     <%}%>
                   </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[5] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[5] %></td>
                 </tr>
                 <tr>	
                   <td class="text-center bg-danger "><%= bracket.teams[2] %></td>
                   <td>&nbsp;</td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+2"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>+2"><div style="height:100%;width:100%">
                     <!--Link: 2
                         winner[1]-->
                     <% if ((bracket.winner[1] == "Game 1") || (bracket.winner[1] == "Game 2")||(bracket.winner[1]== "Final")||(bracket.winner[1]=="Tie Game")) {%>
@@ -323,7 +324,7 @@ delete button does not refresh properly-->
                       &ensp;<%= bracket.teams[bracket.winner[1]] %>&ensp;
                     <%}%>
                   </div></a></td>
-                  <td rowspan ="2" class="box"><a href="/bracket-list/display/<%= bracket._id %>+4"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>+4"><div style="height:100%;width:100%">
                     <!--Link: 4
                         winner[3]-->
                     <% if ((bracket.winner[3] == "Game 1") || (bracket.winner[3] == "Game 2")||(bracket.winner[3]== "Final")||(bracket.winner[3]=="Tie Game")) {%>
@@ -336,11 +337,11 @@ delete button does not refresh properly-->
                   <td class="text-center bg-danger "><%= bracket.teams[6] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-danger "><%= bracket.teams[3] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[3] %></td>
                   <td>&nbsp;</td>
                   <td colspan="3"></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[7] %></td>
+                  <td class="text-center bg-dark "><%= bracket.teams[7] %></td>
                 </tr>
               </table>
               
@@ -365,56 +366,7 @@ delete button does not refresh properly-->
         </form>
       </main>
     </div>
-    <!--cut able, old radio button codeVVV-->
-    <script>
-
-      $("#setWinner1").click(
-        function (event) {
-          var val1 = $(`.group1:checked`).val();
-          $(`#win1`).html(`<input type="radio" class="win1group1" name="win1group1" value="${val1}">${val1}</input>`);
-          var val2 = $(`.group2:checked`).val();
-          $(`#win2`).html(`<input type="radio" class="win1group1" name="win1group1" value="${val2}">${val2}</input>`);
-          var val3 = $(`.group3:checked`).val();
-          $(`#win3`).html(`<input type="radio" class="win1group2" name="win1group2" value="${val3}">${val3}</input>`);
-          var val4 = $(`.group4:checked`).val();
-          $(`#win4`).html(`<input type="radio" class="win1group2" name="win1group2" value="${val4}">${val4}</input>`);
-          var val5 = $(`.group5:checked`).val();
-          $(`#win5`).html(`<input type="radio" class="win1group3" name="win1group3" value="${val5}">${val5}</input>`);
-          var val6 = $(`.group6:checked`).val();
-          $(`#win6`).html(`<input type="radio" class="win1group3" name="win1group3" value="${val6}">${val6}</input>`);
-          var val7 = $(`.group7:checked`).val();
-          $(`#win7`).html(`<input type="radio" class="win1group4" name="win1group4" value="${val7}">${val7}</input>`);
-          var val8 = $(`.group8:checked`).val();
-          $(`#win8`).html(`<input type="radio" class="win1group4" name="win1group4" value="${val8}">${val8}</input>`);
-        });
-
-      $("#setWinner2").click(
-        function (event) {
-          var val1 = $(`.win1group1:checked`).val();
-          $(`#round21`).html(`<input type="radio" class="win2group1" name="win2group1" value="${val1}">${val1}</input>`);
-          var val2 = $(`.win1group2:checked`).val();
-          $(`#round22`).html(`<input type="radio" class="win2group1" name="win2group1" value="${val2}">${val2}</input>`);
-          var val3 = $(`.win1group3:checked`).val();
-          $(`#round23`).html(`<input type="radio" class="win2group2" name="win2group2" value="${val3}">${val3}</input>`);
-          var val4 = $(`.win1group4:checked`).val();
-          $(`#round24`).html(`<input type="radio" class="win2group2" name="win2group2" value="${val4}">${val4}</input>`);
-        });
-
-      $("#setWinner3").click(
-        function (event) {
-          var val1 = $(`.win2group1:checked`).val();
-          $(`#final81`).html(`<input type="radio" class="win3group1" name="win3group1" value="${val1}">${val1}</input>`);
-          var val2 = $(`.win2group2:checked`).val();
-          $(`#final82`).html(`<input type="radio" class="win3group1" name="win3group1" value="${val2}">${val2}</input>`);
-
-        });
-      $("#setWinner4").click(
-        function (event) {
-          var val1 = $(`.win3group1:checked`).val();
-          $(`#final16`).html(`${val1}`);
-        });
-
-    </script>
+   
 
     <%- include ../partials/bottom_nav.ejs %>
       <%- include ../partials/footer.ejs %>
