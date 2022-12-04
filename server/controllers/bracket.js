@@ -437,7 +437,8 @@ module.exports.processingeditpage = (req, res, next) => {
     teams: req.body.teams,
     userid: req.user._id,
     startdate: req.body.startdate,
-    enddate: req.body.enddate
+    enddate: req.body.enddate,
+    winner: ["Game 1", "Game 1", "Game 1", "Game 1", "Game 2", "Game 2", "Final"]
   });
   Bracket.updateOne({ _id: id }, updatebracket, (err) => {
     if (err) {
