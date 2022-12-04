@@ -10,6 +10,12 @@ let bracketModel = mongoose.Schema(
     players: Number,
     description: String,
     teams: Array,
+    scoreG1: Array,
+    scoreG2: Array,
+    scoreG3: Array,
+    scoreG4: Array,//might need a winner array?
+    winner: Array,
+    owner: String,//this will by the _id of the owner
   },
 
   {

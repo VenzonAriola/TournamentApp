@@ -6,18 +6,18 @@
 <!--table background set makes the edit/delete look awkward
 create button fixed -->
 <div id="listPage">
-<!-- <main class="container">-->
+<main class="container">
  
   <form class="form" method="post">
   <div class="row">
-    <div id="tableteamlist" class="col-md-offset-5 col-md-12">
+    <div class="col-md-offset-3 col-md-8">
       <br>
       <h1>
         <!--<a target="_blank" href="#"> -->
-         <img src="../../Assets/images/team_logo2.png" height="100" width="110px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.1in;"/>
+          <img src="../../Assets/images/team_logo2.png" height="120" width="140px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.2in;"/>
      
   
-              <br> &nbsp; <%=title %> List
+              <br> &nbsp; <%=title %>
               
          <!-- </a>-->
         
@@ -32,18 +32,18 @@ create button fixed -->
       <br>
       <% } else{ %>  
         
-      <button type="button" class="btn btn-dark btn-lg px-4 gap-3 text-white" id="create">
+      <button type="button" class="btn btn-dark btn-lg px-4 gap-3 text-white">
         <a href="/bracket-list/createPage/" style="text-decoration:none; color:white">
         Create Tournament</a>
       </button>
-    <br>
-  <div class="row">
-    <!-- <div class ="column" style="width:800px">-->
-      <table class="table table-bordered table-striped" style="background-color:#FFFFFF; style=width:800px">
+    <br><br>
+    <div class="row">
+    <div class ="column">
+      <table class="table table-bordered table-striped" style="background-color:#FFFFFF;">
         <thred class=" table bg-danger">
         <tr>
-          <th id="tnumber" class="text-center" >Number</th>
-          <th id="ttourinfo" class="text-center">Tournament Info</th>
+          <th class="text-center">Number</th>
+          <th class="text-center">Tournament Info</th>
           <th class="text-center">Game Info</th>
           <th class="text-center">Total teams</th>
           <th class="text-center"></th>
@@ -51,18 +51,21 @@ create button fixed -->
           </tr>
         </thred>
         <% for (let count=0; count< BracketList.length; count++){%>
-          <tr style="width:580%">
-            <td width="20px" class="text-centre "><%=count+1 %></td>
+          <tr>
+            <td class="text-centre "><%=count+1 %></td>
             <td class="text-centre "><%=BracketList[count].tournamentName %></td>
             <td class="text-centre "><%=BracketList[count].gameType %></td>
             <td class="text-centre "><%=BracketList[count].players %></td>
-            <td class="text-centre "><button class="btn btn-primary btn-sm">
-              <a href="/bracket-list/show/<%= BracketList[count]._id %>" style="text-decoration:none; color:white">Details</a>
-            </button></td>
             <td class="text-centre ">
-              <button class="btn btn-warning btn-sm" >
+              <a href="/bracket-list/show/<%= BracketList[count]._id %>" style="text-decoration:none; color:white">
+                <input type="button" class="btn btn-primary btn-sm" value="Details">
+              </input>
+              </a>
+          </td>
+            <td class="text-centre ">
               <a href="/bracket-list/delete/<%= BracketList[count]._id %>" style="text-decoration:none; color:white">
-              Delete</a></button></td>
+              <input type="button" class="btn btn-warning btn-sm" value="Delete">
+              </a></td>
           </tr>
           <%}%>
       </table>
@@ -71,12 +74,9 @@ create button fixed -->
       <br>
       
       <% } %>
-      <div style="height: 40px; ">
+      <div style="height: 40px;">
 
       </div>
-      
-      
-      
     </div>
   </div>
   </form>
