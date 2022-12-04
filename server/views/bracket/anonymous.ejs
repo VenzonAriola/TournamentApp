@@ -139,17 +139,17 @@ delete button does not refresh properly-->
                   <td>&nbsp;</td>
                 </tr>
                 <tr>
-                  <% if (bracket.winner != null){ %>
-                  <td id="win1" class="bg-danger"><%=bracket.winner[0]%> </td>
+                  <% if (bracket.winner[0]){ %>
+                  <td id="win1" class="bg-danger"><%=bracket.teams[bracket.winner[0]]%></td>
                   <% } else { %>
                   <td id="win1" class="bg-danger">game 1</td>
                   <% } %>
                 </tr>
                 <tr>
-                  <% if (bracket.winner != null){ %>
-                    <td id="win2" class="bg-danger"><%=bracket.winner[1]%> </td>
+                  <% if (bracket.winner[1] != null){ %>
+                    <td id="win2" class="bg-dark"><%=bracket.teams[bracket.winner[1]]%> </td>
                     <% } else { %>
-                    <td id="win2" class="bg-danger">game 1</td>
+                    <td id="win2" class="bg-dark">game 1</td>
                     <% } %>
                 </tr>
                 <tr>
@@ -163,8 +163,11 @@ delete button does not refresh properly-->
                   <td>&nbsp;</td>
                 </tr>
                 <tr>
-
-                  <td id="round21" class="text-center bg-dark">game 2</td>
+                  <% if (bracket.winner[4] != null){ %>
+                    <td id="win3" class="bg-dark"><%=bracket.teams[bracket.winner[4]]%></td>
+                    <% } else { %>
+                    <td id="win3" class="bg-dark">game 2</td>
+                    <% } %>
                 </tr>
                 <tr class="text-center ">
                   <td>&nbsp;</td>
@@ -174,8 +177,12 @@ delete button does not refresh properly-->
 
               <table style="width: 150px;">
                 <tr>
-                  <td id="final81" class="text-center bg-success" style="width:140px; font-size: 30px;">&ensp; final
-                    &ensp;</td>
+                  <% if (bracket.winner[6] != null){ %>
+                    <td id="win3" class="text-center bg-success" style="width:140px; font-size: 30px;">&ensp;<%=bracket.teams[bracket.winner[6]]%>&ensp;</td>
+                    <% } else { %>
+                      <td id="final81" class="text-center bg-success" style="width:140px; font-size: 30px;">&ensp; final
+                        &ensp;</td>
+                    <% } %>
                 </tr>
               </table>
               &nbsp;
@@ -185,9 +192,11 @@ delete button does not refresh properly-->
                   <td>&nbsp;</td>
                 </tr>
                 <tr>
-                  <td id="round22" class="text-center bg-dark">game 2</td>
-
-                </tr>
+                  <% if (bracket.winner[5] != null){ %>
+                    <td id="win3" class="bg-dark"><%=bracket.teams[bracket.winner[5]]%></td>
+                    <% } else { %>
+                    <td id="win3" class="bg-dark">game 2</td>
+                    <% } %></tr>
                 <tr class="text-center">
                   <td>&nbsp;</td>
                 </tr>
@@ -201,17 +210,17 @@ delete button does not refresh properly-->
                   <td>&nbsp;</td>
                 </tr>
                 <tr>
-                  <% if (bracket.winner != null){ %>
-                    <td id="win3" class="bg-danger"><%= bracket.winner[2]%> </td>
+                  <% if (bracket.winner[2] != null){ %>
+                    <td id="win3" class="bg-danger"><%=bracket.teams[bracket.winner[2]]%></td>
                     <% } else { %>
                     <td id="win3" class="bg-danger">game 1</td>
                     <% } %>
                 </tr>
                 <tr>
-                  <% if (bracket.winner != null){ %>
-                    <td id="win4" class="bg-danger"><%= bracket.winner[3]%> </td>
+                  <% if (bracket.winner[3] != null){ %>
+                    <td id="win4" class="bg-dark"><%=bracket.teams[bracket.winner[3]]%></td>
                     <% } else { %>
-                    <td id="win4" class="bg-danger">game 1</td>
+                    <td id="win4" class="bg-dark">game 1</td>
                     <% } %>
                 </tr>
                 <tr>
