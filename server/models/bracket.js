@@ -18,7 +18,7 @@ let bracketModel = mongoose.Schema(
     scoreG3: Array,
     scoreG4: Array,//might need a winner array?
     winner: Array,
-    owner: String,//this will by the _id of the owner
+    
   },
 
   {

@@ -139,10 +139,18 @@ delete button does not refresh properly-->
                   <td>&nbsp;</td>
                 </tr>
                 <tr>
+                  <% if (bracket.winner != null){ %>
+                  <td id="win1" class="bg-danger"><%=bracket.winner[0]%> </td>
+                  <% } else { %>
                   <td id="win1" class="bg-danger">game 1</td>
+                  <% } %>
                 </tr>
                 <tr>
-                  <td id="win2" class="bg-dark">game 1</td>
+                  <% if (bracket.winner != null){ %>
+                    <td id="win2" class="bg-danger"><%=bracket.winner[1]%> </td>
+                    <% } else { %>
+                    <td id="win2" class="bg-danger">game 1</td>
+                    <% } %>
                 </tr>
                 <tr>
                   <td>&nbsp;</td>
@@ -193,10 +201,18 @@ delete button does not refresh properly-->
                   <td>&nbsp;</td>
                 </tr>
                 <tr>
-                  <td id="win3" class="bg-danger">game 1</td>
+                  <% if (bracket.winner != null){ %>
+                    <td id="win3" class="bg-danger"><%= bracket.winner[2]%> </td>
+                    <% } else { %>
+                    <td id="win3" class="bg-danger">game 1</td>
+                    <% } %>
                 </tr>
                 <tr>
-                  <td id="win4" class="bg-dark">game 1</td>
+                  <% if (bracket.winner != null){ %>
+                    <td id="win4" class="bg-danger"><%= bracket.winner[3]%> </td>
+                    <% } else { %>
+                    <td id="win4" class="bg-danger">game 1</td>
+                    <% } %>
                 </tr>
                 <tr>
                   <td>&nbsp;</td>

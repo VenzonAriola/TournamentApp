@@ -55,7 +55,7 @@ module.exports.addprocesspage = (req, res, next) => {
       scoreG4: [],
       winner: ["Game 1", "Game 1", "Game 1", "Game 1", "Game 1", "Game 1", "Game 1", "Game 1", 
       "Game 2", "Game 2", "Game 2", "Game 2", "Game 3", "Game 3", "Final"],//required defualt values for the winner array
-      //owner: _id of current user.
+      
       //scoreG1: req.body.players//this adds players to scoreG1
     });
   } else if (len == 8){
@@ -63,6 +63,8 @@ module.exports.addprocesspage = (req, res, next) => {
       tournamentName: req.body.tournamentName,
       gameType: req.body.gameType,
       players: req.body.players,
+      startdate: req.body.startdate,
+      enddate: req.body.enddate,
       description: req.body.description,
       teams: req.body.teams,
       scoreG1: [],
