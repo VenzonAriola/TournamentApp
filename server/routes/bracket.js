@@ -42,7 +42,10 @@ router.get("/display/:id", bracketController.scoreDisplayPage);
 
 router.post("/display/:id", bracketController.scoreProcessPage);
 
-//router.get("/display/winCount/:id", bracketController.scoreProcessPage2);
+
+//*Get to perform page for anonymous
+router.get("/showall/:id", bracketController.showTournamentpage);
+
 
 module.exports = router;
 

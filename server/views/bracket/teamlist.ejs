@@ -40,9 +40,10 @@ create button fixed -->
         <tr>
           <th class="text-center">Number</th>
           <th class="text-center">Tournament Info</th>
+          <th class="text-center">Status</th>
           <th class="text-center">Game Info</th>
           <th class="text-center">Total teams</th>
-          <th class="text-center"></th>
+     
           <th class="text-center"></th>
           </tr>
         </thred>
@@ -50,18 +51,39 @@ create button fixed -->
           <tr>
             <td class="text-centre "><%=count+1 %></td>
             <td class="text-centre "><%=BracketList[count].tournamentName %></td>
-            <td class="text-centre "><%=BracketList[count].gameType %></td>
-            <td class="text-centre "><%=BracketList[count].players %></td>
-            <td class="text-centre ">
-              <a href="/bracket-list/show/<%= BracketList[count]._id %>" style="text-decoration:none; color:white">
-                <input type="button" class="btn btn-primary btn-sm" value="Details">
-              </input>
-              </a>
-          </td>
-            <td class="text-centre ">
-              <a href="/bracket-list/delete/<%= BracketList[count]._id %>" style="text-decoration:none; color:white">
-              <input type="button" class="btn btn-warning btn-sm" value="Delete">
-              </a></td>
+            <td class="text-centre "><%=BracketList[count].status%></td>
+            <td class="text-centre "><%=BracketList[count].gameType%></td>
+            <td class="text-centre "><%=BracketList[count].players%></td>
+ 
+            <td class="text-centre "><button class="btn btn-primary btn-sm">
+              <a href="/bracket-list/showall/<%= BracketList[count]._id %>"
+                style="text-decoration:none; color:white">View</a>
+            </button></td>
+          
+            <% if(User !=null){ %>
+              <% if(BracketList[count].userid==User._id){ %>
+                <td class="text-centre "><button class="btn btn-primary btn-sm">
+                    <a href="/bracket-list/show/<%= BracketList[count]._id %>"
+                      style="text-decoration:none; color:white">Details</a>
+                  </button></td>
+                <td class="text-centre ">
+                  <button class="btn btn-warning btn-sm">
+                    <a href="/bracket-list/delete/<%= BracketList[count]._id %>"
+                      style="text-decoration:none; color:white">
+                      Delete</a></button>
+                </td>
+                <% } else{ %>
+                  <td class="text-centre "><button class="btn btn-primary btn-sm" style="height:32px"
+                      disabled>
+                      <p style="color:white">Details</p>
+                    </button></td>
+                  <td class="text-centre ">
+                    <button class="btn btn-warning btn-sm" style="height:32px" disabled>
+                      <p style="color:white">Delete</p>
+                    </button>
+                  </td>
+                  <%}%>
+                    <%}%>
           </tr>
           <%}%>
       </table>
@@ -79,4 +101,8 @@ create button fixed -->
 
 </main>
 </div>
+<script>
+  const date = moment();
+
+</script>
 <%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
