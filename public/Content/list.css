@@ -56,6 +56,7 @@ body {
 	min-height: 100vh;
 	background-position: fixed;
 	overflow: scroll;
+	background-repeat: no-repeat;
   }
   h1 {
 	background-repeat: no-repeat;
@@ -73,6 +74,7 @@ body {
 	border-radius: 15px;
 	box-shadow: 5px 5px 5px #808080;
 	text-align: left;
+	background-repeat: no-repeat;
   }
 
   #listPage {
@@ -131,6 +133,7 @@ body {
 	color: white;
 	font-weight: 800;
 	font-size: 14pt;	
+	background-repeat: no-repeat;
 
 	/* background-color: rgb(233, 240, 243); */
 

@@ -13,6 +13,14 @@ let User = userModel.User; //alias
 
 
 
+module.exports.displayAbout = (req, res, next) => {
+  res.render("about", { title: "About",
+  
+ });
+
+};
+
+
 module.exports.displayHomepage = (req, res, next) => {
   res.render("index", { title: "Home",
   displayName: req.user ? req.user.displayName : "",

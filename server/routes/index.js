@@ -3,6 +3,10 @@ let router = express.Router();
 
 let bracketController = require("../controllers/index");
 
+/* GET about page. */
+router.get("/About", bracketController.displayAbout);
+
+
 /* GET home page. */
 router.get("/", bracketController.displayHomepage);
 
