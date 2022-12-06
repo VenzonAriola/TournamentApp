@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
   background-position: fixed;
   overflow: scroll;
+  background-repeat: no-repeat;
 }
 h1 {
   background-repeat: no-repeat;
@@ -27,6 +28,7 @@ h1 {
   border-radius: 15px;
   box-shadow: 5px 5px 5px #808080;
   text-align: left;
+  background-repeat: no-repeat;
 }
 
 blockquote {
@@ -52,6 +54,7 @@ hr {
   /*background-color: rgb(233, 240, 243, 95);*/
   background-color: rgba(255, 255, 255, 0.5);
   color: rgb(19, 18, 18);
+  background-repeat: no-repeat;
 }
 a {
   text-decoration: none;

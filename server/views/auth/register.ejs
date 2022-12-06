@@ -1,15 +1,19 @@
 <%- include ../partials/header.ejs %>
 <%- include ../partials/main_nav.ejs %>
-
-<main class="container">
-  <!-- Message Area -->
+<head> <link rel='stylesheet' href='/Content/register.css' /> </head>
+<br><br><br>
+<!--<main class="container">-->
+  <!-- Message Area --> <div id="loginPage">
   <% if(messages.length > 0) {%>
   <div class="alert alert-danger"><%= messages %></div>
   <% } %>
 
-  <div class="row">
-    <div class="offset-md-4 col-md-4">
-      <h1>Please Register</h1>
+
+
+       <br><h1>
+  <img src="../../Assets/images/team_logo2.png" height="100" width="110px" style="float:left; margin-left: 0.95in; margin-right: 0.25in; margin-top: 0.15in;"/>
+  <br> &nbsp; Please Register</h1>
+<br>
       <form method="POST" autocomplete="off">
         <fieldset class="form-group">
           <label for="username">Username: </label>
