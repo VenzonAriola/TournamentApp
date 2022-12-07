@@ -6,6 +6,7 @@ let mongoose = require("mongoose");
 let bracketModel = mongoose.Schema(
   {
     tournamentName: String,
+    status: String,
     gameType: String,
     players: Number,
     description: String,
@@ -16,9 +17,8 @@ let bracketModel = mongoose.Schema(
     scoreG1: Array,
     scoreG2: Array,
     scoreG3: Array,
-    scoreG4: Array,//might need a winner array?
+    scoreG4: Array, //might need a winner array?
     winner: Array,
-    
   },
 
   {
