@@ -43,6 +43,7 @@ body {
 	padding: 6px;
 	padding-left: 10 px;
 	background-color: rgb(233, 240, 243, 95);
-	background-color: rgba(255, 255, 255, 0.55);
+	/*background-color: rgba(255, 255, 255, 0.55);*/
+	background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242);
 	color: rgb(12, 10, 121);
   }

@@ -11,10 +11,10 @@ body {
   background-position: fixed;
   overflow: scroll;
   background-repeat: no-repeat;
+  color: white;
 }
 h1 {
-  background-repeat: no-repeat;
-  background-image: url("/Assets/images/graybg.jpg");
+  background-image: linear-gradient(to right, #fdfdff, #ebeff7);
   background-position: left;
   background-size: 5 px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -23,7 +23,7 @@ h1 {
   color: black;
   padding-left: 100px;
   height: 120px;
-  width: 670px;
+  width: 685px;
   padding-top: 1px;
   border-radius: 15px;
   box-shadow: 5px 5px 5px #808080;
@@ -50,11 +50,12 @@ hr {
   border-radius: 20px;
   box-shadow: 5px 5px 5px #6769e6;
   padding: 6px;
-  padding-left: 130px;
+  padding-left: 100px;
   /*background-color: rgb(233, 240, 243, 95);*/
-  background-color: rgba(255, 255, 255, 0.5);
-  color: rgb(19, 18, 18);
+  background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242);
+  color: rgb(19, 18, 18, 0.97);
   background-repeat: no-repeat;
+  color: white;
 }
 a {
   text-decoration: none;
@@ -65,11 +66,11 @@ form {
   font-size: 14pt;
 }
 label {
-  width: 290px;
+  width: 310px;
   float: left;
   text-align: left;
-  padding-right: 15px;
-  font-size: 16pt;
+ 
+  font-size: 15pt;
 }
 #button {
   text-align: center;

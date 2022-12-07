@@ -27,8 +27,7 @@ body {
   overflow: scroll;
 }
 h1 {
-  background-repeat: no-repeat;
-  background-image: url("/Assets/images/graybg.jpg");
+  background-image: linear-gradient(to right, #fdfdff, #ebeff7);
   background-position: left;
   background-size: 5 px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -38,10 +37,21 @@ h1 {
   padding-left: 150px;
   height: 120px;
   width: 800px;
-  padding-top: 1px;
+  padding-top: 0.01px;
   border-radius: 15px;
   box-shadow: 5px 5px 5px #808080;
   text-align: left;
+  margin-left: 15px;
+  
+
+  
+}
+table {
+  margin: auto;
+  padding-left: 150px;
+  margin-left: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14;
 }
 
 #tableteamlist {
@@ -96,9 +106,13 @@ padding-left: 190px;
   box-shadow: 5px 5px 5px #6769e6;
   padding: 6px;
   padding-left: 180px;
-  background-color: rgb(233, 240, 243, 95);
-  background-color: rgba(255, 255, 255, 0.5);
-  color: rgb(19, 18, 18);
+  width: 980px;
+  margin: auto;
+
+  /*background-color: rgb(233, 240, 243, 95);
+  background-color: rgba(255, 255, 255, 0.5);*/
+  color: rgb(245, 238, 238);
+  background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242);
 }
 
 

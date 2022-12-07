@@ -5,23 +5,24 @@
 <!-- Main Content -->
 <!--table background set makes the edit/delete look awkward
 create button fixed -->
+<br><br><br>
 <div id="listPage">
-<main class="container">
+<!--<main class="container">-->
  
   <form class="form" method="post">
   <div class="row">
     <div class="col-md-offset-3 col-md-8">
-      <br>
+   
       <h1>
         <!--<a target="_blank" href="#"> -->
-          <img src="../../Assets/images/team_logo2.png" height="120" width="140px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.2in;"/>
-     
-  
-              <br> &nbsp; <%=title %>
+         <img src="../../Assets/images/team_logo2.png" height="120" width="140px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.01in;"/>
+                
+       
+              <br> &nbsp; <%=title %> List
               
          <!-- </a>-->
         
-        </h1>
+        </h1> &nbsp;
         <a href="/bracket-list/createPage/" style="text-decoration:none; color:white">
         <input type="button" class="btn btn-dark btn-lg px-4 gap-3 text-white" value="&#xf055; Create Tournament"><i class ="fas fa-plus-circle"><!--to be removed--></i></input></a>
       <% if(BracketList.length == 0){ %>
@@ -34,7 +35,7 @@ create button fixed -->
     <br><br>
     <div class="row">
     <div class ="column">
-      <table class="table table-bordered table-striped" style="background-color:#FFFFFF;">
+      <table class="table table-bordered table-striped" style="background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242); color:white">
         <thred class=" table bg-danger">
         <tr>
           <th class="text-center">Number</th>
@@ -67,7 +68,7 @@ create button fixed -->
                 <td class="text-centre ">
                   <a href="/bracket-list/delete/<%= BracketList[count]._id %>"
                       style="text-decoration:none; color:white">
-                      <input type="button" class="btn btn-warning btn-sm" value="Delete"></input></a>
+                      <input type="button" class="btn btn-warning btn-sm" value="Delete" style="color:white"></input></a>
                 </td>
                 <% } else{ %>
                   <td class="text-centre "><a href="/bracket-list/show/<%= BracketList[count]._id %>"
@@ -75,7 +76,7 @@ create button fixed -->
                   <td class="text-centre ">
                    <a href="/bracket-list/delete/<%= BracketList[count]._id %>"
                       style="text-decoration:none; color:white">
-                      <input type="button" class="btn btn-warning btn-sm" value="Delete" disabled></input></a>
+                      <input type="button" class="btn btn-warning btn-sm" value="Delete" disabled style="color:white"></input></a>
                   </td>
                   <%}%>
                     <%}%>

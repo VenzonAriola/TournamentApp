@@ -11,7 +11,7 @@ Team names are not required, could cause issues-->
 <!--previously createPage.css changed to match edit page-->
 
     
-<br> 
+<br> <br>
 <div id="allPage">
 <div class="container" style>
     <div class="row">
@@ -48,12 +48,12 @@ Team names are not required, could cause issues-->
                 placeholder="Game name"
                 name="gameType" required>
             </div>
-            <div class="form-group" style="display: flex;">
-                <label for="dateField">Start</label>
+            <div class="form-group" style="display: flex; text-align:left width:100px">
+                <label for="dateField">Tournament Start Date</label>
                 <input type="date" id="startdate" name="startdate" required>
             </div>
             <div class="form-group" style="display: flex;">
-                <label for="dateField">End</label>
+                <label for="dateField">Tournament End  Date</label>
                 <input type="date" id="enddate"  name="enddate" required>
             </div>
             <div class="form-group">
@@ -101,8 +101,8 @@ Team names are not required, could cause issues-->
             &nbsp;&nbsp;
             <!--submit button for the form above, 
             return to /home page using the cancel button-->
-            <a href="/" class="btn btn-warning">
-            <i class="fas fa-undo"></i>Cancel</a>
+            <a href="/" class="btn btn-warning" style="background-color:red; color:white">
+            <i class="fas fa-undo" ></i>Cancel</a>
         </div>
         </form>
         <br> 

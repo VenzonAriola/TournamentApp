@@ -7,24 +7,28 @@
 Tournament layout to set up the teams
 display missing some spacing
 delete button does not refresh properly-->
-    <div id="displayPage">
-      <main class="container">
+<head> <link rel='stylesheet' href='/Content/anonymous.css' /> </head>
+<br><br><br>
+    <div id="allPage">
+      <!--<main class="container">-->
         <form class="form" method="post">
           <div class="row">
+<br><h1>
+  <img src="../../Assets/images/team_logo2.png" height="100" width="110px" style="float:left; margin-left: 0.95in; margin-right: 0.25in; margin-top: 0.10in;"/>
+  <br> &nbsp; <%=title %></h1>
 
-            <h1>
-              <%=title %>
-            </h1>
+
+    
             <div class="col-md-offset-3 col-md-8">
 
               <br />
-              <table class="table table-bordered table-striped" style="background-color:#FFFFFF;">
+              <table class="table table-bordered table-striped" style="background-color:#FFFF1; width:136%; boder=2">
                 <!--HEader row-->
                 <tr>
-                  <th class="text-center">Tournament Info</th>
-                  <th class="text-center">Game Info</th>
-                  <th class="text-center">Number of Teams</th>
-                  <th class="text-center">Description</th>
+                  <th class="text-center;" style=" width:40px ">Tournament Info</th>
+                  <th class="text-center;" style=" width:40px ">Game Info</th>
+                  <th class="text-center;" style=" width:10px ">Number of Teams</th>
+                  <th class="text-center;" style=" width:15px ">Description</th>
                 </tr>
                 <tr>
                   <td class="text-centre ">
@@ -42,7 +46,7 @@ delete button does not refresh properly-->
                 </tr>
               </table>
               <br>
-              <H4>Round 1</H1>
+              <H4>Round 1</H4>
             </div>
           </div>
 
@@ -53,7 +57,7 @@ delete button does not refresh properly-->
             <table style="width: 120px;">
               <!--uses bracket.players instead of number of entries to fix but when changing number of teams in edit page-->
               <% if (bracket.players==8){ %>
-                <tr class="table-noborder bg-dark">
+                <tr class="table-noborder" style="background-color:yellow; color:white">
                   <td class="text-center bg-danger">
                     <%= bracket.teams[0] %> 
                   </td>
@@ -445,10 +449,10 @@ delete button does not refresh properly-->
             <!--<div style="height: 40px;">-->
            
 
-            <%}%>
+            <%}%> <br><br>
         </form>
       </main>
-    </div>
+    </div> <br>
     
 
     <%- include ../partials/bottom_nav.ejs %>

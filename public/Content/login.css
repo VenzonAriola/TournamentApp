@@ -56,13 +56,15 @@ body {
 	min-height: 100vh;
 	background-position: fixed;
 	overflow: scroll;
+	color: aliceblue;
   }
   h1 {
-	background-repeat: no-repeat;
-	background-image: url("/Assets/images/graybg.jpg");
-	background-position: left;
-	background-size: 5 px;
-	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	/*background-repeat: no-repeat; /*
+	background-image: url("/Assets/images/graybg.jpg");*/
+	background-image: linear-gradient(to right, #fdfdff, #ebeff7);
+	
+	
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	font-size: 2em;
 	font-weight: 900;
 	color: rgb(19, 18, 18);
@@ -130,11 +132,12 @@ body {
     box-shadow: 5px 5px 5px #484bec;
 	background-image: url('teamlogo3.png');
 	background-color: rgba(190, 184, 209, 0.9);
-	color: rgb(26, 24, 24);
+	color: rgb(255, 255, 255);
 	font-weight: 800;
 	font-size: 14pt;	
     text-align: left;
-	 background-color: rgb(233, 240, 243, 96); 
+	 /*background-color: rgb(233, 240, 243, 96); */
+	 background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242);
      
 }
 

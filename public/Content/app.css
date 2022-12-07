@@ -172,10 +172,12 @@ body {
     min-height: 100vh; */
   /*Reference: https://tophinhanhdep.com/anh-dep/blue-lightning-wallpapers/
 https://wallpaperaccess.com/red-and-blue-lightning */
+
 }
 h1 {
   background-repeat: no-repeat;
-  background-image: url("graybg.jpg");
+  /*background-image: url("graybg.jpg");*/
+  background-color: blanchedalmond;
   background-position: left;
   background-size: 5 px;
   font-family: Arial, Helvetica, sans-serif;
