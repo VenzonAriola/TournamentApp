@@ -11,7 +11,7 @@ create button fixed -->
  
   <form class="form" method="post">
   <div class="row">
-    <div class="col-md-offset-3 col-md-8">
+    <!--<div class="col-md-offset-3 col-md-8"> -->
    
       <h1>
         <!--<a target="_blank" href="#"> -->
@@ -22,8 +22,9 @@ create button fixed -->
               
          <!-- </a>-->
         
-        </h1> &nbsp;
-        <a href="/bracket-list/createPage/" style="text-decoration:none; color:white">
+        </h1>
+        &nbsp;&nbsp;&nbsp; &nbsp; 
+     <a href="/bracket-list/createPage/" style="text-decoration:none; color:white">&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
         <input type="button" class="btn btn-dark btn-lg px-4 gap-3 text-white" value="&#xf055; Create Tournament"><i class ="fas fa-plus-circle"><!--to be removed--></i></input></a>
       <% if(BracketList.length == 0){ %>
           
@@ -35,17 +36,17 @@ create button fixed -->
     <br><br>
     <div class="row">
     <div class ="column">
-      <table class="table table-bordered table-striped" style="background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242); color:white">
+      <table class="table table-bordered table-striped" style="background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242); color:white width:100%;">
         <thred class=" table bg-danger">
         <tr>
-          <th class="text-center">Number</th>
-          <th class="text-center">Tournament Info</th>
-          <th class="text-center">Status</th>
-          <th class="text-center">Game Info</th>
-          <th class="text-center">Total teams</th>
-          <th class="text-center">End date </th>
+          <th class="text-center" style=" width:10 ">#</th>
+          <th class="text-center" style=" width:80 ">Tournament Info</th>
+          <th class="text-center" style=" width:40 ">Status</th>
+          <th class="text-center" style=" width:4 ">Game Info</th>
+          <th class="text-center" style=" width:5 ">Total<br>teams</th>
+          <th class="text-center" style=" width:80 ">End date </th>
      
-          <th class="text-center"></th>
+     
           </tr>
         </thred>
         <% for (let count=0; count< BracketList.length; count++){%>
@@ -90,9 +91,9 @@ create button fixed -->
       <br>
       
       <% } %>
-      <div style="height: 40px;">
+     <!-- <div style="height: 40px;">
 
-      </div>
+      </div> -->
     </div>
   </div>
   </form>
