@@ -25,7 +25,7 @@ create button fixed -->
         </h1>
         &nbsp;&nbsp;&nbsp; &nbsp; 
      <a href="/bracket-list/createPage/" style="text-decoration:none; color:white">&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
-        <input type="button" class="btn btn-dark btn-lg px-4 gap-3 text-white" value="&#xf055; Create Tournament"><i class ="fas fa-plus-circle"><!--to be removed--></i></input></a>
+        <input type="button" class="btn btn-dark btn-lg px-4 gap-3 text-white" value="&#xf055; Create Tournament"><i class ="fas fa-plus-circle"><!--to be removed--></i></a></input>
       <% if(BracketList.length == 0){ %>
           
         &nbsp;
@@ -42,8 +42,8 @@ create button fixed -->
           <th class="text-center" style=" width:10 ">#</th>
           <th class="text-center" style=" width:80 ">Tournament Info</th>
           <th class="text-center" style=" width:40 ">Status</th>
-          <th class="text-center" style=" width:4 ">Game Info</th>
           <th class="text-center" style=" width:5 ">Total<br>teams</th>
+             <th class="text-center" style=" width:80 ">Start date </th>
           <th class="text-center" style=" width:80 ">End date </th>
      
      
@@ -53,9 +53,9 @@ create button fixed -->
           <tr>
             <td class="text-centre "><%=count+1 %></td>
             <td class="text-centre "><%=BracketList[count].tournamentName %></td>
-            <td class="text-centre "><%=BracketList[count].status%></td>
-            
+            <td class="text-centre "><%=BracketList[count].status%></td>            
             <td class="text-centre "><%=BracketList[count].players%></td>
+            <td class="text-centre "><%=BracketList[count].startdate.toISOString().replace('T', ' ').substr(0, 10)%></td>
             <td class="text-centre "><%=BracketList[count].enddate.toISOString().replace('T', ' ').substr(0, 10)%></td>
  
             <td class="text-centre ">
@@ -104,4 +104,4 @@ create button fixed -->
   const date = moment();
 
 </script>
-<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>
+<%- include ../partials/bottom_nav.ejs %><%- include ../partials/footer.ejs %>
