@@ -48,7 +48,11 @@ Team names are not required, could cause issues-->
                 placeholder="Game name"
                 name="gameType" required>
             </div>
+<<<<<<< HEAD
             <div class="form-group" style="display: flex; text-align:left; width:100px">
+=======
+            <div class="form-group" style="display: flex; text-align:left width:100px">
+>>>>>>> origin/endstartDate
                 <label for="dateField">Tournament Start Date</label>
                 <input type="date" id="startdate" name="startdate" required>
             </div>
@@ -131,12 +135,15 @@ $( "#players8" ).click(function() {
         $("#col2").css("visibility","hidden");
     }},);
 });
+<<<<<<< HEAD
 
 document.getElementById("startdate").addEventListener("change", function() {
     var input = this.value;
     var dateEntered = new Date(input).toISOString().split('T')[0];    
     document.getElementsByName("enddate")[0].setAttribute('min', dateEntered);
 });
+=======
+>>>>>>> origin/endstartDate
 </script>
 
 
