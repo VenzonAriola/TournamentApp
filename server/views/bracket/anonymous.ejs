@@ -19,7 +19,7 @@ delete button does not refresh properly-->
 
 
     
-            <div class="col-md-offset-3 col-md-8">
+            <div class="col-md">
 
               <br />
               <table class="table table-bordered table-striped" style="background-color:#FFFF1; width:100%; boder=2">
@@ -28,9 +28,9 @@ delete button does not refresh properly-->
                   <th class="text-center;" style=" width:40px ">Tournament Info</th>
                   
                   <th class="text-center;" style=" width:40px ">Status</th>
-                  <th class="text-center;" style=" width:40px ">Game Info</th>
+                  <th class="text-center;" style=" width:40px ">Game Info</ th>
                   <th class="text-center;" style=" width:10px ">Number of Teams</th>
-                  <th class="text-center;" style=" width:15px ">Description</th>
+                  <th class="text-center;" style=" width:85px ">Description</th>
                 </tr>
                 <tr>
                   <td class="text-centre ">
@@ -54,12 +54,13 @@ delete button does not refresh properly-->
               <H4>Round 1</H4>
             </div>
           </div>
-
+          
           <div class="row">
+      
             <!--3 tables are made (in order), 
             1/2 team names | game table display | other 1/2 team names-->
 
-            <table style="width: 120px;">
+            <table style="width: 150px;">
               <!--uses bracket.players instead of number of entries to fix but when changing number of teams in edit page-->
               <% if (bracket.players==8){ %>
                 <tr class="table-noborder" style="background-color:yellow; color:white">
@@ -143,7 +144,7 @@ delete button does not refresh properly-->
 
             <% if (bracket.players==8){ %>
               <!--displays the middle table for 8 teams-->
-              <table style="width: 100px;">
+              <table style="width: 120px;">
                 <tr>
                   <td>&nbsp;</td>
                 </tr>
@@ -167,7 +168,7 @@ delete button does not refresh properly-->
               </table>
               &nbsp;
 
-              <table style="width: 100px;">
+              <table style="width: 120px;">
                 <tr class="text-center ">
                   <td>&nbsp;</td>
                 </tr>
@@ -196,7 +197,7 @@ delete button does not refresh properly-->
               </table>
               &nbsp;
 
-              <table style="width: 100px;">
+              <table style="width: 120px;">
                 <tr class="text-center">
                   <td>&nbsp;</td>
                 </tr>
@@ -214,7 +215,7 @@ delete button does not refresh properly-->
               &nbsp;
 
 
-              <table style="width: 100px;">
+              <table style="width: 120px;">
                 <tr>
                   <td>&nbsp;</td>
                 </tr>

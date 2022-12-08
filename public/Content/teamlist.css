@@ -54,6 +54,8 @@ table {
   font-weight: 600;
   width: 100%;
   margin-left: 39px;
+  padding: 0%;
+  width:fit-content;
 }
 
 #tableteamlist {
@@ -108,7 +110,7 @@ padding-left: 190px;
   box-shadow: 5px 5px 5px #6769e6;
   padding: 6px;
   padding-left: 10px;
-  width: 980px;
+  width: 1150px;
   margin: auto;
 
   /*background-color: rgb(233, 240, 243, 95);
@@ -187,7 +189,8 @@ label {
 footer {
   text-align: center;
   height: 50px;
-  background-color: rgb(83, 87, 90);
+  background-color: rgba(83, 87, 90, 0);
   color: rgb(255, 255, 255);
   font-size: large;
+  
 }
