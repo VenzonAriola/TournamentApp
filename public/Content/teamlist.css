@@ -41,7 +41,7 @@ h1 {
   border-radius: 15px;
   box-shadow: 5px 5px 5px #808080;
   text-align: left;
-  margin-left: 35px;
+  margin-left: 15px;
   
 
   
@@ -56,7 +56,10 @@ table {
   margin-left: 39px;
 }
 
-
+#tableteamlist {
+  margin: auto;
+  
+}
 /*
 h1 {
   background-repeat: no-repeat;
@@ -111,9 +114,15 @@ padding-left: 190px;
   /*background-color: rgb(233, 240, 243, 95);
   background-color: rgba(255, 255, 255, 0.5);*/
   color: rgb(245, 238, 238);
-  background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242);
+  background-image: linear-gradient(
+    to right,
+    #3213c7,
+    #2d78e9,
+    #e4acd0,
+    #e20060,
+    #eb1242
+  );
 }
-
 
 #tnumber {
   width: 50px;
@@ -122,7 +131,6 @@ padding-left: 190px;
 #ttourinfo {
   width: 150px;
 }
-
 
 blockquote {
   font-size: 16pt;
@@ -178,7 +186,7 @@ label {
 
 footer {
   text-align: center;
-height: 50px;
+  height: 50px;
   background-color: rgb(83, 87, 90);
   color: rgb(255, 255, 255);
   font-size: large;
