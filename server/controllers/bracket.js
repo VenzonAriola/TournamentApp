@@ -6,10 +6,11 @@ let jwt = require("jsonwebtoken");
 //create reference to the model (dbschema )
 let Bracket = require("../models/bracket");
 let moment = require("moment");
+const { contains } = require("jquery");
 let dateToday = new Date().toISOString().slice(0, 10);
 
 //display tournament info
-module.exports.displayBracketList = (req, res, next) => {
+module.exports.displayBracketList = (req, res, next) => {//display teamlist
   Bracket.find((err, bracketList) => {
     var startDate = moment(bracketList.startdate).utc().format("YYYY-MM-DD");
     var endDate = moment(bracketList.enddate).utc().format("MMMM Do YY");
@@ -28,14 +29,14 @@ module.exports.displayBracketList = (req, res, next) => {
   });
 };
 
-module.exports.addpage = (req, res, next) => {
+module.exports.addpage = (req, res, next) => {//add tournament
   res.render("bracket/createPage", {
     title: "Add TeamBracket",
     displayName: req.user ? req.user.displayName : "",
   });
 };
 
-module.exports.addprocesspage = (req, res, next) => {
+module.exports.addprocesspage = (req, res, next) => {//place created tournament into db
   let len = req.body.players;
   let tempStatus = "";
   if (req.body.startdate <= dateToday && req.body.enddate >= dateToday) {
@@ -120,8 +121,7 @@ module.exports.addprocesspage = (req, res, next) => {
   });
 };
 
-//show display for add player
-module.exports.addPlayerpage = async (req, res, next) => {
+module.exports.addPlayerpage = async (req, res, next) => {//show display for add player
   let id = req.params.id; //id of actual object
   Bracket.findById(id, (err, bracketoshow) => {
     if (err) {
@@ -140,7 +140,127 @@ module.exports.addPlayerpage = async (req, res, next) => {
   });
 };
 
-module.exports.scoreDisplayPage = (req, res, next) => {
+module.exports.completeBracketEarly = (req, res, next) => {//process early finish of game
+  let id = req.params.id; //if a winner has been decided before the end date of the tournament this can mark it as complete
+  console.log("test running");
+  let tempt = Bracket({//this function always turns arrays to null for some reason. need to put error handling like process page has
+    _id: id,
+    status: "Complete",
+    teams: req.body.teams,
+    scoreG1: req.body.t1,
+    scoreG2: req.body.t2,
+    scoreG3: req.body.t3,
+    scoreG4: req.body.t4,
+    winner: req.body.w,
+  });
+  console.log(tempt);
+  Bracket.updateOne({ _id: id }, tempt, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      console.log("Bracket updated to complete");
+      res.redirect("/bracket-list/showall/" + id);
+    }
+  });
+};
+
+module.exports.displayeditpage = (req, res, next) => {//display edit page
+  let id = req.params.id; //id of actual object
+  Bracket.findById(id, (err, bracketoedit) => {
+    var startDate = moment(bracketoedit.startdate).utc().format("YYYY-MM-DD");
+    var endDate = moment(bracketoedit.enddate).utc().format("YYYY-MM-DD");
+
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      //show the edit view
+      res.render("bracket/edit", {
+        title: "Edit Bracket",
+        bracket: bracketoedit,
+        startdate: startDate,
+        enddate: endDate,
+        user: req.user,
+        displayName: req.user ? req.user.displayName : "",
+      });
+    }
+  });
+};
+
+module.exports.processingeditpage = (req, res, next) => {//process edit page
+  let id = req.params.id; //id of actual object
+
+  let updatebracket = Bracket({
+    _id: id,
+    tournamentName: req.body.tournamentName,
+    gameType: req.body.gameType,
+    players: req.body.players,
+    description: req.body.description,
+    teams: req.body.teams,
+    userid: req.user._id,
+    startdate: req.body.startdate,
+    enddate: req.body.enddate,
+    winner: [
+      "Game 1",
+      "Game 1",
+      "Game 1",
+      "Game 1",
+      "Game 2",
+      "Game 2",
+      "Final",
+    ],
+  });
+  Bracket.updateOne({ _id: id }, updatebracket, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      //refresh the bracket list
+      //bracket-list/show/:id
+      //'back' refresh
+      //req.get('referer') also refresh
+      res.redirect("/bracket-list/show/" + id);
+    }
+  });
+};
+
+module.exports.deletepage = (req, res, next) => {//delete record
+  let id = req.params.id;
+  console.log("Deleting at id: " + id);
+  Bracket.deleteOne({ _id: id }, (err) => {
+    //remove
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      //refresh bracket list
+      res.redirect("/bracket-list");
+    }
+  });
+};
+
+module.exports.showTournamentpage = async (req, res, next) => {//final score display page
+  let id = req.params.id; //id of actual object
+  //console.log(id);
+  Bracket.findById(id, (err, bracketoshow) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      //show the edit view
+      res.render("bracket/anonymous", {
+        title: "Tournament Bracket",
+        bracket: bracketoshow,
+        user: req.user,
+        displayName: req.user ? req.user.displayName : "",
+      });
+      console.log(bracketoshow);
+    }
+  });
+};
+
+module.exports.scoreDisplayPage = (req, res, next) => {//displays scores for specific given game
   console.log("scoreDisplayPage runs");
   let tempid = req.params.id;
   let id = 0; //_id of the tourney
@@ -189,7 +309,7 @@ module.exports.scoreDisplayPage = (req, res, next) => {
   });
 };
 
-module.exports.scoreProcessPage = async (req, res, next) => {
+module.exports.scoreProcessPage = async (req, res, next) => {//calculates the winner and places that team into the winner array
   let tempid = req.params.id;
   let idArr;
   if (tempid.includes("+")) {
@@ -298,6 +418,7 @@ module.exports.scoreProcessPage = async (req, res, next) => {
   for (var c = 0; c < winVal.length; c++) {
     winVal[c] = winVal[c].trim(); //final trim of winval
   }
+  console.log(scorVal3);
   console.log("Beginning calculation");
   //winner calculation variables
   let eigh = Math.ceil(winVal.length / 8);
@@ -441,26 +562,29 @@ module.exports.scoreProcessPage = async (req, res, next) => {
     b = 12;
     b2 = 13;
     //commented out sections for double checking calculations
-    //console.log("c: " + c + " b: "+b+" b2: " +b2);
-    if (scorVal3[b] > scorVal3[b2]) {
-      winVal[c] = b;
-    } else if (scorVal3[b] < scorVal3[b2]) {
-      winVal[c] = b2;
-    } else if ((scorVal3[b] = scorVal3[b2])) {
+    console.log("c: " + c + " b: "+b+" b2: " +b2);
+    console.log("c: " + winVal[c] + " b: "+ winVal[b] +" b2: " + winVal[b2]);
+    console.log(" b: "+ scorVal3[winVal[b]] +" b2: " + scorVal3[winVal[b2]]);
+    if (scorVal3[winVal[b]] > scorVal3[winVal[b2]]) {
+      winVal[c] = winVal[b];
+    } else if (scorVal3[winVal[b]] < scorVal3[winVal[b2]]) {
+      winVal[c] = winVal[b2];
+    } else if ((scorVal3[winVal[b]] = scorVal3[winVal[b2]])) {
       winVal[c] = "Tie Game";
     } else if (
-      scorVal3[b] === undefined ||
-      scorVal3[b2] === undefined ||
-      scorVal3[b] == "" ||
-      scorVal3[b2] == "" ||
-      scorVal3[b] == "Game 3" ||
-      scorVal3[b2] == "Game 3"
+      scorVal3[winVal[b]] === undefined ||
+      scorVal3[winVal[b2]]=== undefined ||
+      scorVal3[winVal[b]] == "" ||
+      scorVal3[winVal[b2]] == "" ||
+      scorVal3[winVal[b]] == "Game 3" ||
+      scorVal3[winVal[b2]] == "Game 3"
     ) {
-      //
+      console.log("this?");
       winVal[c] = winVal[c];
     } else {
       winVal[c] = "Tie Game";
     }
+    console.log(winVal[c]);
   }
   //winners have been calculated now, note that because of the setup each time a form is commited all games of that round are calculated, but other rounds are just returned to the db
   let newScore;
@@ -518,98 +642,3 @@ module.exports.scoreProcessPage = async (req, res, next) => {
   });
 };
 
-module.exports.displayeditpage = (req, res, next) => {
-  let id = req.params.id; //id of actual object
-  Bracket.findById(id, (err, bracketoedit) => {
-    var startDate = moment(bracketoedit.startdate).utc().format("YYYY-MM-DD");
-    var endDate = moment(bracketoedit.enddate).utc().format("YYYY-MM-DD");
-
-    if (err) {
-      console.log(err);
-      res.end(err);
-    } else {
-      //show the edit view
-      res.render("bracket/edit", {
-        title: "Edit Bracket",
-        bracket: bracketoedit,
-        startdate: startDate,
-        enddate: endDate,
-        user: req.user,
-        displayName: req.user ? req.user.displayName : "",
-      });
-    }
-  });
-};
-
-module.exports.processingeditpage = (req, res, next) => {
-  let id = req.params.id; //id of actual object
-
-  let updatebracket = Bracket({
-    _id: id,
-    tournamentName: req.body.tournamentName,
-    gameType: req.body.gameType,
-    players: req.body.players,
-    description: req.body.description,
-    teams: req.body.teams,
-    userid: req.user._id,
-    startdate: req.body.startdate,
-    enddate: req.body.enddate,
-    winner: [
-      "Game 1",
-      "Game 1",
-      "Game 1",
-      "Game 1",
-      "Game 2",
-      "Game 2",
-      "Final",
-    ],
-  });
-  Bracket.updateOne({ _id: id }, updatebracket, (err) => {
-    if (err) {
-      console.log(err);
-      res.end(err);
-    } else {
-      //refresh the bracket list
-      //bracket-list/show/:id
-      //'back' refresh
-      //req.get('referer') also refresh
-      res.redirect("/bracket-list/show/" + id);
-    }
-  });
-};
-
-module.exports.deletepage = (req, res, next) => {
-  let id = req.params.id;
-  console.log("Deleting at id: " + id);
-  Bracket.deleteOne({ _id: id }, (err) => {
-    //remove
-    if (err) {
-      console.log(err);
-      res.end(err);
-    } else {
-      //refresh bracket list
-      res.redirect("/bracket-list");
-    }
-  });
-  //res.redirect("/bracket-list");
-};
-
-module.exports.showTournamentpage = async (req, res, next) => {
-  let id = req.params.id; //id of actual object
-
-  Bracket.findById(id, (err, bracketoshow) => {
-    if (err) {
-      console.log(err);
-      res.end(err);
-    } else {
-      //show the edit view
-      res.render("bracket/anonymous", {
-        title: "Tournament Bracket",
-        bracket: bracketoshow,
-        user: req.user,
-        displayName: req.user ? req.user.displayName : "",
-      });
-      console.log(bracketoshow);
-    }
-  });
-};
