@@ -29,11 +29,13 @@ router.post("/createPage", bracketController.addprocesspage);
 
 router.get("/show/:id", bracketController.addPlayerpage);
 
+router.post("/show/:id", bracketController.completeBracketEarly);//functionality to complete a game early
+
 // /* GET Route for displaying Edit page -UPDATE OPeration */
-router.get("/edit/:id",requireAuth, bracketController.displayeditpage);
+router.get("/edit/:id", requireAuth, bracketController.displayeditpage);
 
 // /*POST Route for processing Edit page - UPDATE OPeration */
-router.post("/edit/:id",requireAuth, bracketController.processingeditpage);
+router.post("/edit/:id", requireAuth, bracketController.processingeditpage);
 
 // /* GET to perform book deletion -Delete OPeration */
 router.get("/delete/:id", requireAuth, bracketController.deletepage);
@@ -41,7 +43,6 @@ router.get("/delete/:id", requireAuth, bracketController.deletepage);
 router.get("/display/:id", bracketController.scoreDisplayPage);
 
 router.post("/display/:id", bracketController.scoreProcessPage);
-
 
 //*Get to perform page for anonymous
 router.get("/showall/:id", bracketController.showTournamentpage);
