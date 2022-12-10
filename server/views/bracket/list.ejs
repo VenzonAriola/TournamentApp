@@ -2,10 +2,8 @@
   <%- include ../partials/main_nav.ejs %>
     <!--List.ejs-->
     <!--localhost:3000/bracket-list/show/_id:-->
-    <!-- Main Content -->
-    <!--Changes made:
-Tournament layout to set up the teams
-delete button does not refresh properly-->
+    <!--Displays the teams and the buttons to edit team scores by game-->
+
 <!--layout is set as a misshapen table, each game cell has a link to edit the scores of the respective participants,
     These cells are labeled using the bracket.winner[] array, and will change based on who won.-->
     <div id="displayPage">
@@ -349,21 +347,44 @@ delete button does not refresh properly-->
 
           </div>
           <!--row close-->
-
-          <%{%>
+          <div visiblility: hidden>
+            <% for (let c = 0; c < bracket.teams.length; c++) { %>
+              <input type="text" class="form-control" name="teams" value="<%=bracket.teams[c]%>">
+            <%}%>
+            <% for (let c = 0; c < bracket.scoreG1.length; c++) { %>
+              <input type="text" class="form-control" name="t1" value="<%=bracket.scoreG1[c]%>">
+            <%}%>
+            <% for (let c = 0; c < bracket.scoreG2.length; c++) { %>
+              <input type="text" class="form-control" name="t2" value="<%=bracket.scoreG2[c]%>">
+            <%}%>
+            <% for (let c = 0; c < bracket.scoreG3.length; c++) { %>
+              <input type="text" class="form-control" name="t3" value="<%=bracket.scoreG3[c]%>">
+            <%}%>
+            <% for (let c = 0; c < bracket.scoreG4.length; c++) { %>
+              <input type="text" class="form-control" name="t4" value="<%=bracket.scoreG4[c]%>">
+            <%}%>
+            <% for (let c = 0; c < bracket.winner.length; c++) { %>
+              <input type="text" class="form-control" name="w" value="<%=bracket.winner[c]%>">
+            <%}%>
+          </div>
             <!--<div style="height: 40px;">-->
             <br>
+            <% bracket.winner[bracket.winner.length-1] %>
+            <% if (bracket.winner[bracket.winner.length-1] != "Final") { %>
+              <button class="btn btn-primary btn-sm" type="submit">Summary</button>
+            <%} else {%>
+              <a href="/bracket-list/show/<%= bracket._id %>" style="text-decoration:none; color:white">
+              <input type="button" class="btn btn-primary btn-sm" value="Summary" disabled></input></a> <!--disabled-->
+            <%}%>
             <a href="/bracket-list/edit/<%= bracket._id %>" style="text-decoration:none; color:white">
             <input type="button" class="btn btn-primary btn-sm" value="Edit"></input></a>
+
+            <a href="/bracket-list/" style="text-decoration:none; color:white">
+            <input type="button" class="btn btn-warning btn-sm" value="Back"></input></a>
+
             <a href="/bracket-list/delete/<%= bracket._id %>" style="text-decoration:none; color:white">
             <input type="button" class="btn btn-warning btn-sm" value="Delete"></input></a>
-            <!--<input type="button" id="setWinner1" value="Winner1" />
-            <input type="button" id="setWinner2" value="Winner2" />
-            <input type="button" id="setWinner3" value="Winner3" />
-            <input type="button" id="setWinner4" value="Winner4" />-->
-
-            <%}%>
-        </form>
+          </form>
       </main>
     </div>
    
