@@ -13,9 +13,9 @@
 <br><h1>
   <img src="../../Assets/images/team_logo2.png" height="100" width="110px" style="float:left; margin-left: 0.95in; margin-right: 0.25in; margin-top: 0.10in;"/>
   <br> &nbsp; <%=title %></h1>
-            <div class="col-md-offset-3 col-md-8">
+            <div class="col-md-offset-8 col-md-12">
               <br>
-              <table class="table table-bordered table-striped"><!--</table> style="background-color:#FFFF1; width:100%; boder=2">-->
+              <table class="table table-bordered table-striped" style="color:white"><!--</table> style="background-color:#FFFF1; width:100%; boder=2">-->
                 <!--HEader row-->
                 <tr>
                   <th class="text-center;" style=" width:40px ">Tournament Info</th>
@@ -51,12 +51,12 @@
             <table><!--this table draws the first half of the team names, with white spacing-->
               <% for (let c = 0; c < (bracket.players/2); c=c+2) { %>
                   <tr>
-                    <td class="text-center bg-danger" style="width: 120px;">
+                    <td class="text-center bg-primary" style="width: 120px;">
                       <%= bracket.teams[c] %> 
                     </td>
                   </tr> 
-                  <tr class="table-noborder bg-dark">
-                    <td class="text-center bg-black " style="width: 120px;">
+                  <tr class="table-noborder bg-danger">
+                    <td class="text-center bg-blue " style="width: 120px;">
                       <%= bracket.teams[c+1] %> 
                     </td>
                   </tr> 
@@ -78,7 +78,7 @@
                 </tr>
                 <tr>
                   <% if (bracket.winner[0]){ %>
-                    <td id="win1" class="bg-danger">
+                    <td id="win1" class="bg-primary">
                       <% if ((bracket.winner[0] == "Game 1") || (bracket.winner[0] == "Game 2")||(bracket.winner[0]== "Final")||(bracket.winner[0]=="Tie Game") || (bracket.winner[0]== "Game 3")){%>
                         <%=bracket.winner[0]%>  
                       <%} else {%>
@@ -86,12 +86,12 @@
                       <%}%>
                     </td>
                   <% } else { %>
-                    <td id="win1" class="bg-danger">game 1</td>
+                    <td id="win1" class="bg-primary">game 1</td>
                   <% } %>
                 </tr>
                 <tr>
                   <% if (bracket.winner[1] != null){ %>
-                    <td id="win2" class="bg-dark">
+                    <td id="win2" class="bg-danger">
                       <% if ((bracket.winner[1] == "Game 1") || (bracket.winner[1] == "Game 2")||(bracket.winner[1]== "Final")||(bracket.winner[1]=="Tie Game") || (bracket.winner[1]== "Game 3")){%>
                         <%=bracket.winner[1]%>  
                       <%} else {%>
@@ -99,7 +99,7 @@
                       <%}%>  
                     </td>
                   <% } else { %>
-                    <td id="win2" class="bg-dark">game 1</td>
+                    <td id="win2" class="bg-danger">game 1</td>
                   <% } %>
                 </tr>
                 <tr>
@@ -113,7 +113,7 @@
                 </tr>
                 <tr>
                   <% if (bracket.winner[4] != null){ %>
-                    <td id="win3" class="bg-dark">
+                    <td id="win3" class="bg-danger">
                       <% if ((bracket.winner[4] == "Game 1") || (bracket.winner[4] == "Game 2")||(bracket.winner[4]== "Final")||(bracket.winner[4]=="Tie Game") || (bracket.winner[4]== "Game 3")){%>
                         <%=bracket.winner[4]%>  
                       <%} else {%>
@@ -121,7 +121,7 @@
                       <%}%>
                     </td>
                   <% } else { %>
-                    <td id="win3" class="bg-dark"><!--to be corrected-->
+                    <td id="win3" class="bg-danger"><!--to be corrected-->
                       game 2
                     </td>
                   <% } %>
@@ -133,7 +133,7 @@
               &nbsp;
               <table style="width: 150px;">
                 <tr>
-                  <td id="win3" class="text-center bg-success" style="width:140px; font-size: 30px;">&ensp;
+                  <td id="win3" class="text-center bg-light" style="width:140px; font-size: 30px; color:black">&ensp;
                     <% if ((bracket.winner[6] == "Game 1") || (bracket.winner[6] == "Game 2")||(bracket.winner[6]== "Final")||(bracket.winner[6]=="Tie Game") || (bracket.winner[6]== "Game 3")){%>
                       <%=bracket.winner[6]%>  
                     <%} else {%>
@@ -149,7 +149,7 @@
                 </tr>
                 <tr>
                   <% if (bracket.winner[5] != null){ %>
-                    <td id="win3" class="bg-dark">
+                    <td id="win3" class="bg-danger">
                       <% if ((bracket.winner[5] == "Game 1") || (bracket.winner[5] == "Game 2")||(bracket.winner[5]== "Final")||(bracket.winner[5]=="Tie Game") || (bracket.winner[5]== "Game 3")){%>
                         <%=bracket.winner[5]%>  
                       <%} else {%>
@@ -157,7 +157,7 @@
                       <%}%>
                     </td>
                   <% } else { %>
-                    <td id="win3" class="bg-dark">game 2</td>
+                    <td id="win3" class="bg-danger">game 2</td>
                   <% } %></tr>
                 <tr class="text-center">
                   <td>&nbsp;</td>
@@ -170,7 +170,7 @@
                 </tr>
                 <tr>
                   <% if (bracket.winner[2] != null){ %>
-                    <td id="win3" class="bg-danger">
+                    <td id="win3" class="bg-primary">
                       <% if ((bracket.winner[2] == "Game 1") || (bracket.winner[2] == "Game 2")||(bracket.winner[2]== "Final")||(bracket.winner[2]=="Tie Game") || (bracket.winner[2]== "Game 3")){%>
                         <%=bracket.winner[2]%>  
                       <%} else {%>
@@ -178,12 +178,12 @@
                       <%}%>
                     </td>
                   <% } else { %>
-                    <td id="win3" class="bg-danger">game 1</td>
+                    <td id="win3" class="bg-primary">game 1</td>
                   <% } %>
                 </tr>
                 <tr>
                   <% if (bracket.winner[3] != null){ %>
-                    <td id="win4" class="bg-dark">
+                    <td id="win4" class="bg-danger">
                       <% if ((bracket.winner[3] == "Game 1") || (bracket.winner[3] == "Game 2")||(bracket.winner[3]== "Final")||(bracket.winner[3]=="Tie Game") || (bracket.winner[3]== "Game 3")){%>
                         <%=bracket.winner[3]%>  
                       <%} else {%>
@@ -191,7 +191,7 @@
                       <%}%>
                     </td>
                   <% } else { %>
-                    <td id="win4" class="bg-dark">game 1</td>
+                    <td id="win4" class="bg-danger">game 1</td>
                   <% } %>
                 </tr>
                 <tr>
@@ -208,7 +208,7 @@
                   <% for (let c = 0; c < 4; c=c+2) { %>
                     <tr>
                       <% if (bracket.winner[c]){ %>
-                        <td id="win1" class="bg-danger">
+                        <td id="win1" class="bg-primary">
                           <% if ((bracket.winner[c] == "Game 1") || (bracket.winner[c] == "Game 2")||(bracket.winner[c]== "Final")||(bracket.winner[c]=="Tie Game") || (bracket.winner[c]== "Game 3")){%>
                             Game 1 
                           <%} else {%>
@@ -216,12 +216,12 @@
                           <%}%>
                         </td>
                       <% } else { %>
-                        <td id="win1" class="bg-danger">game 1</td>
+                        <td id="win1" class="bg-primary">game 1</td>
                       <% } %>
                     </tr>
                     <tr>
                       <% if (bracket.winner[c+1]){ %>
-                        <td id="win1" class="bg-dark">
+                        <td id="win1" class="bg-danger">
                           <% if ((bracket.winner[c+1] == "Game 1") || (bracket.winner[c+1] == "Game 2")||(bracket.winner[c+1]== "Final")||(bracket.winner[c+1]=="Tie Game") || (bracket.winner[c+1]== "Game 3")){%>
                             Game 1 
                           <%} else {%>
@@ -229,7 +229,7 @@
                           <%}%>
                         </td>
                       <% } else { %>
-                        <td id="win1" class="bg-dark">game 1</td>
+                        <td id="win1" class="bg-danger">game 1</td>
                       <% } %>
                     </tr>
                   <%}%>
@@ -245,7 +245,7 @@
                   <% for (let c = 9; c < 10; c=c+2) { %>
                     <tr>
                       <% if (bracket.winner[c] != null){ %>
-                        <td id="win3" class="bg-danger">
+                        <td id="win3" class="bg-primary">
                           <% if ((bracket.winner[c] == "Game 1") || (bracket.winner[c] == "Game 2")||(bracket.winner[c]== "Final")||(bracket.winner[c]=="Tie Game") || (bracket.winner[c]== "Game 3")){%>
                             Game 2 
                           <%} else {%>
@@ -253,14 +253,14 @@
                           <%}%>
                         </td>
                       <% } else { %>
-                        <td id="win3" class="bg-danger">
+                        <td id="win3" class="bg-primary">
                           game 2
                         </td>
                       <% } %>
                     </tr>
                     <tr>
                       <% if (bracket.winner[c+1] != null){ %>
-                        <td id="win3" class="bg-dark">
+                        <td id="win3" class="bg-danger">
                           <% if ((bracket.winner[c+1] == "Game 1") || (bracket.winner[c+1] == "Game 2")||(bracket.winner[c+1]== "Final")||(bracket.winner[c+1]=="Tie Game") || (bracket.winner[c+1]== "Game 3")){%>
                             Game 2
                           <%} else {%>
@@ -268,7 +268,7 @@
                           <%}%>
                         </td>
                       <% } else { %>
-                        <td id="win3" class="bg-dark">
+                        <td id="win3" class="bg-danger">
                           game 2
                         </td>
                       <% } %>
@@ -284,7 +284,7 @@
                     <tr class="text-center ">
                       <td>&nbsp;</td>
                     </tr>
-                    <td id="win3" class="text-center bg-success" style="width:140px; font-size: 30px;">&ensp;
+                    <td id="win3" class="text-center bg-light" style="width:140px; font-size: 30px; color:black">&ensp;
                       <% if ((bracket.winner[12] == "Game 1") || (bracket.winner[12] == "Game 2")||(bracket.winner[12]== "Final")||(bracket.winner[12]=="Tie Game") || (bracket.winner[12]== "Game 3")){%>
                         Final
                       <%} else {%>
@@ -304,7 +304,7 @@
                   <% for (let c = 11; c < 12; c=c+2) { %>
                     <tr>
                       <% if (bracket.winner[c] != null){ %>
-                        <td id="win3" class="bg-danger">
+                        <td id="win3" class="bg-primary">
                           <% if ((bracket.winner[c] == "Game 1") || (bracket.winner[c] == "Game 2")||(bracket.winner[c]== "Final")||(bracket.winner[c]=="Tie Game") || (bracket.winner[c]== "Game 3")){%>
                             Game 2 
                           <%} else {%>
@@ -312,14 +312,14 @@
                           <%}%>
                         </td>
                       <% } else { %>
-                        <td id="win3" class="bg-danger"><!--to be corrected-->
+                        <td id="win3" class="bg-primary"><!--to be corrected-->
                           game 2
                         </td>
                       <% } %>
                     </tr>
                     <tr>
                       <% if (bracket.winner[c+1] != null){ %>
-                        <td id="win3" class="bg-dark">
+                        <td id="win3" class="bg-danger">
                           <% if ((bracket.winner[c+1] == "Game 1") || (bracket.winner[c+1] == "Game 2")||(bracket.winner[c+1]== "Final")||(bracket.winner[c+1]=="Tie Game") || (bracket.winner[c+1]== "Game 3")){%>
                             Game 2
                           <%} else {%>
@@ -327,7 +327,7 @@
                           <%}%>
                         </td>
                       <% } else { %>
-                        <td id="win3" class="bg-dark"><!--to be corrected-->
+                        <td id="win3" class="bg-danger"><!--to be corrected-->
                           game 2
                         </td>
                       <% } %>
@@ -345,7 +345,7 @@
                   <% for (let c = 4; c < 8; c=c+2) { %>
                     <tr>
                       <% if (bracket.winner[c]){ %>
-                        <td id="win1" class="bg-danger">
+                        <td id="win1" class="bg-primary">
                           <% if ((bracket.winner[c] == "Game 1") || (bracket.winner[c] == "Game 2")||(bracket.winner[c]== "Final")||(bracket.winner[c]=="Tie Game") || (bracket.winner[c]== "Game 3")){%>
                             Game 1
                           <%} else {%>
@@ -353,12 +353,12 @@
                           <%}%>
                         </td>
                       <% } else { %>
-                        <td id="win1" class="bg-danger">game 1</td>
+                        <td id="win1" class="bg-primary">game 1</td>
                       <% } %>
                     </tr>
                     <tr>
                       <% if (bracket.winner[c+1]){ %>
-                        <td id="win1" class="bg-dark">
+                        <td id="win1" class="bg-danger">
                           <% if ((bracket.winner[c+1] == "Game 1") || (bracket.winner[c+1] == "Game 2")||(bracket.winner[c+1]== "Final")||(bracket.winner[c+1]=="Tie Game") || (bracket.winner[c+1]== "Game 3")){%>
                             Game 1
                           <%} else {%>
@@ -366,7 +366,7 @@
                           <%}%>
                         </td>
                       <% } else { %>
-                        <td id="win1" class="bg-dark">game 1</td>
+                        <td id="win1" class="bg-danger">game 1</td>
                       <% } %>
                     </tr>
                   <%}%>
@@ -380,12 +380,12 @@
                 <table style="width: 120px;"><!--the other half of the teams -->
                   <% for (let c = (bracket.players/2); c < bracket.players; c=c+2) { %>
                     <tr>
-                      <td class="text-center bg-danger">
+                      <td class="text-center bg-primary">
                         <%= bracket.teams[c] %> 
                       </td>
                     </tr> 
-                    <tr class="table-noborder bg-dark">
-                      <td class="text-center bg-black ">
+                    <tr class="table-noborder bg-danger">
+                      <td class="text-center bg-blue ">
                         <%= bracket.teams[c+1] %> 
                       </td>
                     </tr> 
@@ -409,7 +409,7 @@
                       Teams:
                     </td>
                     <% for (let c = 0; c < bracket.players; c++) { %>
-                      <td style="color:black"><%= bracket.teams[c] %></td>
+                      <td style="color:orange"><%= bracket.teams[c] %></td>
                     <%}%>
                   </tr>
                   <tr>
@@ -419,7 +419,7 @@
                     </td>
                     <% for (let c = 0; c < bracket.players; c++) { %>
                       <% if (bracket.scoreG1[c].length > 0 ){ %>
-                        <td style="color:black" colspan="1"><%= bracket.scoreG1[c] %></td>
+                        <td style="color:orange" colspan="1"><%= bracket.scoreG1[c] %></td>
                       <%} else {%>
                         <td></td>
                       <%}%>
