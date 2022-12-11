@@ -23,12 +23,12 @@ body {
     color: black;
     padding-left: 100px;
     height: 120px;
-    width: 880px;
+    width: 800px;
     padding-top: 0.1px;
     border-radius: 15px;
     box-shadow: 5px 5px 5px #808080;
     text-align: left;
-    margin-left: 35px;
+    margin-left: 5px;
     
   
     
@@ -53,12 +53,13 @@ body {
     border-radius: 20px;
     box-shadow: 5px 5px 5px #6769e6;
     padding: 6px;
-    padding-left: 10px;
+    padding-left: 90px;
     /*background-color: rgb(233, 240, 243, 95);*/
     background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242);
     color: rgb(19, 18, 18, 0.97);
     background-repeat: no-repeat;
     color: white;
+    
   }
   a {
     text-decoration: none;
@@ -95,8 +96,8 @@ body {
   footer {
     text-align: center;
   height: 50px;
-    background-color: rgb(83, 87, 90);
-    color: rgb(255, 255, 255);
+    background-color: rgba(83, 87, 90, 0);
+    color: rgba(255, 255, 255, 0);
     font-size: large;
   }
   input {

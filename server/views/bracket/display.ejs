@@ -42,9 +42,11 @@
     </div> -->
     <div class="row">
       <table><!--This table displays the current scores for each contestant, in case user has to return to the page to edit it-->
-        <tr><td><%= bracket.teams[cont1]%></td><!--Team Name of contestant 1--> &nbsp;&nbsp; &nbsp; &nbsp;
-        <td><%= bracket.teams[cont2]%></td></tr><!--Team Name of contestant 2-->
         <tr><td colspan="2">Current score: </td></tr>
+        <tr><td><%= bracket.teams[cont1]%></td><!--Team Name of contestant 1--> &nbsp;&nbsp; &nbsp; &nbsp;
+        
+        <td><%= bracket.teams[cont2]%></td></tr><!--Team Name of contestant 2-->
+        
         <tr>
           <% if (id3 == 1) {%>
             <% if ((bracket.scoreG1[cont1] == "") || (bracket.scoreG1[cont2] == "")|| (bracket.scoreG1[cont1] === undefined) || (bracket.scoreG1[cont2]=== undefined)) {%>

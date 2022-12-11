@@ -1,19 +1,22 @@
 <%- include ../partials/header.ejs %>
   <%- include ../partials/main_nav.ejs %>
+  <br><br><br>
     <!--List.ejs-->
     <!--localhost:3000/bracket-list/show/_id:-->
     <!--Displays the teams and the buttons to edit team scores by game-->
 
 <!--layout is set as a misshapen table, each game cell has a link to edit the scores of the respective participants,
     These cells are labeled using the bracket.winner[] array, and will change based on who won.-->
-    <div id="displayPage">
+    <head> <link rel='stylesheet' href='/Content/list.css' /> </head>
+    <div id="allPage"> <br>
       <main class="container">
         <form class="form" method="post">
           <div class="row">
             <h1>
-              <%=title %>
-            </h1>
-            <div class="col-md-offset-3 col-md-8">
+  <img src="../../Assets/images/team_logo2.png" height="100" width="110px" style="float:left; margin-left: 0.95in; margin-right: 0.25in; margin-top: 0.10in;"/>
+  <br> &nbsp; <%=title %></h1>
+              
+            <div class="col-md-offset-3 col-md-12">
 
               <br />
               <table class="table table-bordered table-striped" style="background-color:#FFFFFF;">
@@ -45,11 +48,11 @@
 
           <div class="row">
             <% if (bracket.players == 16){ %><!--displays the middle table for 8 teams-->
-            <table class="text-center" style="width: 100%">
-              <tr><!-- class="table-noborder bg-dark"-->
-                <td class="text-center bg-danger "><%= bracket.teams[0] %></td>
+            <table class="text-center" style="width: 100%; color:white">
+              <tr><!-- class="table-noborder bg-danger"-->
+                <td class="text-center bg-primary "><%= bracket.teams[0] %></td>
                   <td>&nbsp;</td>
-                    <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-1"><div style="height:100%;width:100%">
+                    <td rowspan ="2" class="box bg-primary"><a href="/bracket-list/display/<%= bracket._id %>-1"><div style="height:100%;width:100%; color:white">
                       <!--winner is location of team, this outputs the team name from that loaction -->
                       <!--Link: 1
                           winner[0]-->
@@ -60,7 +63,7 @@
                       <%}%>
                   </div></a></td>
                   <td colspan="5"></td>
-                    <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-5"><div style="height:100%;width:100%">
+                    <td rowspan ="2" class="box bg-primary"><a href="/bracket-list/display/<%= bracket._id %>-5"><div style="height:100%;width:100%; color:white">
                       <!--Link: 5
                           winner[4]-->
                       <% if ((bracket.winner[4] == "Game 1") || (bracket.winner[4] == "Game 2")||(bracket.winner[4]== "Final")||(bracket.winner[4]=="Tie Game") || (bracket.winner[4]== "Game 3")){%>
@@ -70,12 +73,12 @@
                       <%}%>
                     </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[8] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[8] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-dark "><%= bracket.teams[1] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[1] %></td>
                   <td>&nbsp;</td>  
-                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-9"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-primary"><a href="/bracket-list/display/<%= bracket._id %>-9"><div style="height:100%;width:100%; color:white">
                     <!--Link: 9
                         winner[8]-->
                     <% if ((bracket.winner[8] == "Game 1") || (bracket.winner[8] == "Game 2")||(bracket.winner[8]== "Final")||(bracket.winner[8]=="Tie Game") || (bracket.winner[8]== "Game 3")){%>
@@ -85,7 +88,7 @@
                     <%}%>
                   </div></a></td>
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-11"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-primary"><a href="/bracket-list/display/<%= bracket._id %>-11"><div style="height:100%;width:100%; color:white">
                     <!--Link: 11
                         winner[10]-->
                     <% if ((bracket.winner[10] == "Game 1") || (bracket.winner[10] == "Game 2")||(bracket.winner[10]== "Final")||(bracket.winner[10]=="Tie Game") || (bracket.winner[10]== "Game 3")){%>
@@ -95,12 +98,12 @@
                     <%}%>
                   </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-dark "><%= bracket.teams[9] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[9] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-danger "><%= bracket.teams[2] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[2] %></td>
                   <td>&nbsp;</td>
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-2"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-2"><div style="height:100%;width:100%; color:white">
                       <!--Link: 2
                           winner[1]-->
                           <% if ((bracket.winner[1] == "Game 1") || (bracket.winner[1] == "Game 2")||(bracket.winner[1]== "Final")||(bracket.winner[1]=="Tie Game") || (bracket.winner[1]== "Game 3")){%>
@@ -110,7 +113,7 @@
                           <%}%>
                   </div></a></td>
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-6"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-6"><div style="height:100%;width:100%; color:white">
                     <!--Link: 6
                         winner[5]-->
                     <% if ((bracket.winner[5] == "Game 1") || (bracket.winner[5] == "Game 2")||(bracket.winner[5]== "Final")||(bracket.winner[5]=="Tie Game") || (bracket.winner[5]== "Game 3")){%>
@@ -120,13 +123,13 @@
                     <%}%>
                   </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[10] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[10] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-dark "><%= bracket.teams[3] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[3] %></td>
                   <td>&nbsp;</td>
                   <td></td>
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-13"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-13"><div style="height:100%;width:100%; color:white">
                     <!--Link: 13
                         winner[12]-->
                     <% if ((bracket.winner[12] == "Game 1") || (bracket.winner[12] == "Game 2")||(bracket.winner[12]== "Final")||(bracket.winner[12]=="Tie Game") || (bracket.winner[12]== "Game 3")){%>
@@ -136,7 +139,7 @@
                     <%}%>
                       </div></a></td>
                   
-                    <td rowspan ="2" class="box bg-success"><a href="/bracket-list/display/<%= bracket._id %>-15"><div style="height:100%;width:100%">
+                    <td rowspan ="2" class="box bg-light" style="color:black"><a href="/bracket-list/display/<%= bracket._id %>-15"><div style="height:100%;width:100%; color:white">
                       <!--Link: 15
                           winner[14]-->
                       <% if ((bracket.winner[14] == "Game 1") || (bracket.winner[14] == "Game 2")||(bracket.winner[14]== "Final")||(bracket.winner[14]=="Tie Game") || (bracket.winner[14]== "Game 3")){%>
@@ -145,7 +148,7 @@
                         &ensp;<%= bracket.teams[bracket.winner[14]] %>&ensp;
                       <%}%>
                   
-                      <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-14"><div style="height:100%;width:100%">
+                      <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-14"><div style="height:100%;width:100%; color:white">
                         <!--Link: 14
                             winner[13]-->
                         <% if ((bracket.winner[13] == "Game 1") || (bracket.winner[13] == "Game 2")||(bracket.winner[13]== "Final")||(bracket.winner[13]=="Tie Game") || (bracket.winner[13]== "Game 3")){%>
@@ -156,13 +159,13 @@
                       </div></a></td>
                   <td></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-dark "><%= bracket.teams[11] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[11] %></td>
                 </tr>
                 <tr>
-                  <td class="text-center bg-danger "><%= bracket.teams[4] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[4] %></td>
                   <td>&nbsp;</td>
                   
-                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-3"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-primary"><a href="/bracket-list/display/<%= bracket._id %>-3"><div style="height:100%;width:100%; color:white">
                     <!--Link: 3
                         winner[2]-->
                     <% if ((bracket.winner[2] == "Game 1") || (bracket.winner[2] == "Game 2")||(bracket.winner[2]== "Final")||(bracket.winner[2]=="Tie Game") || (bracket.winner[2]== "Game 3")){%>
@@ -174,7 +177,7 @@
                   <td></td>
                   <td></td>
                   
-                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-7"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-primary"><a href="/bracket-list/display/<%= bracket._id %>-7"><div style="height:100%;width:100%; color:white">
                     <!--Link: 7
                         winner[6]-->
                     <% if ((bracket.winner[6] == "Game 1") || (bracket.winner[6] == "Game 2")||(bracket.winner[6]== "Final")||(bracket.winner[6]=="Tie Game") || (bracket.winner[6]== "Game 3")){%>
@@ -184,13 +187,13 @@
                     <%}%>
                   </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[12] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[12] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-dark "><%= bracket.teams[5] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[5] %></td>
                   <td>&nbsp;</td>
                   
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-10"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-10"><div style="height:100%;width:100%; color:white">
                     <!--Link: 10
                         winner[9]-->
                     <% if ((bracket.winner[9] == "Game 1") || (bracket.winner[9] == "Game 2")||(bracket.winner[9]== "Final")||(bracket.winner[9]=="Tie Game") || (bracket.winner[9]== "Game 3")){%>
@@ -200,7 +203,7 @@
                     <%}%>
                   </div></a></td>
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-12"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-12"><div style="height:100%;width:100%; color:white">
                     <!--Link: 12
                         winner[11]-->
                     <% if ((bracket.winner[11] == "Game 1") || (bracket.winner[11] == "Game 2")||(bracket.winner[11]== "Final")||(bracket.winner[11]=="Tie Game") || (bracket.winner[11]== "Game 3")){%>
@@ -210,13 +213,13 @@
                     <%}%>
                 </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-dark "><%= bracket.teams[13] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[13] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-danger "><%= bracket.teams[6] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[6] %></td>
                   <td>&nbsp;</td>
                   
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-4"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-4"><div style="height:100%;width:100%; color:white">
                     <!--Link: 4
                         winner[3]-->
                     <% if ((bracket.winner[3] == "Game 1") || (bracket.winner[3] == "Game 2")||(bracket.winner[3]== "Final")||(bracket.winner[3]=="Tie Game") || (bracket.winner[3]== "Game 3")){%>
@@ -226,7 +229,7 @@
                     <%}%>
                 </div></a></td>
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>-8"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>-8"><div style="height:100%;width:100%; color:white">
                     <!--Link: 8
                         winner[7]-->
                     <% if ((bracket.winner[7] == "Game 1") || (bracket.winner[7] == "Game 2")||(bracket.winner[7]== "Final")||(bracket.winner[7]=="Tie Game") || (bracket.winner[7]== "Game 3")){%>
@@ -236,24 +239,24 @@
                     <%}%>
                 </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[14] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[14] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-dark "><%= bracket.teams[7] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[7] %></td>
                   <td>&nbsp;</td>
                   <td colspan="5"></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-dark "><%= bracket.teams[15] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[15] %></td>
                 </tr>
               </tr>
             </table>
             <% } else { %>
               <!--displays the middle table for 8 teams-->
-              <table style="width: 800px">
+              <table style="width: 800px; color:white">
                 <tr>
-                  <td class="text-center bg-danger "><%= bracket.teams[0] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[0] %></td>
                   <td>&nbsp;</td>
-                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>+1"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-primary"><a href="/bracket-list/display/<%= bracket._id %>+1"><div style="height:100%;width:100%; color:white">
                     <!--winner is location of team, this outputs the team name from that loaction -->
                     <!--Link: 1
                         winner[0]-->
@@ -265,7 +268,7 @@
                   </div></a></td>
                   
                   <td colspan="3"></td>
-                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>+3"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-primary"><a href="/bracket-list/display/<%= bracket._id %>+3"><div style="height:100%;width:100%; color:white">
                     <!--Link: 3
                         winner[2]-->
                     <% if ((bracket.winner[2] == "Game 1") || (bracket.winner[2] == "Game 2")||(bracket.winner[2]== "Final")||(bracket.winner[2]=="Tie Game")) {%>
@@ -275,12 +278,12 @@
                       <%}%>
                   </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[4] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[4] %></td>
                 </tr>
                 <tr>	    
-                  <td class="text-center bg-dark "><%= bracket.teams[1] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[1] %></td>
                   <td>&nbsp;</td>		
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>+5"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>+5"><div style="height:100%;width:100%; color:white">
                     <!--Link: 5
                         winner[4]-->
                     <% if ((bracket.winner[4] == "Game 1") || (bracket.winner[4] == "Game 2")||(bracket.winner[4]== "Final")||(bracket.winner[4]=="Tie Game")) {%>
@@ -289,7 +292,7 @@
                       &ensp;<%= bracket.teams[bracket.winner[4]] %>&ensp;
                     <%}%>
                   </div></a></td>
-                  <td rowspan ="2" class="text-center box bg-success"><a href="/bracket-list/display/<%= bracket._id %>+7"><div style="font-size:30px;height:100%;width:100%"> 
+                  <td rowspan ="2" class="text-center box bg-light" style="color:black"><a href="/bracket-list/display/<%= bracket._id %>+7"><div style="font-size:30px;height:100%;width:100%"> 
                     <!--Link: 7
                         winner[6]-->
                     <% if ((bracket.winner[6] == "Game 1") || (bracket.winner[6] == "Game 2")||(bracket.winner[6]== "Final")||(bracket.winner[6]=="Tie Game")) {%>
@@ -298,7 +301,7 @@
                       <%= bracket.teams[bracket.winner[6]] %>
                     <%}%>
                     </div></a></td><!--here-->
-                  <td rowspan ="2" class="box bg-dark" ><a href="/bracket-list/display/<%= bracket._id %>+6"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger" ><a href="/bracket-list/display/<%= bracket._id %>+6"><div style="height:100%;width:100%; color:white">
                     <!--Link: 6
                         winner[5]-->
                     <% if ((bracket.winner[5] == "Game 1") || (bracket.winner[5] == "Game 2")||(bracket.winner[5]== "Final")||(bracket.winner[5]=="Tie Game")) {%>
@@ -308,12 +311,12 @@
                     <%}%>
                   </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-dark "><%= bracket.teams[5] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[5] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-danger "><%= bracket.teams[2] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[2] %></td>
                   <td>&nbsp;</td>
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>+2"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>+2"><div style="height:100%;width:100%; color:white">
                     <!--Link: 2
                         winner[1]-->
                     <% if ((bracket.winner[1] == "Game 1") || (bracket.winner[1] == "Game 2")||(bracket.winner[1]== "Final")||(bracket.winner[1]=="Tie Game")) {%>
@@ -322,7 +325,7 @@
                       &ensp;<%= bracket.teams[bracket.winner[1]] %>&ensp;
                     <%}%>
                   </div></a></td>
-                  <td rowspan ="2" class="box bg-dark"><a href="/bracket-list/display/<%= bracket._id %>+4"><div style="height:100%;width:100%">
+                  <td rowspan ="2" class="box bg-danger"><a href="/bracket-list/display/<%= bracket._id %>+4"><div style="height:100%;width:100%; color:white">
                     <!--Link: 4
                         winner[3]-->
                     <% if ((bracket.winner[3] == "Game 1") || (bracket.winner[3] == "Game 2")||(bracket.winner[3]== "Final")||(bracket.winner[3]=="Tie Game")) {%>
@@ -332,14 +335,14 @@
                     <%}%>
                   </div></a></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-danger "><%= bracket.teams[6] %></td>
+                  <td class="text-center bg-primary "><%= bracket.teams[6] %></td>
                 </tr>
                 <tr>	
-                  <td class="text-center bg-dark "><%= bracket.teams[3] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[3] %></td>
                   <td>&nbsp;</td>
                   <td colspan="3"></td>
                   <td>&nbsp;</td>
-                  <td class="text-center bg-dark "><%= bracket.teams[7] %></td>
+                  <td class="text-center bg-danger "><%= bracket.teams[7] %></td>
                 </tr>
               </table>
               
