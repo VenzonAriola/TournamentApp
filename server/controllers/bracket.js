@@ -131,6 +131,7 @@ module.exports.addPlayerpage = async (req, res, next) => {//show display for add
       //show the edit view
       res.render("bracket/list", {
         title: "Tournament Bracket",
+        moment: moment,
         bracket: bracketoshow,
         user: req.user,
         displayName: req.user ? req.user.displayName : "",
@@ -189,9 +190,40 @@ module.exports.displayeditpage = (req, res, next) => {//display edit page
 };
 
 module.exports.processingeditpage = (req, res, next) => {//process edit page
+  let len = req.body.players;
   let id = req.params.id; //id of actual object
-
-  let updatebracket = Bracket({
+        
+  let updatebracket;
+  if (len == 16) {
+   updatebracket = Bracket({
+    _id: id,
+    tournamentName: req.body.tournamentName,
+    gameType: req.body.gameType,
+    players: req.body.players,
+    description: req.body.description,
+    teams: req.body.teams,
+    userid: req.user._id,
+    startdate: req.body.startdate,
+    enddate: req.body.enddate,
+    winner: [
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 2",
+        "Game 2",
+        "Game 2",
+        "Game 2",
+        "Game 3",
+        "Game 3",
+        "Final",
+    ],
+  });
+} else if (len == 8) {
+ updatebracket = Bracket({
     _id: id,
     tournamentName: req.body.tournamentName,
     gameType: req.body.gameType,
@@ -211,6 +243,8 @@ module.exports.processingeditpage = (req, res, next) => {//process edit page
       "Final",
     ],
   });
+}
+
   Bracket.updateOne({ _id: id }, updatebracket, (err) => {
     if (err) {
       console.log(err);
@@ -641,4 +675,3 @@ module.exports.scoreProcessPage = async (req, res, next) => {//calculates the wi
     }
   });
 };
-
