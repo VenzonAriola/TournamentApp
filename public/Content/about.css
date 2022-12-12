@@ -22,13 +22,14 @@ body {
     font-size: 1.5em;
     font-weight: 900;
     text-align: center;
-	margin-left: 100px;
+	margin-left: 5px;
 	color: darkblue;
+	width: 970px;
   }
   h2 {
 
   text-align: center;
-  padding-left: 20px;
+  padding-left: 10px;
 
 }
 
