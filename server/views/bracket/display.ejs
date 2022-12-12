@@ -108,11 +108,11 @@
                 <table> 
                   <tr><td>
                     <% if (bracket.scoreG1[cont1] == "") {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text1"
                               placeholder="Enter Score for <%=bracket.teams[cont1]%>"
                               name="t<%=id3%>"  required><!--blank box if no score already exists so placeholder can appear-->
                     <%} else {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control"  id="text1"
                               placeholder="Enter Score for <%=bracket.teams[cont1]%>"
                               name="t<%=id3%>" 
                               value="<%=bracket.scoreG1[c]%>" required><!--previously entered value-->
@@ -123,11 +123,11 @@
                 <table>
                   <tr><td>
                     <% if (bracket.scoreG1[cont2] == "") {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control"  id="text2"
                               placeholder="Enter Score for <%=bracket.teams[cont2]%>"
                               name="t<%=id3%>" required>
                     <%} else {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control"  id="text2"
                               placeholder="Enter Score for <%=bracket.teams[cont2]%>"
                               name="t<%=id3%>" 
                               value="<%=bracket.scoreG1[c]%>" required>
@@ -161,11 +161,11 @@
                 <table> 
                   <tr><td>
                     <% if (bracket.scoreG2[cont1] == "") {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text1"
                               placeholder="Enter Score for <%=bracket.teams[cont1]%>"
                               name="t<%=id3%>" required><!--replace all instances of -1 with ""-->
                     <%} else {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text1"
                               placeholder="Enter Score for <%=bracket.teams[cont1]%>"
                               name="t<%=id3%>" 
                               value="<%=bracket.scoreG2[c]%>" required>
@@ -175,12 +175,12 @@
               <%} else if (c == (cont2)) {%>
                 <table>
                   <tr><td> 
-                    <% if (bracket.scoreG2[cont2] == "") {%>
-                      <input type="text" class="form-control"
+                    <% if (bracket.scoreG2[cont2] == "") {%> 
+                      <input type="text" class="form-control" id="text2"
                               placeholder="Enter Score for <%=bracket.teams[cont2]%>"
                               name="t<%=id3%>" required>
                     <%} else {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text2"
                               placeholder="Enter Score for <%=bracket.teams[cont2]%>"
                               name="t<%=id3%>" 
                               value="<%=bracket.scoreG2[c]%>" required>
@@ -214,11 +214,11 @@
                 <table> 
                   <tr><td>
                     <% if (bracket.scoreG3[cont1] == "") {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text1"
                               placeholder="Enter Score for <%=bracket.teams[cont1]%>"
                               name="t<%=id3%>"  required><!--replace all instances of -1 with ""-->
                     <%} else {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text1"
                               placeholder="Enter Score for <%=bracket.teams[cont1]%>"
                               name="t<%=id3%>" 
                               value="<%=bracket.scoreG3[c]%>" required>
@@ -229,11 +229,11 @@
                 <table>
                   <tr><td> 
                     <% if (bracket.scoreG3[cont2] == "") {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text2"
                               placeholder="Enter Score for <%=bracket.teams[cont2]%>"
                               name="t<%=id3%>" required>
                     <%} else {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text2"
                               placeholder="Enter Score for <%=bracket.teams[cont2]%>"
                               name="t<%=id3%>" 
                               value="<%=bracket.scoreG3[c]%>" required>
@@ -267,11 +267,11 @@
                 <table> 
                   <tr><td>
                     <% if (bracket.scoreG4[cont1] == "") {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text1"
                               placeholder="Enter Score for <%=bracket.teams[cont1]%>"
                               name="t<%=id3%>"  required>
                     <%} else {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text1"
                               placeholder="Enter Score for <%=bracket.teams[cont1]%>"
                               name="t<%=id3%>" 
                               value="<%=bracket.scoreG4[c]%>" required>
@@ -282,11 +282,11 @@
                 <table>
                   <tr><td> 
                     <% if (bracket.scoreG4[cont2] == "") {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text2"
                               placeholder="Enter Score for <%=bracket.teams[cont2]%>"
                               name="t<%=id3%>" required>
                     <%} else {%>
-                      <input type="text" class="form-control"
+                      <input type="text" class="form-control" id="text2"
                               placeholder="Enter Score for <%=bracket.teams[cont2]%>"
                               name="t<%=id3%>" 
                               value="<%=bracket.scoreG4[c]%>" required>
@@ -306,7 +306,7 @@
           <%}%>
         </div><!--buttons to submit form or cancel(return to previous page)-->
         <div class="createButton">
-          <button class="btn btn-primary" type="submit" >
+          <button class="btn btn-primary button" type="submit" >
             <i class="fas fa-edit"></i> Submit</button>
           &nbsp;&nbsp;
           <a href="/bracket-list/show/<%=id%>" class="btn btn-warning">
@@ -326,6 +326,18 @@
   </div>
 </div>
 </div>
+<script>
+  $(document).ready(function() {
+    $('.button').prop('disabled', true);
 
+  function validateNextButton() {
+    var buttonDisabled = $('#text1').val() ===  $('#text2').val();
+    $('.button').prop('disabled', buttonDisabled);
+  }
+
+  $('#text1').on('keyup', validateNextButton);
+  $('#text2').on('keyup', validateNextButton);
+});
+</script>
 <% include ../partials/bottom_nav.ejs %>
 <% include ../partials/footer.ejs %>

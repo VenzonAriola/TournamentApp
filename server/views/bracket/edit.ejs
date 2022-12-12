@@ -154,7 +154,15 @@
                 // Reverting back visibility to visible
                 $("#col2").css("visibility","hidden");
         }},);
-    });
+  
+}); 
+
+document.getElementById("startdate").addEventListener("change", function() {
+    var input = this.value;
+    var dateEntered = new Date(input).toISOString().split('T')[0];    
+    document.getElementsByName("enddate")[0].setAttribute('min', dateEntered);
+});
+</script>
 </script>
 
 
