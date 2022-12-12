@@ -158,7 +158,26 @@ table {
 background-color: rgb(233, 240, 243); 
 
 }*/
-
+.display {
+	border: 3px solid black; 
+  }
+  .display.th, .display.td{
+	border: 3px solid black; 
+  }
+  
+  .displayU {
+	border-top: 3px solid black; border-left: 3px solid black; border-right: 3px solid black;
+  }
+  .displayU.th, .displayU.td{
+	border-top: 3px solid black; border-left: 3px solid black; border-right: 3px solid black; 
+  }
+  
+  .displayD{
+	border-bottom: 3px solid black; border-left: 3px solid black; border-right: 3px solid black;
+  }
+  .displayD.th, .displayD.td{
+	border-bottom: 3px solid black; border-left: 3px solid black; border-right: 3px solid black;
+  }
 
 #buttonStyle {
 	align-items:center; 
