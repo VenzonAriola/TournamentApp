@@ -213,6 +213,7 @@ module.exports.processingeditpage = (req, res, next) => {//process edit page
         "Game 1",
         "Game 1",
         "Game 1",
+        "Game 1",
         "Game 2",
         "Game 2",
         "Game 2",
