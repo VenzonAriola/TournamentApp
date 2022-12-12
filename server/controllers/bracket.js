@@ -191,26 +191,58 @@ module.exports.displayeditpage = (req, res, next) => {//display edit page
 module.exports.processingeditpage = (req, res, next) => {//process edit page
   let id = req.params.id; //id of actual object
 
-  let updatebracket = Bracket({
-    _id: id,
-    tournamentName: req.body.tournamentName,
-    gameType: req.body.gameType,
-    players: req.body.players,
-    description: req.body.description,
-    teams: req.body.teams,
-    userid: req.user._id,
-    startdate: req.body.startdate,
-    enddate: req.body.enddate,
-    winner: [
-      "Game 1",
-      "Game 1",
-      "Game 1",
-      "Game 1",
-      "Game 2",
-      "Game 2",
-      "Final",
-    ],
-  });
+  let updatebracket 
+  if (req.body.players == 8){
+    updatebracket = Bracket({
+      _id: id,
+      tournamentName: req.body.tournamentName,
+      gameType: req.body.gameType,
+      players: req.body.players,
+      description: req.body.description,
+      teams: req.body.teams,
+      userid: req.user._id,
+      startdate: req.body.startdate,
+      enddate: req.body.enddate,
+      winner: [
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 2",
+        "Game 2",
+        "Final",
+      ],
+    });
+  }else {
+    updatebracket = Bracket({
+      _id: id,
+      tournamentName: req.body.tournamentName,
+      gameType: req.body.gameType,
+      players: req.body.players,
+      description: req.body.description,
+      teams: req.body.teams,
+      userid: req.user._id,
+      startdate: req.body.startdate,
+      enddate: req.body.enddate,
+      winner: [
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 1",
+        "Game 2",
+        "Game 2",
+        "Game 2",
+        "Game 2",
+        "Game 3",
+        "Game 3",
+        "Final",
+      ],
+    });
+  }
   Bracket.updateOne({ _id: id }, updatebracket, (err) => {
     if (err) {
       console.log(err);
