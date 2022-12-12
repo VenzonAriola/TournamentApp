@@ -14,27 +14,23 @@
     <!--<div class="col-md-offset-3 col-md-8"> -->
       <h1>
         <!--<a target="_blank" href="#"> -->
-         <img src="../../Assets/images/team_logo2.png" height="120" width="140px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.01in;"/>
-                
-       
-              <br> &nbsp; <%=title %> List 
-              
-         <!-- </a>-->
-        
-        </h1>
-        &nbsp;&nbsp;&nbsp; &nbsp; 
-     <a href="/bracket-list/createPage/" style="text-decoration:none; color:white">&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+        <img src="../../Assets/images/team_logo2.png" height="120" width="140px" style="float:left; margin-left: 0.2in; margin-right: 0.2in; margin-top: 0.01in;"/>
+        <br> &nbsp; <%=title %> List 
+      </h1>
+      &nbsp;&nbsp;&nbsp;
+      <a href="/bracket-list/createPage/" style="text-decoration:none; color:white">&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
         <input type="button" class="btn btn-dark btn-lg px-4 gap-3 text-white" value= "&emsp;Create Tournament"><i class ="fas fa-plus-circle left-margin" style ="position: relative;
         right: 225px; top: 2px; color: gray;"></i></a></input>
+         &nbsp;  &nbsp; 
       <% if(BracketList.length == 0){ %>
         &nbsp;
         <h1>No Tournament Created</h1>
-      <br>
+        <br>
       <% } else{ %>  
     <br><br>
     <div class="row">
     <div class ="column9">
-      <table class="table table-bordered table-striped" style="background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242); color:white width:100%;">
+      <table class="table table-bordered table-striped" style="background-image: linear-gradient(to right, #3213c7, #2d78e9, #e4acd0, #e20060, #eb1242); color:white; width:100%;">
         <thred class=" table bg-danger">
         <tr>
           <th class="text-center" style=" width:10 ">#</th>
