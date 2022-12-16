@@ -78,7 +78,7 @@
                   <td>&nbsp;</td>
                 </tr>
                 <tr>
-                  <% if (bracket.winner[0]){ %>
+                  <% if (bracket.winner[0] != null){ %>
                     <td id="win1" class="displayU bg-primary">
                       <% if ((bracket.winner[0] == "Game 1") || (bracket.winner[0] == "Game 2")||(bracket.winner[0]== "Final")||(bracket.winner[0]=="Tie Game") || (bracket.winner[0]== "Game 3")){%>
                         <%=bracket.winner[0]%>  
@@ -208,7 +208,7 @@
                   </tr>
                   <% for (let c = 0; c < 4; c=c+2) { %>
                     <tr>
-                      <% if (bracket.winner[c]){ %>
+                      <% if (bracket.winner[c] != null){ %>
                         <td id="win1" class="displayU bg-primary">
                           <% if ((bracket.winner[c] == "Game 1") || (bracket.winner[c] == "Game 2")||(bracket.winner[c]== "Final")||(bracket.winner[c]=="Tie Game") || (bracket.winner[c]== "Game 3")){%>
                             Game 1 
