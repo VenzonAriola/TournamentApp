@@ -41,10 +41,10 @@ module.exports.addprocesspage = (req, res, next) => {//place created tournament 
   let tempStatus = "";
   if (req.body.startdate <= dateToday && req.body.enddate >= dateToday) {
     tempStatus = "Active";
-  } else if (req.body.enddate < dateToday) {
-    tempStatus = "Complete";
+  } else if (req.body.startdate > dateToday) {
+    tempStatus = "Inactive";
   } else {
-    tempStatus = "In-Active";
+    tempStatus = "Complete";
   }
   console.log(len);
   let newbracket;
@@ -192,12 +192,21 @@ module.exports.displayeditpage = (req, res, next) => {//display edit page
 module.exports.processingeditpage = (req, res, next) => {//process edit page
   let len = req.body.players;
   let id = req.params.id; //id of actual object
+  let tempStatus = "";
+  if (req.body.startdate <= dateToday) {
+    tempStatus = "Active";
+  } else if (req.body.startdate > dateToday) {
+    tempStatus = "Inactive";
+  } else {
+    tempStatus = "Complete";
+  }
         
   let updatebracket;
   if (len == 16) {
    updatebracket = Bracket({
     _id: id,
     tournamentName: req.body.tournamentName,
+    status: tempStatus,
     gameType: req.body.gameType,
     players: req.body.players,
     description: req.body.description,
@@ -227,6 +236,7 @@ module.exports.processingeditpage = (req, res, next) => {//process edit page
  updatebracket = Bracket({
     _id: id,
     tournamentName: req.body.tournamentName,
+    status: tempStatus,
     gameType: req.body.gameType,
     players: req.body.players,
     description: req.body.description,

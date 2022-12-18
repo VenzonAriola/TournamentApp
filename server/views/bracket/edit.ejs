@@ -137,6 +137,24 @@
 </div>
 </div> 
 <script>
+
+function dateCheck(){
+    let startDate = new Date($("#startdate").val());
+    let endDate = new Date($("#enddate").val());
+
+    if(startDate > endDate) {
+        alert("End date need to be bigger then start date");
+    }
+}
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+    
+    $("#enddate").next().on("change", function(ev) { 
+        console.log("Dp change",ev);
+        dateCheck(); 
+    });
+});
     $( document ).ready(function() {
         $( "#players8" ).click(function() {
             if( $(this).is(':checked') ){
@@ -154,14 +172,10 @@
                 // Reverting back visibility to visible
                 $("#col2").css("visibility","hidden");
         }},);
-  
+         
 }); 
 
-document.getElementById("startdate").addEventListener("change", function() {
-    var input = this.value;
-    var dateEntered = new Date(input).toISOString().split('T')[0];    
-    document.getElementsByName("enddate")[0].setAttribute('min', dateEntered);
-});
+
 </script>
 </script>
 
