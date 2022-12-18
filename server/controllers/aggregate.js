@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const { UpdateOne } = require('mongodb').UpdateOne;
+const { UpdateMany } = require('mongodb').UpdateMany;
 
 MongoClient.connect('mongodb+srv://new-comp229:4gSSgLOlGI5sqFYz@cluster0.jbrwwc5.mongodb.net/sample_brackets?retryWrites=true&w=majority', (err, client) => {
   if (err) {
@@ -8,20 +8,14 @@ MongoClient.connect('mongodb+srv://new-comp229:4gSSgLOlGI5sqFYz@cluster0.jbrwwc5
 
   const collection = client.db('sample_brackets').collection('bracketsample');
 
-  collection.aggregate([
+  collection.bulkWrite([
     {
-      $match: {
-        startDate: { $lte: new Date() }
-      }
-    },
-    {
-      $set: {
-        status: "active"
+      updateMany: {
+        filter: { startdate: { $lt: new Date() } },
+        update: { $set: { status: "active"} }
       }
     }
-  ]).toArray((err, result) => {
-    console.log(result);
-  });
+  ]);
 
   client.close();
 });
