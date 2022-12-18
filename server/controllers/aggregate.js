@@ -11,7 +11,7 @@ MongoClient.connect('mongodb+srv://new-comp229:4gSSgLOlGI5sqFYz@cluster0.jbrwwc5
   collection.bulkWrite([
     {
       updateMany: {
-        filter: { startdate: { $lt: new Date() } },
+        filter: { startdate: { $lte: new Date() } },
         update: { $set: { status: "active"} }
       }
     }
