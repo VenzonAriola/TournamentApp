@@ -1,21 +1,10 @@
-const MongoClient = require('mongodb').MongoClient;
-const { UpdateMany } = require('mongodb').UpdateMany;
+const mongoose = require('mongoose');
+const cron = require('node-cron');
+let Bracket = require("../models/bracket");
 
-MongoClient.connect('mongodb+srv://new-comp229:4gSSgLOlGI5sqFYz@cluster0.jbrwwc5.mongodb.net/sample_brackets?retryWrites=true&w=majority', (err, client) => {
-  if (err) {
-    return console.log(err);
-  }
-
-  const collection = client.db('sample_brackets').collection('bracketsample');
-
-  collection.bulkWrite([
-    {
-      updateMany: {
-        filter: { startdate: { $lte: new Date() } },
-        update: { $set: { status: "active"} }
-      }
-    }
-  ]);
-
-  client.close();
+cron.schedule('0 * * * *', () => {
+  const currentDate = new Date();
+  Bracket.updateMany({ startDate: { $lte: currentDate } }, { $set: { status: 'active' } }, function(err, res) {
+    console.log(res.nModified + " document(s) updated");
+  });
 });
